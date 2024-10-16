@@ -1,4 +1,10 @@
 <script>
+  import Navigation from "$lib/Navigation.svelte";
+
+</script>
+
+<Navigation />
+
   import Metservice from "../lib/Metservice.svelte";
 
 </script>
