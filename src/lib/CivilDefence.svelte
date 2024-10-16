@@ -4,13 +4,23 @@
 
 <section>
 <h1>Alerts and Warnings</h1>
-    <h3>Dunedin Civil defense History</h3>
+    <h4>Dunedin Civil defence History</h4>
     <ol>
-        <a href="/"><li>Alerts Today</li></a>
-        <a href="/"><li>Severe Weather Conditions</li></a>
+        <li>Alerts Today</li>
+        <p><b>Warning and Alerts For Today appear here:</b></p>
+        <p>No Warnings for Today</p>
+        <li>Severe Weather Conditions</li>
+        <p>Dunedin Sever Flooding record in 12/10/2024</p>
     </ol>
 </section>
 
 <style>
-    
+    section{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+    }
+    li {
+        color: #333;
+        font-weight: 300;
+    }
 </style>
