@@ -23,8 +23,6 @@
 </section>
 
 <style>
-    section{
-      border: 1px ridge #333;
-    }
+    
 </style>
 
