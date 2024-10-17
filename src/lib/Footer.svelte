@@ -5,7 +5,7 @@
 <footer>
     <h2>Disaster Management System</h2>
     <p>Your one stop shop for information during the time you need it most<p>
-    <p>&copy; 2024 Otago Polytech Studio 2 - The 5 Stooges</p>
+    <p>&copy; 2024 Otago Polytechnic Studio 2 - The 5 Stooges</p>
 </footer>
 
 <style>
