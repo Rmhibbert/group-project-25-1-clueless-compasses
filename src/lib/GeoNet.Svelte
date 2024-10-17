@@ -1,4 +1,5 @@
 <script>
+
 </script>
 
 <section>
@@ -43,9 +44,6 @@
 </section>
 
 <style>
-    section{
-
-    }
   li {
     list-style: none;
     border: solid;

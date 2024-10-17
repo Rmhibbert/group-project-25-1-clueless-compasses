@@ -1,20 +1,17 @@
 <script>
-
-  import GeoNet from "$lib/GeoNet.svelte";
   import Navigation from "$lib/Navigation.svelte";
   import Metservice from "$lib/Metservice.svelte";
   import CivilDefence from "$lib/CivilDefence.svelte";
-  import Footer from "$lib/Footer.Svelte";
+  import Footer from "$lib/Footer.svelte";
+  import GeoNet from "$lib/GeoNet.svelte";
 </script>
 <Navigation />
 
 <main>
   <Metservice />
+  
+  <CivilDefence /> 
   <GeoNet />
-  
-  
-  <CivilDefence />
-  
   <!--More components go below-->
 
 </main>
