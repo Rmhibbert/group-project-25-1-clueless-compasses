@@ -2,12 +2,9 @@
 
 </script>
 
+<section>
 <h1>Latest tide information for Dunedin</h1>
-<section>
-    <h2>Tide graph goes here...</h2>
-</section>
-
-<section>
+<h2>Tide graph goes here...</h2>
     <h2>Dunedin Tides timetable</h2>
     <ul>
         <li>Wed 16 Oct
