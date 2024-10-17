@@ -4,6 +4,7 @@
   import CivilDefence from "$lib/CivilDefence.svelte";
   import Footer from "$lib/Footer.svelte";
   import GeoNet from "$lib/GeoNet.svelte";
+  import Tides from '$lib/Tides.svelte';
 </script>
 <Navigation />
 
@@ -12,6 +13,7 @@
   
   <CivilDefence /> 
   <GeoNet />
+  <Tides />
   <!--More components go below-->
 
 </main>
@@ -34,5 +36,3 @@
     border: 1px ridge #333;
   }
 </style>
-
-
