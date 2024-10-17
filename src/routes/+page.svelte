@@ -16,6 +16,10 @@
 </main>
   <Footer />
 <style>
+  :global(*) {
+    font-family: sans-serif;
+  }
+
   main{
     padding-top: 2em;
     display: flex;
