@@ -1,4 +1,6 @@
 <script>
+
+  import GeoNet from "$lib/GeoNet.svelte";
   import Navigation from "$lib/Navigation.svelte";
   import Metservice from "$lib/Metservice.svelte";
   import CivilDefence from "$lib/CivilDefence.svelte";
@@ -8,9 +10,11 @@
 
 <main>
   <Metservice />
-
+  <GeoNet />
+  
+  
   <CivilDefence />
-
+  
   <!--More components go below-->
 
 </main>
@@ -33,4 +37,5 @@
     border: 1px ridge #333;
   }
 </style>
+
 
