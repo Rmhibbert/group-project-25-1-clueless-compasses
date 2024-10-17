@@ -4,7 +4,7 @@
   import Navigation from "$lib/Navigation.svelte";
   import Metservice from "$lib/Metservice.svelte";
   import CivilDefence from "$lib/CivilDefence.svelte";
-  import Footer from "$lib/Footer.Svelte";
+  import Footer from "$lib/Footer.svelte";
 </script>
 <Navigation />
 
