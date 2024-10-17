@@ -8,6 +8,7 @@
   const rain = "0.0mm";
 </script>
 
+<section>
 <h2>Met Serivce</h2>
 <h3>Warning</h3>
 <h4>No Warnings at the moment</h4>
@@ -19,8 +20,9 @@
   <li><strong>Windspeed: </strong>{windspeed}</li>
   <li><strong>Rainfall: </strong>{rain}</li>
 </ul>
+</section>
 
 <style>
-  
+    
 </style>
 
