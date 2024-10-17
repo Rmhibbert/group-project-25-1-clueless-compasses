@@ -14,13 +14,13 @@
 <ul>
   <li><strong>Location: </strong>{location}</li>
   <li><strong>Temperature: </strong>{temp}</li>
-  <li><li>Temperature (High): </li>{tempHigh}</li>
+  <li>Temperature (High): {tempHigh}</li>
   <li><strong>Temperature (Low): </strong>{tempLow}</li>
   <li><strong>Windspeed: </strong>{windspeed}</li>
   <li><strong>Rainfall: </strong>{rain}</li>
 </ul>
 
-
-
 <style>
+  
 </style>
+
