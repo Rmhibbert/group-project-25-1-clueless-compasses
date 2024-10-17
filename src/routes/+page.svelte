@@ -14,6 +14,7 @@
   <!--More components go below-->
 
 </main>
+  <Footer />
 <style>
   main{
     padding-top: 2em;
@@ -25,6 +26,7 @@
   /*Global selection width for each component */
   :global(section){
     width: 350px;
+    border: 1px ridge #333;
   }
 </style>
 
