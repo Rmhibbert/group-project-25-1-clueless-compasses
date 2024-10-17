@@ -49,8 +49,7 @@
     ];
 </script>
 <section>
-
-<h2>Civil Defence Alerts in New Zealand</h2>
+    <h2>Civil Defence Alerts in New Zealand</h2>
     {#each alerts as alert}
         <div class="alert">
             <h5>{alert.type} (Severity: {alert.severity})</h5>
@@ -82,7 +81,7 @@
             <p><strong>Status:</strong> {alert.status}</p>
         </div>
     {/each}
-    </section>
+</section>
 
 <style>
 
