@@ -1,24 +1,12 @@
 <script>
+  import { onMount } from 'svelte';
+
   let weather = {};
 
-  load();
-  // Using openweathermap API is metservice is restricted
-  async function load() {
-  const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=-45.86634717379479&lon=170.51932073266735&appid=82336dbf0297a6e4f7502d515fcbad51&units=metric`);
-  weather = await res.json();
-  console.log(weather.rain);
-
-  }
-
-	// import { onMount } from 'svelte';
-	// let weather;
-	// onMount(async () => {
-	// 	const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=-45.86634717379479&lon=170.51932073266735&appid=82336dbf0297a6e4f7502d515fcbad51`);
-	// 	weather = await res.json();
-  //   console.log(weather);
-	// });
-
-
+  onMount(async () => {
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=-45.86634717379479&lon=170.51932073266735&appid=82336dbf0297a6e4f7502d515fcbad51&units=metric`);
+    weather = await res.json();
+  });
 </script>
 
 <section>
