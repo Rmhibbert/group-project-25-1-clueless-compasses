@@ -1,3 +1,4 @@
+
 export async function load() {
     const resources = [
         {
@@ -19,6 +20,3 @@ export async function load() {
 
     return { resources };
 }
-
-
-
