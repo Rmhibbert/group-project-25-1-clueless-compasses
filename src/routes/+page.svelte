@@ -5,7 +5,6 @@
   import Footer from "$lib/Footer.svelte";
   import GeoNet from "$lib/GeoNet.svelte";
   import Tides from '$lib/Tides.svelte';
-  import DisasterForm from "../lib/DisasterForm.svelte";
 </script>
 <Navigation />
 
@@ -14,7 +13,6 @@
   <CivilDefence /> 
   <GeoNet />
   <Tides />
-  <DisasterForm />
   <!--More components go below-->
 
 </main>
