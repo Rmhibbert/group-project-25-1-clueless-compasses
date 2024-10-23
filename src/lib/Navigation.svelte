@@ -46,20 +46,30 @@
         justify-content: center;
         align-items: center;
         box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.1);
-        background-color: lightskyblue;   
+        background-color: rgb(29, 115, 168);   
     }
     h1 {
         width: 25em;
         font-size: 20px;
         text-transform: uppercase;
         text-decoration: underline;
-        letter-spacing: 4px;
-        
+        letter-spacing: 4px;    
         text-align: center;
+        background-color: white;
+        padding: 0.6em;
+        box-shadow: 3px 3px 3px;
+        margin-left: 1em;
     }
     ul li a {
-    text-decoration: none;
-    color:#333;
+        text-decoration: none;
+        color:white;
+        font-weight: 600;
+    }
+    ul li:hover a{    
+        color: #333;  
+    }
+    ul li:hover {
+        background-color: white; /* Example style for the <li> on hover */
     }
     ul {
         display: flex;
@@ -74,9 +84,9 @@
         padding: 1em;
         border-radius: 10px;
         margin: 10px;
-        background-color: rgb(39, 160, 230);
+        
     }
-    /*Hamburger menu list*/
+    /*ul list that contains the #hamburger a tag ☰*/
     ul:last-of-type{
         display: none;
     }
@@ -95,13 +105,15 @@
         padding: 0px;
     }
     #dropdown-menu ul li{
-        background-color: inherit;
-        
+        background-color: inherit;    
         /*Remove default padding*/
         padding: 1em;
     }
     #dropdown-menu ul li a{
         color: white;
+    }
+    #hamburger{
+        font-size: 40px;
     }
 
 @media (width <= 820px){
