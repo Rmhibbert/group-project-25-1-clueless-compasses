@@ -22,7 +22,7 @@
 </script>
 
 <section>
-<h2>Met Serivce</h2>
+<h2>Current Weather</h2>
 <h3>Warning</h3>
 <h4>No Warnings at the moment</h4>
 <ul>
