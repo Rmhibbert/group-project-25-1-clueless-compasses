@@ -3,6 +3,8 @@
   import CivilDefence from "$lib/CivilDefence.svelte";
   import GeoNet from "$lib/GeoNet.svelte";
   import Tides from '$lib/Tides.svelte';
+  import CommunityMember from "$lib/CommunityMember.svelte";
+
 </script>
 
 <main>
@@ -10,6 +12,7 @@
   <CivilDefence /> 
   <GeoNet />
   <Tides />
+  <CommunityMember />
   <!--More components go below-->
 </main>
   
