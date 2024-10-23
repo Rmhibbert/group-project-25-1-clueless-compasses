@@ -115,8 +115,12 @@
     #hamburger{
         font-size: 40px;
     }
+    ul:has(#hamburger) {
+    /* Styles for the <ul> containing the #hamburger */
+        margin-left: 2em;
+    }
 
-@media (width <= 820px){
+@media (width <= 1050px){
     /*First list on nav menu*/
     ul:first-of-type{
         display: none;
