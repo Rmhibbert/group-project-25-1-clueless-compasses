@@ -1,11 +1,22 @@
 <script>
-  const location = "Dunedin";
+  let weather = {};
 
-  const temp = 11.9;
-  const tempHigh = 12.1;
-  const tempLow = 5.3;
-  const windspeed = "Light winds 11km/h SW";
-  const rain = "0.0mm";
+  load();
+  // Using openweathermap API is metservice is restricted
+  async function load() {
+  const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=-45.86634717379479&lon=170.51932073266735&appid=82336dbf0297a6e4f7502d515fcbad51&units=metric`);
+  weather = await res.json();
+  }
+
+	// import { onMount } from 'svelte';
+	// let weather;
+	// onMount(async () => {
+	// 	const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=-45.86634717379479&lon=170.51932073266735&appid=82336dbf0297a6e4f7502d515fcbad51`);
+	// 	weather = await res.json();
+  //   console.log(weather);
+	// });
+
+
 </script>
 
 <section>
@@ -13,12 +24,14 @@
 <h3>Warning</h3>
 <h4>No Warnings at the moment</h4>
 <ul>
-  <li><strong>Location: </strong>{location}</li>
-  <li><strong>Temperature: </strong>{temp}</li>
-  <li>Temperature (High): {tempHigh}</li>
-  <li><strong>Temperature (Low): </strong>{tempLow}</li>
-  <li><strong>Windspeed: </strong>{windspeed}</li>
-  <li><strong>Rainfall: </strong>{rain}</li>
+  <li><strong>Location: </strong>{weather.name}</li>
+  <li><strong>Temperature: </strong>{weather.main?.temp} °C</li>
+  <li><strong>Humidity: </strong>{weather.main?.humidity} %</li>
+  <!-- I've commented the the ones below as it's live so there isn't a high/low -->
+  <!-- <li>Temperature (High): {tempHigh}</li>
+  <li><strong>Temperature (Low): </strong>{tempLow}</li> -->
+  <li><strong>Windspeed: </strong>{weather.wind?.speed} Knots</li>
+  <!-- <li><strong>Rainfall: </strong>{weather.rain.1h}</li> -->
 </ul>
 </section>
 
