@@ -13,6 +13,12 @@ onMount(async () => {
 <h2>Tide graph goes here...</h2>
     <h2>Dunedin Tides timetable</h2>
     <ul>
+        <li><strong>Latitude: {tides.metadata?.latitude}</strong></li>
+        <li><strong>Longitude: {tides.metadata?.longitude} </strong></li>
+        <li><strong>Start: {tides.metadata?.start} </strong></li>
+        <li><strong>Days in Forecast: {tides.metadata?.days}</strong></li>
+    </ul>
+    <ul>
         <li>Wed 16 Oct
             <p>High and Low tides</p>
         </li>
