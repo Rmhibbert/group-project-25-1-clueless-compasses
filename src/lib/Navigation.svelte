@@ -19,7 +19,7 @@
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/">FENZ</a></li>
-            <li><a href="/">Police</a></li>
+            <li><a href="/Police-Page">Police</a></li>
             <li><a href="/">Hato Hone St John</a></li>
         </ul>
         <!--Hamburger Menu-->
@@ -34,7 +34,7 @@
             <!-- Add items for the dropdown menu here -->
             <li><a href="/">Home</a></li>
             <li><a href="/">FENZ</a></li>
-            <li><a href="/">Police</a></li>
+            <li><a href="/Police-Page">Police</a></li>
             <li><a href="/">Hato Hone St John</a></li>
         </ul>
     </nav>
