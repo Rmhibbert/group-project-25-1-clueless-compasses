@@ -1,5 +1,11 @@
 <script>
+    import { onMount } from 'svelte';
+    let tides = {};
 
+onMount(async () => {
+  const res = await fetch(`https://api.niwa.co.nz/tides/data?lat=-45.88584470756695&long=170.51294108229843&apikey=UcV9ZQdL9GnLtHymRjPsFovznDzAc0xJ`);
+  tides = await res.json();
+});
 </script>
 
 <section>
