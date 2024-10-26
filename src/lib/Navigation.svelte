@@ -93,7 +93,6 @@
     #dropdown-menu{
         display: none;
         background-color: rgb(46, 46, 46);
-        width: 600px;
         /*Take the hamburger menu outside of the normal document flow*/
         position: absolute;
         top: 180px;    
