@@ -96,7 +96,10 @@
         /*Take the hamburger menu outside of the normal document flow*/
         position: absolute;
         top: 200px;
-        width: 380px;    
+        width: 380px;  
+        border-radius: 1em;  
+        border: 3px solid black;
+        box-shadow: 10px 10px 10px;
     }
     #dropdown-menu ul{
         flex-direction: column;
