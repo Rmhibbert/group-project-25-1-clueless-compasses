@@ -97,9 +97,6 @@
         position: absolute;
         top: 200px;
         width: 380px;  
-        border-radius: 1em;  
-        border: 3px solid black;
-        box-shadow: 10px 10px 10px;
     }
     #dropdown-menu ul{
         flex-direction: column;
@@ -116,6 +113,12 @@
     #dropdown-menu ul li a{
         color: white;
     }
+    #dropdown-menu ul li a:hover{
+        background-color: white;
+    }
+
+
+
     #hamburger{
         font-size: 40px;
     }
@@ -132,6 +135,11 @@
     /*Last list on nav menu for hamburger menu*/
     ul:last-of-type{
         display: flex;
+    }
+    #dropdown-menu{
+        border-radius: 1em;  
+        border: 3px solid black;
+        box-shadow: 10px 10px 10px;
     }
 }
 
