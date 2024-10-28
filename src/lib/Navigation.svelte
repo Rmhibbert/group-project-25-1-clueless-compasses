@@ -93,25 +93,33 @@
     #dropdown-menu{
         display: none;
         background-color: rgb(46, 46, 46);
-        width: 600px;
         /*Take the hamburger menu outside of the normal document flow*/
         position: absolute;
-        top: 180px;    
+        top: 200px;
+        width: 380px;  
     }
     #dropdown-menu ul{
         flex-direction: column;
-        margin-left: 1em;
         /*Remove default padding*/
         padding: 0px;
     }
-    #dropdown-menu ul li{
-        background-color: inherit;    
+    #dropdown-menu ul li{   
         /*Remove default padding*/
         padding: 1em;
+        margin-left: 2.4em;
+        list-style:square;
+        color: white;
     }
     #dropdown-menu ul li a{
         color: white;
     }
+    #dropdown-menu ul li a:hover{
+        background-color: white;
+        color: #333;       
+    }
+
+
+
     #hamburger{
         font-size: 40px;
     }
@@ -128,6 +136,11 @@
     /*Last list on nav menu for hamburger menu*/
     ul:last-of-type{
         display: flex;
+    }
+    #dropdown-menu{
+        border-radius: 1em;  
+        border: 3px solid black;
+        box-shadow: 10px 10px 10px;
     }
 }
 
