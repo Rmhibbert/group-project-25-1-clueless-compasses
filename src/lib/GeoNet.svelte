@@ -9,6 +9,7 @@ onMount(async () => {
   let data = await res.json();
   quakes = data.features;
   console.log(quakes);
+  console.log(quakes[0].properties.depth);
 
 });
 
@@ -17,10 +18,10 @@ onMount(async () => {
 
   <section>
     <h1>Earthquake information</h1>
-
-    {#each quakes as quake}
-    <p>quake.features.properties.depth</p>
-    {/each}
+    <p>{quakes[0]?.properties.depth}</p>
+    <!-- {#each quakes as quake}
+    <p>{quake?.features.properties.depth}</p>
+    {/each} -->
     <!-- <select class="sortByDropdown" value="place" placeholder="Select option">
       <option value="Latest">Latest</option>
       <option value="Strongest">Strongest</option>
@@ -60,6 +61,7 @@ onMount(async () => {
       </li>
     </ul> -->
   </section>
+
 <style>
     section{
       overflow:scroll; height:400px;
