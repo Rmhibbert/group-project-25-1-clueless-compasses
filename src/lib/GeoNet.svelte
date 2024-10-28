@@ -1,15 +1,16 @@
 <script >
     import { onMount } from 'svelte';
 
-let quakes = {};
+//Blank Array
+let quakes = [];
 
 onMount(async () => {
   //Shows earthquakes with a 
   const res = await fetch(`https://api.geonet.org.nz/quake?MMI=6`);
   let data = await res.json();
   quakes = data.features;
-  console.log(quakes);
-  console.log(quakes[0].properties.depth);
+  console.log(quake.properties);
+  // console.log(quakes[0].properties.depth);
 
 });
 
@@ -18,10 +19,12 @@ onMount(async () => {
 
   <section>
     <h1>Earthquake information</h1>
-    <p>{quakes[0]?.properties.depth}</p>
-    <!-- {#each quakes as quake}
-    <p>{quake?.features.properties.depth}</p>
-    {/each} -->
+    <small>*Displays earthquake with MMI equal to 6</small>
+    <!-- <p>{quakes[0]?.properties.depth}</p> -->
+    {#each quakes as quake}
+    <h3>{quake.properties.locality}</h3>
+    <p>{quake.properties.depth}</p>
+    {/each}
     <!-- <select class="sortByDropdown" value="place" placeholder="Select option">
       <option value="Latest">Latest</option>
       <option value="Strongest">Strongest</option>
