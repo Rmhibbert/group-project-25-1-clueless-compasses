@@ -20,7 +20,6 @@ onMount(async () => {
   <section>
     <h1>Earthquake information</h1>
     <small>*Displays earthquake with MMI equal to 6</small>
-    <!-- <p>{quakes[0]?.properties.depth}</p> -->
     {#each quakes as quake}
     <h3>{quake.properties.locality}</h3>
     <p>Depth: {quake.properties.depth} km</p>
