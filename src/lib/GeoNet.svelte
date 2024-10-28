@@ -23,7 +23,11 @@ onMount(async () => {
     <!-- <p>{quakes[0]?.properties.depth}</p> -->
     {#each quakes as quake}
     <h3>{quake.properties.locality}</h3>
-    <p>{quake.properties.depth}</p>
+    <p>Depth: {quake.properties.depth} km</p>
+    <p>Magnitude: {quake.properties.magnitude}</p>
+    <p>MMI: {quake.properties.mmi}</p>
+    <p>Time: {quake.properties.time}</p>
+    
     {/each}
     <!-- <select class="sortByDropdown" value="place" placeholder="Select option">
       <option value="Latest">Latest</option>
