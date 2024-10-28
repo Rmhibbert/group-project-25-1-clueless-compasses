@@ -22,8 +22,8 @@ onMount(async () => {
     <small>*Displays earthquake with MMI equal to 6</small>
     {#each quakes as quake}
     <h3>{quake.properties.locality}</h3>
-    <p>Depth: {quake.properties.depth} km</p>
-    <p>Magnitude: {quake.properties.magnitude}</p>
+    <p>Depth: {quake.properties.depth.toFixed(2)} km</p>
+    <p>Magnitude: {quake.properties.magnitude.toFixed(2)}</p>
     <p>MMI: {quake.properties.mmi}</p>
     <p>Time: {quake.properties.time}</p>
     
