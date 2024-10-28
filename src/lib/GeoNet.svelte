@@ -1,9 +1,30 @@
 <script >
+    import { onMount } from 'svelte';
+
+//Blank Array
+let quakes = [];
+
+onMount(async () => {
+  //Shows earthquakes with a 
+  const res = await fetch(`https://api.geonet.org.nz/quake?MMI=6`);
+  let data = await res.json();
+  quakes = data.features;
+});
+
+
 </script>
 
   <section>
     <h1>Earthquake information</h1>
-    <select class="sortByDropdown" value="place" placeholder="Select option">
+    <small>*Displays earthquake with MMI equal to 6</small>
+    {#each quakes as quake}
+    <h3>{quake.properties.locality}</h3>
+    <p>Depth: {quake.properties.depth.toFixed(2)} km</p>
+    <p>Magnitude: {quake.properties.magnitude.toFixed(2)}</p>
+    <p>MMI: {quake.properties.mmi}</p>
+    <small>Time: {new Date(quake.properties.time).toLocaleString('en-NZ')}</small>
+    {/each}
+    <!-- <select class="sortByDropdown" value="place" placeholder="Select option">
       <option value="Latest">Latest</option>
       <option value="Strongest">Strongest</option>
       <option value="Weakest">Weakest</option>
@@ -40,8 +61,9 @@
         <p>Magnitude: 5.2</p>
         <p>130 km north of Te Kaha</p>
       </li>
-    </ul>
+    </ul> -->
   </section>
+
 <style>
     section{
       overflow:scroll; height:30em;
