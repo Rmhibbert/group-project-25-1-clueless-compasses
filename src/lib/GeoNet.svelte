@@ -22,7 +22,7 @@ onMount(async () => {
     <p>Depth: {quake.properties.depth.toFixed(2)} km</p>
     <p>Magnitude: {quake.properties.magnitude.toFixed(2)}</p>
     <p>MMI: {quake.properties.mmi}</p>
-    <small>Time: {new Date(quake.properties.time).toLocaleString('en-NZ',)}</small>
+    <small>Time: {new Date(quake.properties.time).toLocaleString('en-NZ')}</small>
     {/each}
     <!-- <select class="sortByDropdown" value="place" placeholder="Select option">
       <option value="Latest">Latest</option>
