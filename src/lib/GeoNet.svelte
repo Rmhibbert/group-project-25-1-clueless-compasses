@@ -9,9 +9,6 @@ onMount(async () => {
   const res = await fetch(`https://api.geonet.org.nz/quake?MMI=6`);
   let data = await res.json();
   quakes = data.features;
-  console.log(quake.properties);
-  // console.log(quakes[0].properties.depth);
-
 });
 
 
@@ -25,8 +22,7 @@ onMount(async () => {
     <p>Depth: {quake.properties.depth.toFixed(2)} km</p>
     <p>Magnitude: {quake.properties.magnitude.toFixed(2)}</p>
     <p>MMI: {quake.properties.mmi}</p>
-    <p>Time: {quake.properties.time}</p>
-    
+    <small>Time: {new Date(quake.properties.time).toLocaleString('en-NZ',)}</small>
     {/each}
     <!-- <select class="sortByDropdown" value="place" placeholder="Select option">
       <option value="Latest">Latest</option>
