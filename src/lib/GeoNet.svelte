@@ -1,17 +1,18 @@
 <script>
   import { onMount } from 'svelte';
 
-  // Blank Array
   let quakes = [];
+  
   let selectedMmi = 1;
 
   async function fetchQuakes(mmi) {
     const res = await fetch(`https://api.geonet.org.nz/quake?MMI=${mmi}`);
     let data = await res.json();
-    quakes = data.features;
+    
+    // Filters based on the mmi
+    quakes = data.features.filter(quake => quake.properties.mmi.toString() === mmi);
   }
 
-  // Fetch data on initial mount
   onMount(() => {
     fetchQuakes(selectedMmi);
   });
@@ -33,6 +34,7 @@
     <option value="7">7 MMI</option>
     <option value="8">8 MMI</option>
   </select>
+  
   {#each quakes as quake}
     <h3>{quake.properties.locality}</h3>
     <p>Depth: {quake.properties.depth.toFixed(2)} km</p>
@@ -44,6 +46,7 @@
   {#if quakes.length === 0}
     <p>No earthquakes found with MMI equal to {selectedMmi}.</p>
   {/if}
+
 
     <!-- <select class="sortByDropdown" value="place" placeholder="Select option">
       <option value="Latest">Latest</option>
