@@ -14,7 +14,7 @@ export async function load() {
         {
             title: "Funding Resources",
             description: "Information on government and NGO funding available for facility improvements.",
-            link: "https://example.com/funding-resources"
+            link: "https://www.civildefence.govt.nz/cdem-sector/guidelines/claims-factsheets"
         }
     ];
 
