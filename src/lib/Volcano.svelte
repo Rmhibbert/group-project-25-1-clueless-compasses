@@ -11,17 +11,25 @@ onMount(async () => {
 });
 </script>
 <section>
-<h1>Volcano </h1>
+<h1>Volcano information</h1>
+<h3>Volcano status by city:</h3>
 {#each volcanos as volcano}
-    <h3>{volcano.properties.volcanoTitle}</h3>
-    <p>Activity: {volcano.properties.activity}</p>
-    <p>Level: {volcano.properties.level}</p>
-    <p>Hazards: {volcano.properties.hazards}</p>
-    <p>ACC: {volcano.properties.acc}</p>
+    <details>
+    <summary>{volcano.properties.volcanoTitle}</summary>
+        <p><strong>Activity:</strong> {volcano.properties.activity}</p>
+        <p><strong>Level:</strong> {volcano.properties.level}</p>
+        <p><strong>Hazards:</strong> {volcano.properties.hazards}</p>
+        <p><strong>ACC:</strong> {volcano.properties.acc}</p>
+    </details>
     {/each}
 </section>
 <style>
     section{
       overflow:scroll; height:30em;
     }
+    summary{
+        font-weight: bold;
+        font-size: large;
+    }
+
 </style>
