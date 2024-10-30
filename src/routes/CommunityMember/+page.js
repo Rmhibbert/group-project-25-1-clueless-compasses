@@ -9,7 +9,7 @@ export async function load() {
         {
             title: "Rebuilding Strategies",
             description: "Steps to rebuild or reinforce community facilities to be disaster-resilient.",
-            link: "https://example.com/rebuilding-strategies"
+            link: "https://www.civildefence.govt.nz/cdem-sector/plans-and-strategies/national-disaster-resilience-strategy"
         },
         {
             title: "Funding Resources",
