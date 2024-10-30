@@ -4,7 +4,7 @@ export async function load() {
         {
             title: "Facility Assessment Post-Disaster",
             description: "Guidelines to assess the condition of community facilities after a disaster.",
-            link: "https://example.com/facility-assessment"
+            link: "https://www.building.govt.nz/managing-buildings/managing-buildings-in-an-emergency/rapid-building-assessment-system/rapid-building-assessment-resources"
         },
         {
             title: "Rebuilding Strategies",
