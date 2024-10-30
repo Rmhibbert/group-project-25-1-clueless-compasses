@@ -23,11 +23,9 @@ onMount(async () => {
     </details>
     {/each}
 </section>
-<style>
-    
+<style>   
     summary{
         font-weight: bold;
         font-size: large;
     }
-
 </style>
