@@ -36,70 +36,19 @@
   </select>
   
   {#each quakes as quake}
-    <h3>{quake.properties.locality}</h3>
+    <details>
+    <summary>{quake.properties.locality}</summary>
     <p>Depth: {quake.properties.depth.toFixed(2)} km</p>
     <p>Magnitude: {quake.properties.magnitude.toFixed(2)}</p>
     <p>MMI: {quake.properties.mmi}</p>
     <small>Time: {new Date(quake.properties.time).toLocaleString('en-NZ')}</small>
+    </details>
   {/each}
 
   {#if quakes.length === 0}
     <p>No earthquakes found with MMI equal to {selectedMmi}.</p>
   {/if}
-
-
-    <!-- <select class="sortByDropdown" value="place" placeholder="Select option">
-      <option value="Latest">Latest</option>
-      <option value="Strongest">Strongest</option>
-      <option value="Weakest">Weakest</option>
-    </select>
-    <p class="result"></p>
-    <ul>
-      <li value="2.8">
-        <h4>Category: Weak</h4>
-        <p>Wed Oct 16 2024 12:58PM</p>
-        <p>Magnitude: 2.8</p>
-        <p>5km West of Porangahau</p>
-      </li>
-      <li value="2.7">
-        <h4>Category: Weak</h4>
-        <p>Wed Oct 16 2024 12:58PM</p>
-        <p>Magnitude: 2.7</p>
-        <p>Within 5 km of Porangahau</p>
-      </li>
-      <li value="3.5">
-        <h4>Category: Weak</h4>
-        <p>Wed Oct 16 2024 12:58PM</p>
-        <p>Magnitude: 3.5</p>
-        <p>15 km south-west of Porangahau</p>
-      </li>
-      <li value="3.0">
-        <h4>Category: Weak</h4>
-        <p>Wed Oct 16 2024 12:58PM</p>
-        <p>Magnitude: 3.0</p>
-        <p>5 km south of Porirua</p>
-      </li>
-      <li value="5.2">
-        <h4>Category: Weak</h4>
-        <p>Wed Oct 16 2024 12:58PM</p>
-        <p>Magnitude: 5.2</p>
-        <p>130 km north of Te Kaha</p>
-      </li>
-    </ul> -->
   </section>
 
 <style>
-  li {
-    list-style: none;
-    margin-left: 0;
-    border-radius: 0.2em;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    padding: 0.15em;
-    padding-left: 0.5em;
-
-  }
-  ul{
-    padding: 0;
-    margin: 0%;
-  }
 </style>
