@@ -65,9 +65,6 @@ onMount(async () => {
   </section>
 
 <style>
-    section{
-      overflow:scroll; height:30em;
-    }
   li {
     list-style: none;
     margin-left: 0;
