@@ -6,6 +6,7 @@
   import Tides from '$lib/Tides.svelte';
   import CommunityMember from '$lib/CommunityMember.svelte';
   import { load as loadResources } from './CommunityMember/+page.js';
+  import Map from "$lib/Map.svelte";
 
   let resources = [];
   let loading = true;
@@ -29,6 +30,7 @@
   <GeoNet />
   <Volcano />
   <Tides />
+  <Map />
   {#if loading}
       <p>Loading resources...</p>
   {:else if error}
