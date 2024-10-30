@@ -24,9 +24,7 @@ onMount(async () => {
     {/each}
 </section>
 <style>
-    section{
-      overflow:scroll; height:30em;
-    }
+    
     summary{
         font-weight: bold;
         font-size: large;
