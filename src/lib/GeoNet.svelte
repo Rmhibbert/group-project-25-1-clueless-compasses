@@ -2,8 +2,8 @@
   import { onMount } from 'svelte';
 
   let quakes = [];
-  
-  let selectedMmi = 1;
+
+  let selectedMmi = '1';
 
   async function fetchQuakes(mmi) {
     const res = await fetch(`https://api.geonet.org.nz/quake?MMI=${mmi}`);
