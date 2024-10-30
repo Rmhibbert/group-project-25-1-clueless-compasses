@@ -45,6 +45,4 @@
     flex-wrap: wrap;
     gap: 20px;
   }
-  /*Global selection width for each component */
-  
 </style>
