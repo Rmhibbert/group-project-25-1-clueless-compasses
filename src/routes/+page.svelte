@@ -2,6 +2,7 @@
   import Metservice from "$lib/Metservice.svelte";
   import CivilDefence from "$lib/CivilDefence.svelte";
   import GeoNet from "$lib/GeoNet.svelte";
+  import Volcano from "$lib/Volcano.svelte";
   import Tides from '$lib/Tides.svelte';
   import CommunityMember from '$lib/CommunityMember.svelte';
   import { load as loadResources } from './CommunityMember/+page.js';
@@ -26,6 +27,7 @@
   <Metservice />  
   <CivilDefence /> 
   <GeoNet />
+  <Volcano />
   <Tides />
   {#if loading}
       <p>Loading resources...</p>
@@ -34,6 +36,7 @@
   {:else}
       <CommunityMember {resources} />
   {/if}
+
   <!--More components go below-->
 </main>
   
