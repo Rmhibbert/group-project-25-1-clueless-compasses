@@ -34,33 +34,53 @@
     <option value="7">7 - Severe</option>
     <option value="8">8 - Extreme</option>
   </select>
+  <small id="intesity-link"><a href="https://www.geonet.org.nz/earthquake/intensity">Earthquake intensity explained</a></small>
+
   {#each quakes as quake}
     <details>
-    <summary>{quake.properties.locality}
-    </summary>
+    <summary>{quake.properties.locality}</summary>
     <p>Depth: {quake.properties.depth.toFixed(2)} km</p>
     <p>Magnitude: {quake.properties.magnitude.toFixed(2)}</p>
     <p>MMI: {quake.properties.mmi}</p>
-    <small>Time: {new Date(quake.properties.time).toLocaleString('en-NZ')}</small>
+    <small class="time">Time: {new Date(quake.properties.time).toLocaleString('en-NZ')}</small>
     </details>
   {/each}
 
   {#if quakes.length === 0}
     <p>No earthquakes found with MMI equal to {selectedMmi}.</p>
   {/if}
-  <small><a href="https://www.geonet.org.nz/earthquake/intensity">Earthquake intensity explained</a></small>
 
   </section>
 
 <style>
-select{
-
-}
 
 summary {
   cursor: pointer;
+
 }
-small{
+.time{
+  padding-bottom: 10em;
 }
+details{
+  padding:0.3em;
+  font-weight: 500;
+}
+
+select {
+    width: 8em; 
+    padding: 0.2em; 
+    border-radius: 0.2em; 
+    background-color: #ffffff; 
+    color: #333; 
+    font-size: 1em; 
+    appearance: none; 
+    cursor: pointer; 
+    
+}
+
+option {
+    padding: 1em; 
+}
+
 
 </style>
