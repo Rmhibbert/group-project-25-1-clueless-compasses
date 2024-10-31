@@ -9,7 +9,7 @@
           basemap: "streets-vector",
         },
         zoom: 15,
-        center: [-90.1928, 38.6226], // longitude, latitude
+        center: [170.51952093430864, -45.86587714349185], // longitude, latitude
       });
     };
   </script>
@@ -21,8 +21,8 @@
 
   <style>
     .view {
-      height: 400px;
-      width: 800px;
+      height: 350px;
+      width: 350px;
     }
   </style>
   
