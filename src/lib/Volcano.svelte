@@ -22,6 +22,7 @@ onMount(async () => {
     </details>
     {/each}
 </section>
+
 <style>
 
 </style>
