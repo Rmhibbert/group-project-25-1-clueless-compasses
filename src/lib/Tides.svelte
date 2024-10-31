@@ -13,13 +13,11 @@ const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit
 </script>
 
 <section>
-<h1>Latest tide information for Dunedin</h1>
-    <h2>Dunedin Tides timetable</h2>
+    <h1>Dunedin Harbour Tides</h1>
     <ul>
         <!-- <li><strong>Latitude: {tides.metadata?.latitude}</strong></li>
         <li><strong>Longitude: {tides.metadata?.longitude} </strong></li> -->
         <li><strong>Start: {new Date(tides.metadata?.start).toDateString()} </strong></li>
-        <li><strong>Measured from Dunedin Upper Harbour</strong></li>
         <li><strong>{tides.metadata?.days} day forecast</strong></li>
     </ul>
     <ul id="tide-list">
