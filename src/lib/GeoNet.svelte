@@ -25,19 +25,19 @@
   <h1>Earthquake information</h1>
   
   <select bind:value={selectedMmi}>
-    <option value="1">1 MMI</option>
-    <option value="2">2 MMI</option>
-    <option value="3">3 MMI</option>
-    <option value="4">4 MMI</option>
-    <option value="5">5 MMI</option>
-    <option value="6">6 MMI</option>
-    <option value="7">7 MMI</option>
-    <option value="8">8 MMI</option>
+    <option value="1">1 - Unnoticeable</option>
+    <option value="2">2 - Unnoticeable</option>
+    <option value="3">3 - Weak</option>
+    <option value="4">4 - Light</option>
+    <option value="5">5 - Moderate</option>
+    <option value="6">6 - Strong</option>
+    <option value="7">7 - Severe</option>
+    <option value="8">8 - Extreme</option>
   </select>
-  
   {#each quakes as quake}
     <details>
-    <summary>{quake.properties.locality}</summary>
+    <summary>{quake.properties.locality}
+    </summary>
     <p>Depth: {quake.properties.depth.toFixed(2)} km</p>
     <p>Magnitude: {quake.properties.magnitude.toFixed(2)}</p>
     <p>MMI: {quake.properties.mmi}</p>
@@ -48,7 +48,19 @@
   {#if quakes.length === 0}
     <p>No earthquakes found with MMI equal to {selectedMmi}.</p>
   {/if}
+  <small><a href="https://www.geonet.org.nz/earthquake/intensity">Earthquake intensity explained</a></small>
+
   </section>
 
 <style>
+select{
+
+}
+
+summary {
+  cursor: pointer;
+}
+small{
+}
+
 </style>
