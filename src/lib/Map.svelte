@@ -4,6 +4,7 @@
     import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
     import Point from "@arcgis/core/geometry/Point";
     import "@arcgis/core/assets/esri/themes/light/main.css";
+    import Home from "@arcgis/core/widgets/Home";
   
     const createMap = (domNode) => {
       const graphicsLayer = new GraphicsLayer();
@@ -18,7 +19,12 @@
         zoom: 15,
         center: [170.51952093430864, -45.86587714349185],
       });
-  
+      
+      const homeWidget = new Home({
+         view: view
+      });
+    view.ui.add(homeWidget, "top-left"); // Add the Home button to the top-left of the view
+
       // List of points with labels
       const points = [
         { coords: [170.5195, -45.8659], label: "Otago Polytech" },
