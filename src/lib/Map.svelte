@@ -33,7 +33,12 @@
         { coords: [170.32762846702468, -45.94930979874042], label: "Brighton Hall" },
         { coords: [170.62147469142226, -45.84871779750973], label: "Broad Bay Community Centre" },
         { coords: [170.50294148580366,-45.87285713658329], label: "Dunedin Town Hall" },
-        { coords: [170.5004650521491, -45.89580339770448], label: "South Dunedin Community Hall" },
+        { coords: [170.50297628403, -45.87337915409424], label: "Dunedin Centre" },
+        { coords: [170.38776715568994, -45.8768017971585], label:"Wingatui Hall"},
+        { coords: [170.39359012737134, -45.89778812931163], label:"Fairfield Community Hall"},
+        { coords: [170.50181658683823, -45.87714586516688], label:"Otago Regional Council"},
+        { coords: [170.5024210500887, -45.87669991256181], label:"Dunedin Community Halls"},
+
 
       ];
   
