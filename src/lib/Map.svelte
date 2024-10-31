@@ -5,7 +5,6 @@
     import Point from "@arcgis/core/geometry/Point";
     import "@arcgis/core/assets/esri/themes/light/main.css";
   
-  
     const createMap = (domNode) => {
       const graphicsLayer = new GraphicsLayer();
   
@@ -14,34 +13,67 @@
         container: domNode,
         map: {
           basemap: "streets-vector",
-          layers: [graphicsLayer], // Add the graphicsLayer to the map
+          layers: [graphicsLayer],
         },
         zoom: 15,
-        center: [170.51952093430864, -45.86587714349185], // longitude, latitude
+        center: [170.51952093430864, -45.86587714349185],
       });
   
-      const point = new Point({
-        longitude: 170.51952093430864,
-        latitude: -45.86587714349185,
-      });
+      // List of points with labels
+      const points = [
+        { coords: [170.5195, -45.8659], label: "Otago Polytech" },
+        { coords: [170.4958, -45.8804], label: "OtagoCDEM" },
+        { coords: [170.5020, -45.8744], label: "Emergency Operations Centre" },
+      ];
   
-      const pointSymbol = {
-        type: "simple-marker", 
-        color: "blue", 
-        size: "15px",
-        outline: {
+      points.forEach(({ coords, label }) => {
+        const point = new Point({
+          longitude: coords[0],
+          latitude: coords[1],
+        });
+  
+        // Define point symbol
+        const pointSymbol = {
+          type: "simple-marker",
+          color: "red",
+          size: "10px",
+          outline: {
+            color: "black",
+            width: 1,
+          },
+        };
+  
+        // Define text symbol
+        const textSymbol = {
+          type: "text",
           color: "black",
-          width: 1,
-        },
-      };
+          haloColor: "white",
+          haloSize: "2px",
+          text: label,
+          font: {
+            size: 10,
+          },
+          horizontalAlignment: "left",
+          verticalAlignment: "center",
+          xoffset: 10,
+          yoffset: -1
+        };
   
-      const pointGraphic = new Graphic({
-        geometry: point,
-        symbol: pointSymbol,
+        // Create graphics for point and label
+        const pointGraphic = new Graphic({
+          geometry: point,
+          symbol: pointSymbol,
+        });
+  
+        const textGraphic = new Graphic({
+          geometry: point,
+          symbol: textSymbol,
+        });
+  
+        // Add both point and text graphics to the layer
+        graphicsLayer.add(pointGraphic);
+        graphicsLayer.add(textGraphic);
       });
-  
-      // Add the graphic to the graphics layer
-      graphicsLayer.add(pointGraphic);
     };
   </script>
   
@@ -55,4 +87,3 @@
       width: 350px;
     }
   </style>
-  
