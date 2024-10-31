@@ -4,17 +4,17 @@ export async function load() {
         {
             title: "Facility Assessment Post-Disaster",
             description: "Guidelines to assess the condition of community facilities after a disaster.",
-            link: "https://example.com/facility-assessment"
+            link: "https://www.building.govt.nz/managing-buildings/managing-buildings-in-an-emergency/rapid-building-assessment-system/rapid-building-assessment-resources"
         },
         {
             title: "Rebuilding Strategies",
             description: "Steps to rebuild or reinforce community facilities to be disaster-resilient.",
-            link: "https://example.com/rebuilding-strategies"
+            link: "https://www.civildefence.govt.nz/cdem-sector/plans-and-strategies/national-disaster-resilience-strategy"
         },
         {
             title: "Funding Resources",
             description: "Information on government and NGO funding available for facility improvements.",
-            link: "https://example.com/funding-resources"
+            link: "https://www.civildefence.govt.nz/cdem-sector/guidelines/claims-factsheets"
         }
     ];
 

@@ -7,6 +7,8 @@
   import CommunityMember from '$lib/CommunityMember.svelte';
   import { load as loadResources } from './CommunityMember/+page.js';
   import AlertsRss from "$lib/AlertsRSS.svelte";
+  import Map from "$lib/Map.svelte";
+  
   let resources = [];
   let loading = true;
   let error = null;
@@ -30,6 +32,7 @@
   <Volcano />
   <Tides />
   <!-- <AlertsRss /> -->
+  <Map />
   {#if loading}
       <p>Loading resources...</p>
   {:else if error}
@@ -48,5 +51,6 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
+    
   }
 </style>

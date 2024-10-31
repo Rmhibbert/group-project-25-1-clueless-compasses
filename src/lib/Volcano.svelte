@@ -7,7 +7,6 @@ onMount(async () => {
   const res = await fetch(`https://api.geonet.org.nz/volcano/val`);
   let data = await res.json();
   volcanos = data.features;
-  console.log(volcanos);
 });
 </script>
 <section>
@@ -23,13 +22,7 @@ onMount(async () => {
     </details>
     {/each}
 </section>
+
 <style>
-    section{
-      overflow:scroll; height:30em;
-    }
-    summary{
-        font-weight: bold;
-        font-size: large;
-    }
 
 </style>
