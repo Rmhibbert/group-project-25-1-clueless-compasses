@@ -41,15 +41,13 @@
     <option value="7">{emojis.Red}7 - Severe</option>
     <option value="8">{emojis.Red}8 - Extreme</option>
   </select>
-  <small id="intesity-link"><a href="https://www.geonet.org.nz/earthquake/intensity">Earthquake intensity explained</a></small>
-
   {#each quakes as quake}
     <details>
     <summary>{quake.properties.locality}</summary>
-    <p>Depth: {quake.properties.depth.toFixed(2)} km</p>
-    <p>Magnitude: {quake.properties.magnitude.toFixed(2)}</p>
-    <p>MMI: {quake.properties.mmi}</p>
-    <small class="time">Time: {new Date(quake.properties.time).toLocaleString('en-NZ')}</small>
+    <p><strong>Depth: </strong>{quake.properties.depth.toFixed(2)} km</p>
+    <p><strong>Magnitude: </strong> {quake.properties.magnitude.toFixed(2)}</p>
+    <p><strong>MMI:</strong> {quake.properties.mmi}</p>
+    <small class="time"><strong>Time: </strong>{new Date(quake.properties.time).toLocaleString('en-NZ')}</small>
     </details>
   {/each}
 
@@ -65,10 +63,6 @@ summary {
   cursor: pointer;
 }
 
-details{
-  padding:0.3em;
-  font-weight: 500;
-}
 
 select {
     width: 9.5em; 
