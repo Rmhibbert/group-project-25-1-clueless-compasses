@@ -94,12 +94,13 @@
   </script>
   
   <section>
+    <h2>Community Centre & Halls</h2>
     <div class="view" use:createMap></div>
   </section>
   
   <style>
     .view {
-      height: 350px;
+      height: 300px;
       width: 350px;
     }
   </style>
