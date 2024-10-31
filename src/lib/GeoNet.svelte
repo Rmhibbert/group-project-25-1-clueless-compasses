@@ -41,8 +41,6 @@
     <option value="7">{emojis.Red}7 - Severe</option>
     <option value="8">{emojis.Red}8 - Extreme</option>
   </select>
-  <small id="intesity-link"><a href="https://www.geonet.org.nz/earthquake/intensity">Earthquake intensity explained</a></small>
-
   {#each quakes as quake}
     <details>
     <summary>{quake.properties.locality}</summary>
