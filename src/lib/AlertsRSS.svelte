@@ -2,7 +2,7 @@
 </script>
 
 <section>
-  <h1>Metservice Alerts</h1>
+  <h1>Metservice Warnings</h1>
   <div id="widgetmain">
     <div id="rsswidget" style="height: 500px;">
       <iframe
