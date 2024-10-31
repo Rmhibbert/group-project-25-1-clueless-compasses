@@ -14,7 +14,7 @@
 </script>
 
 <section>
-    <h1>Community Facilities Improvement</h1>
+    <h2>Community Facilities Improvement</h2>
     <p>As a community board member, here are some resources to help improve facilities after a disaster.</p>
     <ul>
         {#each resourceItems as resource}
@@ -28,10 +28,6 @@
 </section>
 
 <style>
-    h1 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
     ul {
         list-style-type: none;
         padding: 0;
