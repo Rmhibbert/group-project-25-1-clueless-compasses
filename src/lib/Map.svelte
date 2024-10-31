@@ -38,8 +38,8 @@
         { coords: [170.39359012737134, -45.89778812931163], label:"Fairfield Community Hall"},
         { coords: [170.50181658683823, -45.87714586516688], label:"Otago Regional Council"},
         { coords: [170.5024210500887, -45.87669991256181], label:"Dunedin Community Halls"},
-
-
+        { coord: [170.34956322345303, -45.876951150281435], label:"Mosgiel Coronation Hall"},
+        { coord: [170.6481654569191, -45.83902838425256], label:"Portobello Coronation Hall"},
       ];
   
       points.forEach(({ coords, label }) => {
