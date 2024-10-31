@@ -37,7 +37,7 @@ function getEmoji(acc) {
 <h3>Volcano status by city:</h3>
 {#each volcanos as volcano}
     <details>
-    <summary>{volcano.properties.volcanoTitle} {getEmoji(volcano.properties.acc)}</summary>
+    <summary>{getEmoji(volcano.properties.acc)} {volcano.properties.volcanoTitle}</summary>
         <p><strong>Activity:</strong> {volcano.properties.activity}</p>
         <p><strong>Level:</strong> {volcano.properties.level}</p>
         <p><strong>Hazards:</strong> {volcano.properties.hazards}</p>
@@ -55,6 +55,6 @@ function getEmoji(acc) {
         width: 100px;
         text-align: center;
         border-radius: 5px;
-        padding: 0.5em;
+        padding: 0.1em;
     }
 </style>
