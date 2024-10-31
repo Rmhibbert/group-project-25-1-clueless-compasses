@@ -31,7 +31,7 @@
         { coords: [170.4958, -45.8804], label: "OtagoCDEM" },
         { coords: [170.5020, -45.8744], label: "Emergency Operations Centre" },
         { coords: [170.32762846702468, -45.94930979874042], label: "Brighton Hall" },
-        { coords: [170.5020, -45.8744], label: "Broad Bay Community Centre" },
+        { coords: [170.62147469142226, -45.84871779750973], label: "Broad Bay Community Centre" },
         { coords: [170.5020, -45.8744], label: "Emergency Operations Centre" },
         { coords: [170.5020, -45.8744], label: "Emergency Operations Centre" },
 
