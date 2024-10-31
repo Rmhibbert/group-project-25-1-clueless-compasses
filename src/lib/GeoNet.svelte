@@ -19,20 +19,27 @@
 
   // Fetch data when selectedMmi changes
   $: fetchQuakes(selectedMmi);
+
+  const emojis = {
+        Green: "🟩",
+        Yellow: "🟨",
+        Red: "🟥",
+        Orange:"🟧"
+};
 </script>
 
 <section>
   <h1>Earthquake information</h1>
   
   <select bind:value={selectedMmi}>
-    <option value="1">1 - Unnoticeable</option>
-    <option value="2">2 - Unnoticeable</option>
-    <option value="3">3 - Weak</option>
-    <option value="4">4 - Light</option>
-    <option value="5">5 - Moderate</option>
-    <option value="6">6 - Strong</option>
-    <option value="7">7 - Severe</option>
-    <option value="8">8 - Extreme</option>
+    <option value="1">{emojis.Green}1 - Unnoticeable</option>
+    <option value="2">{emojis.Green}2 - Unnoticeable</option>
+    <option value="3">{emojis.Yellow}3 - Weak</option>
+    <option value="4">{emojis.Yellow}4 - Light</option>
+    <option value="5">{emojis.Orange}5 - Moderate</option>
+    <option value="6">{emojis.Orange}6 - Strong</option>
+    <option value="7">{emojis.Red}7 - Severe</option>
+    <option value="8">{emojis.Red}8 - Extreme</option>
   </select>
   <small id="intesity-link"><a href="https://www.geonet.org.nz/earthquake/intensity">Earthquake intensity explained</a></small>
 
@@ -64,7 +71,7 @@ details{
 }
 
 select {
-    width: 8em; 
+    width: 9.5em; 
     padding: 0.2em; 
     border-radius: 0.2em; 
     background-color: #ffffff; 
@@ -75,8 +82,11 @@ select {
 }
 
 option {
-    padding: 1em; 
+    cursor: pointer;
 }
-
+a{
+  padding-left: 1em;
+  position: fixed;
+}
 
 </style>
