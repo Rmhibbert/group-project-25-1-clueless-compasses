@@ -31,7 +31,7 @@
   <GeoNet />
   <Volcano />
   <Tides />
-  <!-- <AlertsRss /> -->
+  <AlertsRss />
   <Map />
   {#if loading}
       <p>Loading resources...</p>

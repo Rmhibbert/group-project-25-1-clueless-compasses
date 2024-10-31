@@ -1,56 +1,19 @@
 <script>
-    import { onMount } from 'svelte';
-    let alerts = []; //Empty array
-  
-    onMount(async() => {
-      const rssUrl = "https://cors-anywhere.herokuapp.com/https://alerts.metservice.com/cap/rss";
-      const res = await fetch(rssUrl);
-      const text = await res.text();
-      const parser = new DOMParser();
-      const xmlDoc = parser.parseFromString(text, "text/xml");
-      const items = xmlDoc.getElementsByTagName("item");
-      for (let item of items){
-        const link = item.getElementsByTagName("link")[0]?.textContent;
-        const alertDetails = await fetchAlerts(link);
-        alerts.push(alertDetails);
-      }
-    });
-  
-    async function fetchAlerts(link){
-      const res = await fetch(`https://cors-anywhere.herokuapp.com/${link}`);
-      const text = await res.text();
-      const parser = new DOMParser();
-      const xmlDoc = parser.parseFromString(text , "text/xml");
-      const info = xmlDoc.getElementsByTagName("info")[0];
-      const area = info.getElementsByTagName("area")[0];
-      return{
-        headline: info.getElementsByTagName("headline")[0]?.textContent,
-        description: info.getElementsByTagName("description")[0]?.textContent,
-        status: xmlDoc.getElementsByTagName("status")[0]?.textContent,
-        senderName: info.getElementsByTagName("senderName")[0]?.textContent,
-        urgency: info.getElementsByTagName("urgency")[0]?.textContent,
-        severity: info.getElementsByTagName("severity")[0]?.textContent,
-        time: xmlDoc.getElementsByTagName("sent")[0]?.textContent,
-        areaDesc: area.getElementsByTagName("areaDesc")[0]?.textContent
-      };
-    }
   </script>
   
   <section>
     <h1>Metservice Alerts</h1>
     <ul>
-      {#each alerts as alert}
-        <li>
-          <h2>{alert.headline}</h2>
-          <p><strong>Description:</strong> {alert.description}</p>
-          <p><strong>Status:</strong> {alert.status}</p>
-          <p><strong>Sender:</strong> {alert.senderName}</p>
-          <p><strong>Urgency:</strong> {alert.urgency}</p>
-          <p><strong>Severity:</strong> {alert.severity}</p>
-          <p><strong>Time Sent:</strong> {alert.time}</p>
-          <p><strong>Area:</strong> {alert.areaDesc}</p>
-        </li>
-      {/each}
+      <div id="widgetmain"><div id="rsswidget" style="height:500px;"><iframe src="https://www.rssfeedwidget.com/getrss.php?time=1730414224022&amp;x=https%3A%2F%2Falerts.metservice.com%2Fcap%2Frss&amp;w=200&amp;h=500&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=false&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=000000&amp;ls=14&amp;lb=true&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=true&amp;dtc=284F2D&amp;dts=12" border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="border:0; padding:0; margin:0; width:200px; height:500px;" id="rssOutput">Reading RSS Feed ...</iframe></div><div style="text-align:right;margin-bottom:0;border-top:1px solid #333333;" id="widgetbottom"><span style="font-size:70%"><a href="https://www.rssfeedwidget.com">rss feed widget</a>&nbsp;</span><br></div></div>
     </ul>
   </section>
+
+  <style>
+    #widgetmain {
+      text-align:center;
+      overflow-y:auto;
+      overflow-x:hidden;
+      width:200px;
+    }
+  </style>
   
