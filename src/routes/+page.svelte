@@ -49,5 +49,6 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
+    
   }
 </style>
