@@ -32,8 +32,8 @@
         { coords: [170.5020, -45.8744], label: "Emergency Operations Centre" },
         { coords: [170.32762846702468, -45.94930979874042], label: "Brighton Hall" },
         { coords: [170.62147469142226, -45.84871779750973], label: "Broad Bay Community Centre" },
-        { coords: [170.5020, -45.8744], label: "Emergency Operations Centre" },
-        { coords: [170.5020, -45.8744], label: "Emergency Operations Centre" },
+        { coords: [170.50294148580366,-45.87285713658329], label: "Dunedin Town Hall" },
+        { coords: [170.5004650521491, -45.89580339770448], label: "South Dunedin Community Hall" },
 
       ];
   
