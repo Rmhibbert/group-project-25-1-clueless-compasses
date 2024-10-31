@@ -30,6 +30,11 @@
         { coords: [170.5195, -45.8659], label: "Otago Polytech" },
         { coords: [170.4958, -45.8804], label: "OtagoCDEM" },
         { coords: [170.5020, -45.8744], label: "Emergency Operations Centre" },
+        { coords: [170.32762846702468, -45.94930979874042], label: "Brighton Hall" },
+        { coords: [170.5020, -45.8744], label: "Broad Bay Community Centre" },
+        { coords: [170.5020, -45.8744], label: "Emergency Operations Centre" },
+        { coords: [170.5020, -45.8744], label: "Emergency Operations Centre" },
+
       ];
   
       points.forEach(({ coords, label }) => {
