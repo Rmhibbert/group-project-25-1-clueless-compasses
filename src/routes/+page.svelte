@@ -5,8 +5,8 @@
   import Volcano from "$lib/Volcano.svelte";
   import Tides from '$lib/Tides.svelte';
   import CommunityMember from '$lib/CommunityMember.svelte';
-  import { load as loadResources } from '$/CommunityMember/+page.js';
-  import AlertsRss from "$/lib/AlertsRSS.svelte";
+  import { load as loadResources } from './CommunityMember/+page.js';
+  import AlertsRss from "$lib/AlertsRSS.svelte";
   let resources = [];
   let loading = true;
   let error = null;
@@ -29,6 +29,7 @@
   <GeoNet />
   <Volcano />
   <Tides />
+  <!-- <AlertsRss /> -->
   {#if loading}
       <p>Loading resources...</p>
   {:else if error}
@@ -36,7 +37,7 @@
   {:else}
       <CommunityMember {resources} />
   {/if}
-  <AlertsRss />
+
   <!--More components go below-->
 </main>
   
