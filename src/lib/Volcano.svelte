@@ -9,8 +9,11 @@ onMount(async () => {
   volcanos = data.features;
 });
 
-const emojis = ["🟩", "🟨", "🟥"];
-
+const emojis = {
+        Green: "🟩",
+        Yellow: "🟨",
+        Red: "🟥"
+};
 
 function getACCStyles(acc) {
     switch (acc) {
@@ -24,13 +27,17 @@ function getACCStyles(acc) {
             return { color: 'white', backgroundColor: '#333' };
         }
     }
+
+function getEmoji(acc) {
+    return emojis[acc] || "⚪"; // Default emoji for unknown acc
+}
 </script>
 <section>
 <h1>Volcano information</h1>
 <h3>Volcano status by city:</h3>
 {#each volcanos as volcano}
     <details>
-    <summary>{volcano.properties.volcanoTitle}</summary>
+    <summary>{volcano.properties.volcanoTitle} {getEmoji(volcano.properties.acc)}</summary>
         <p><strong>Activity:</strong> {volcano.properties.activity}</p>
         <p><strong>Level:</strong> {volcano.properties.level}</p>
         <p><strong>Hazards:</strong> {volcano.properties.hazards}</p>
