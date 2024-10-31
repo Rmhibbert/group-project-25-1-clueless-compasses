@@ -56,11 +56,8 @@
 
 summary {
   cursor: pointer;
+}
 
-}
-.time{
-  padding-bottom: 10em;
-}
 details{
   padding:0.3em;
   font-weight: 500;
@@ -75,7 +72,6 @@ select {
     font-size: 1em; 
     appearance: none; 
     cursor: pointer; 
-    
 }
 
 option {
