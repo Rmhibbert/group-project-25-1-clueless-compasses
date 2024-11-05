@@ -1,17 +1,10 @@
 <script>
-    /*To ensure hamburger and dropdown-menu are not null*/
-    import { onMount } from 'svelte';
+    let dropdownMenu;
 
-    onMount(() => {
-    const hamburger = document.getElementById('hamburger');
-    const dropdownMenu = document.getElementById('dropdown-menu');
-
-    dropdownMenu.style.display = 'none';
-  
-    hamburger.addEventListener("click", (e) => {
+    function displayMenu() {
+        // Toggle the display style of the dropdown menu
         dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
-    });
-});
+    }
 </script>
 
 <header>    
@@ -27,11 +20,11 @@
         <!--Hamburger Menu-->
         <ul>
             <li>
-                <a id="hamburger">☰</a>
+                <button id="hamburger" on:click={displayMenu}>☰</button>
             </li>
         </ul>
     </nav>
-    <nav id="dropdown-menu">
+    <nav id="dropdown-menu" bind:this={dropdownMenu}>
         <ul >
             <!-- Add items for the dropdown menu here -->
             <li><a href="/">Home</a></li>
