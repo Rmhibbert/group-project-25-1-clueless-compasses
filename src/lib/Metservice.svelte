@@ -36,10 +36,7 @@
       <option value={city.name}>{city.name}</option>
     {/each}
   </select>
-  
-
-  <h3>Warning</h3>
-  <h4>No Warnings at the moment</h4>
+ 
   <ul>
     <li><strong>Location: </strong>{weather.name}</li>
     <li><strong>Temperature: </strong>{weather.main?.temp} °C</li>
