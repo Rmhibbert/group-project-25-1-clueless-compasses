@@ -6,6 +6,8 @@
     const hamburger = document.getElementById('hamburger');
     const dropdownMenu = document.getElementById('dropdown-menu');
 
+    dropdownMenu.style.display = 'none';
+  
     hamburger.addEventListener("click", (e) => {
         dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
     });
@@ -25,7 +27,7 @@
         <!--Hamburger Menu-->
         <ul>
             <li>
-                <a id="hamburger" href="/">☰</a>
+                <a id="hamburger">☰</a>
             </li>
         </ul>
     </nav>
