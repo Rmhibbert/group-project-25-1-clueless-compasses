@@ -2,8 +2,7 @@
   import { onMount } from 'svelte';
 
   let weather = {};
-  let selectedCity = 'Christchurch';
-
+  
   const cities = [
     { name: "Christchurch", lat: -43.5321, lon: 172.6362 },
     { name: "Auckland", lat: -36.8485, lon: 174.7633 },
@@ -14,7 +13,9 @@
     { name: "Napier", lat: -39.4928, lon: 176.9120 },
     { name: "Nelson", lat: -41.2706, lon: 173.2840 }
   ];
-
+  
+  let selectedCity = cities[3].name;
+  
   async function fetchWeather(cityName) {
     const city = cities.find(c => c.name === cityName);
     const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=82336dbf0297a6e4f7502d515fcbad51&units=metric`);
@@ -36,10 +37,7 @@
       <option value={city.name}>{city.name}</option>
     {/each}
   </select>
-  
-
-  <h3>Warning</h3>
-  <h4>No Warnings at the moment</h4>
+ 
   <ul>
     <li><strong>Location: </strong>{weather.name}</li>
     <li><strong>Temperature: </strong>{weather.main?.temp} °C</li>
