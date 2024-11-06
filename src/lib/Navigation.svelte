@@ -100,6 +100,8 @@
         position: absolute;
         top: 10em;
         border-radius: 1em;
+        border: 5px solid black;
+        box-shadow: 3px 3px 10px black;
     }
     #dropdown-menu ul{
         flex-direction: column;
