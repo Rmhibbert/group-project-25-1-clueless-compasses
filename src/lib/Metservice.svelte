@@ -44,7 +44,7 @@
     <li><strong>Humidity: </strong>{weather.main?.humidity} %</li>
     <li><strong>Pressure: </strong>{weather.main?.pressure} Pa</li>
     <li><strong>Windspeed: </strong>{weather.wind?.speed} Knots</li>
-    <li><strong>Windspeed Gusts: </strong>{weather.wind?.gust} Knots</li>
+    <li><strong>Windspeed Gusts: </strong>{weather.wind?.gust ? `${weather.wind.gust} Knots` : "No gust data"}</li>
   </ul>
 </section>
 
