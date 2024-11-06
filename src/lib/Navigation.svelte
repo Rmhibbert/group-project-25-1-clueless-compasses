@@ -85,7 +85,7 @@
         padding: 1em; 
     }
     ul li{
-        padding: 1em;
+        padding: 0.5em;
         border-radius: 0.625em;
         margin: 10px;
         
