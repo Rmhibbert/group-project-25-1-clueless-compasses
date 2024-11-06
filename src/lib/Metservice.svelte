@@ -39,12 +39,12 @@
   </select>
  
   <ul>
-    <li><strong>Location: </strong>{weather.name}</li>
-    <li><strong>Temperature: </strong>{weather.main?.temp} °C</li>
-    <li><strong>Humidity: </strong>{weather.main?.humidity} %</li>
-    <li><strong>Pressure: </strong>{weather.main?.pressure} Pa</li>
-    <li><strong>Windspeed: </strong>{weather.wind?.speed} Knots</li>
-    <li><strong>Windspeed Gusts: </strong>{weather.wind?.gust} Knots</li>
+    <li><strong>Location: </strong>{weather.name ? weather.name : "No location data"}</li>
+    <li><strong>Temperature: </strong>{weather.main?.temp ? `${weather.main.temp} °C` : "No temperature data"}</li>
+    <li><strong>Humidity: </strong>{weather.main?.humidity ? `${weather.main.humidity} %` : "No humidity data"}</li>
+    <li><strong>Pressure: </strong>{weather.main?.pressure ? `${weather.main.pressure} Pa` : "No pressure data"}</li>
+    <li><strong>Windspeed: </strong>{weather.wind?.speed ? `${weather.wind.speed} Knots` : "No wind data"}</li>
+    <li><strong>Windspeed Gusts: </strong>{weather.wind?.gust ? `${weather.wind.gust} Knots` : "No gust data"}</li>    
   </ul>
 </section>
 
