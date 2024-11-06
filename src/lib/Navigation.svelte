@@ -126,8 +126,21 @@
         margin-left: 2em;
     }
     button{
-        padding: 0.5em 0.8em 0.5em 0.8em;
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        font-family: inherit;
+        font-weight: bolder;
+        font-size: inherit;
+        color: white;
     }
+    li:has(button){
+        background-color: #333;
+    }
+    li:has(button):hover{
+        background-color: black;
+    }
+
 
 @media (width <= 1200px){
     /*First list on nav menu*/
