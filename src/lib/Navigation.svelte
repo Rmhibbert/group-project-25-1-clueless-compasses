@@ -60,6 +60,9 @@
             <li><a href="/">FENZ</a></li>
             <li><a href="/Police-Page">Police</a></li>
             <li><a href="/">Hato Hone St John</a></li>
+            <li style="background-color: {buttonBackground};">
+                <button on:click={toggleDarkMode} style="color:{buttonText};">{text}</button>
+            </li>
         </ul>
     </nav>
 </header>
