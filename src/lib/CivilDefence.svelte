@@ -54,7 +54,7 @@
         <div class="alert">
             <h5>{alert.type} (Severity: {alert.severity})</h5>
             <p><strong>Issued By:</strong> {alert.issuedBy}</p>
-            <p><strong>Issued At:</strong> {alert.issuedAt.toISOString()}</p>
+            <p><strong>Issued At:</strong> {alert.issuedAt.toLocaleString()}</p>
             <p><strong>Expires At:</strong> {alert.expiresAt.toISOString()}</p>
             <div class="affected-areas">
                 <strong>Affected Areas:</strong>
