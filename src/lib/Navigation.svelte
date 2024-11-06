@@ -81,10 +81,10 @@
         padding: 1em; 
     }
     ul li{
-        padding: 0.5em;
+        padding: 0.3em 0.8em 0.3em 0.8em;
         border-radius: 0.625em;
-        margin: 10px;
-        
+        margin: 10px;  
+        align-self: center;
     }
     /*ul list that contains the #hamburger a tag ☰*/
     ul:last-of-type{
@@ -124,6 +124,9 @@
     ul:has(#hamburger) {
     /* Styles for the <ul> containing the #hamburger */
         margin-left: 2em;
+    }
+    button{
+        padding: 0.5em 0.8em 0.5em 0.8em;
     }
 
 @media (width <= 1200px){
