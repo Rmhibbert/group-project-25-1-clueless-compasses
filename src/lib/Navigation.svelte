@@ -111,9 +111,7 @@
         list-style:square;
         color: white;
     }
-    #dropdown-menu ul li a{
-        color: white;
-    }
+ 
     #dropdown-menu ul li a:hover{
         background-color: white;
         color: #333;       
