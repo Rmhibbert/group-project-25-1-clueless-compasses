@@ -1,10 +1,13 @@
 <script>
     let dropdownMenu;
+    let buttonBackground = '#333';
+    let buttonText = 'white';
 
     function displayMenu() {
         // Toggle the display style of the dropdown menu
         dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
     }
+    let text = '🌙 Dark Mode';
     function toggleDarkMode() {
         document.body.classList.toggle('dark');
          // Get all section elements
@@ -14,10 +17,19 @@
         sections.forEach(section => {
             section.classList.toggle('dark');
         });
+        if (document.body.classList.contains('dark')) {
+            text = '☀️ Light Mode';
+            buttonBackground = '#fff';
+            buttonText = '#333';
+        } else {
+            text = '🌙 Dark Mode';
+            buttonBackground = '#333';
+            buttonText = 'white';
+        }
     }
 </script>
 
-<header>    
+<header>   
     <h1>Disaster Management System</h1>
     <nav>
         <!--Main Items-->
@@ -26,7 +38,9 @@
             <li><a href="/">FENZ</a></li>
             <li><a href="/Police-Page">Police</a></li>
             <li><a href="/">Hato Hone St John</a></li>
-            <li><button on:click={toggleDarkMode}>🌙 Dark Mode</button></li>
+            <li style="background-color: {buttonBackground};">
+                <button on:click={toggleDarkMode} style="color:{buttonText};">{text}</button>
+            </li>
         </ul>
         <!--Hamburger Menu-->
         <ul>
@@ -136,12 +150,6 @@
         font-weight: bolder;
         font-size: inherit;
         color: white;
-    }
-    li:has(button){
-        background-color: #333;
-    }
-    li:has(button):hover{
-        background-color: black;
     }
     button{
         cursor: pointer;
