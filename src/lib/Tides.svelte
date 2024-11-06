@@ -41,7 +41,6 @@
   <h1>Dunedin Harbour Tides</h1>
   <ul>
     <li><strong>Start: {new Date(tides.metadata?.start).toDateString()}</strong></li>
-    <li><strong>{tides.metadata?.days} day forecast</strong></li>
   </ul>
 
   <select bind:value={selectedForecast} on:change={handleForecastChange}>
@@ -75,7 +74,23 @@
     .value{
         padding-bottom: 0.6em;
     }
-    select{
-      margin-left: 3em;
-    }
+li{
+  border-bottom: solid black 0.1em;
+  list-style: none;
+margin-top: 0.4em;
+}
+
+    select {
+    width: 9.5em; 
+    padding: 0.2em; 
+    border-radius: 0.2em; 
+    background-color: #ffffff; 
+    color: #333; 
+    font-size: 1em; 
+    appearance: none; 
+    cursor: pointer; 
+}
+ul{
+  padding:0;
+}
 </style>
