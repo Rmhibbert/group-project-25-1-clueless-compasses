@@ -29,8 +29,8 @@
   <Metservice />  
   <GeoNet />
   <Volcano />
-  <AlertsRss />
   <Map />
+  <AlertsRss />
   <Tides />
   <CivilDefence /> 
   {#if loading}
