@@ -27,12 +27,12 @@
 
 <main>
   <Metservice />  
-  <CivilDefence /> 
   <GeoNet />
   <Volcano />
-  <Tides />
-  <AlertsRss />
   <Map />
+  <AlertsRss />
+  <Tides />
+  <CivilDefence /> 
   {#if loading}
       <p>Loading resources...</p>
   {:else if error}
