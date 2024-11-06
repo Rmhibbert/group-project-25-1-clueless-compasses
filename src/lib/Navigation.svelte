@@ -7,6 +7,13 @@
     }
     function toggleDarkMode() {
         document.body.classList.toggle('dark');
+         // Get all section elements
+        const sections = document.querySelectorAll('section');
+    
+        // Loop through each section and toggle the 'dark' class
+        sections.forEach(section => {
+            section.classList.toggle('dark');
+        });
     }
 </script>
 
