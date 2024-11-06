@@ -29,9 +29,9 @@
   <Metservice />  
   <GeoNet />
   <Volcano />
-  <Tides />
   <AlertsRss />
   <Map />
+  <Tides />
   <CivilDefence /> 
   {#if loading}
       <p>Loading resources...</p>
