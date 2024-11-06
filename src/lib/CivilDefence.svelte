@@ -53,9 +53,9 @@
     {#each alerts as alert}
         <div class="alert">
             <h5>{alert.type} (Severity: {alert.severity})</h5>
-            <p><strong>Issued By:</strong> {alert.issuedBy}</p>
+            <small><p><strong>Issued By:</strong> {alert.issuedBy}</p>
             <p><strong>Issued At:</strong> {alert.issuedAt.toLocaleString()}</p>
-            <p><strong>Expires At:</strong> {alert.expiresAt.toLocaleString()}</p>
+            <p><strong>Expires At:</strong> {alert.expiresAt.toLocaleString()}</p></small>
             <div class="affected-areas">
                 <strong>Affected Areas:</strong>
                 <ul>
@@ -74,11 +74,11 @@
             </div>
             <div class="additional-info">
                 <strong>Additional Info:</strong>
-                <p>Source: {alert.additionalInfo.source}</p>
+                <small><p>Source: {alert.additionalInfo.source}</p>
                 <p>Contact Number: {alert.additionalInfo.contactNumber}</p>
-                <p>Website: <a href={alert.additionalInfo.website} target="_blank">{alert.additionalInfo.website}</a></p>
+                <p>Website: <a href={alert.additionalInfo.website} target="_blank">{alert.additionalInfo.website}</a></p></small>
             </div>
-            <p><strong>Status:</strong> {alert.status}</p>
+            <small><p><strong>Status:</strong> {alert.status}</p></small>
         </div>
     {/each}
 </section>
