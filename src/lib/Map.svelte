@@ -70,7 +70,7 @@
             size: 10,
           },
           horizontalAlignment: "left",
-          verticalAlignment: "center",
+          verticalAlignment: "middle",
           xoffset: 10,
           yoffset: -1
         };
