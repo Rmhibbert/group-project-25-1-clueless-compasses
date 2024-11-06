@@ -140,6 +140,9 @@
     li:has(button):hover{
         background-color: black;
     }
+    button{
+        cursor: pointer;
+    }
 
 
 @media (width <= 1200px){
