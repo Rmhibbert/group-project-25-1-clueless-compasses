@@ -94,33 +94,25 @@
         display: none;
     }
     #dropdown-menu{
-        display: none;
-        background-color: rgb(46, 46, 46);
-        /*Take the hamburger menu outside of the normal document flow*/
+        display: flex;
+        background-color: #333;
+        width: 20em;
         position: absolute;
-        top: 200px;
-        width: 380px;  
+        top: 10em;
+        border-radius: 1em;
     }
     #dropdown-menu ul{
         flex-direction: column;
-        /*Remove default padding*/
-        padding: 0px;
     }
-    #dropdown-menu ul li{   
-        /*Remove default padding*/
-        padding: 1em;
-        margin-left: 2.4em;
-        list-style:square;
+    #dropdown-menu ul li{
+        align-self: last baseline;
+        list-style: square;
         color: white;
     }
- 
     #dropdown-menu ul li a:hover{
         background-color: white;
         color: #333;       
     }
-
-
-
     #hamburger{
         font-size: 40px;
     }
@@ -156,11 +148,6 @@
     /*Last list on nav menu for hamburger menu*/
     ul:last-of-type{
         display: flex;
-    }
-    #dropdown-menu{
-        border-radius: 1em;  
-        border: 3px solid black;
-        box-shadow: 10px 10px 10px;
     }
 }
 
