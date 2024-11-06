@@ -86,7 +86,7 @@
     }
     ul li{
         padding: 1em;
-        border-radius: 10px;
+        border-radius: 0.625em;
         margin: 10px;
         
     }
@@ -130,7 +130,7 @@
         margin-left: 2em;
     }
 
-@media (width <= 1050px){
+@media (width <= 1200px){
     /*First list on nav menu*/
     ul:first-of-type{
         display: none;
