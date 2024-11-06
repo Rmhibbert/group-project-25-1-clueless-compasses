@@ -78,9 +78,9 @@ select {
 option {
     cursor: pointer;
 }
-a{
+/* a{
   padding-left: 1em;
   position: fixed;
-}
+} */
 
 </style>
