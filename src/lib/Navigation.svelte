@@ -110,6 +110,7 @@
         align-self: last baseline;
         list-style: square;
         color: white;
+        margin-left: 2em;
     }
     #dropdown-menu ul li a:hover{
         background-color: white;
