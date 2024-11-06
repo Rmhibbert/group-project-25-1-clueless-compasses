@@ -5,6 +5,9 @@
         // Toggle the display style of the dropdown menu
         dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
     }
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark');
+    }
 </script>
 
 <header>    
@@ -16,7 +19,7 @@
             <li><a href="/">FENZ</a></li>
             <li><a href="/Police-Page">Police</a></li>
             <li><a href="/">Hato Hone St John</a></li>
-            <li><button>🌙 Dark Mode</button></li>
+            <li><button on:click={toggleDarkMode}>🌙 Dark Mode</button></li>
         </ul>
         <!--Hamburger Menu-->
         <ul>

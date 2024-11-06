@@ -17,3 +17,7 @@ summary{
     font-size:medium;
     cursor: pointer;
 }
+
+body.dark{
+    background-color: #333;
+}
