@@ -45,6 +45,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        position: sticky;
+  top: 0;
+  z-index: 1000;
         box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
         background: rgb(5,58,120);
         background: linear-gradient(90deg, rgba(5,58,120,1) 0%, rgba(29,115,168,1) 31%, rgba(0,212,255,1) 100%);
