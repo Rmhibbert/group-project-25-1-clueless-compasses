@@ -43,3 +43,6 @@ header.dark{
     background-color: #182938;
     border: 3px white solid;
 }
+footer.dark{
+    background: black;
+}
