@@ -1,15 +1,20 @@
 <script>
-let dark;
-function toggle(){
-    dark = !dark;
-    window.document.body.classList.toggle('dark');
-    let sections = document.querySelectorAll('section'); // Find all sections
-    sections.forEach(section => {
-        section.classList.toggle('dark');  // Apply dark mode class conditionally
-    });
-    let header = document.querySelector('header');
-    header.classList.toggle('dark');
-}
+    let dark;
+    function toggle() {
+        dark = !dark;
+        const sections = document.querySelectorAll('section');
+        const header = document.querySelector('header');
+
+        if (dark) {
+            document.body.classList.add('dark');
+            sections.forEach(section => section.classList.add('dark'));
+            header.classList.add('dark');
+        } else {
+            document.body.classList.remove('dark');
+            sections.forEach(section => section.classList.remove('dark'));
+            header.classList.remove('dark');
+        }
+    }
 </script>
 <button on:click={toggle}>
     {#if dark }
