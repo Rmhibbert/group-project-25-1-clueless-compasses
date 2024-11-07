@@ -23,7 +23,7 @@
         basemap: "streets-vector",  // Optional, you can change it to 'gray-vector' or another basemap
         layers: [wmtsLayer, graphicsLayer],  // Add WMTS as an overlay layer
       },
-      zoom: 15,
+      zoom: 13,
       center: [170.51952093430864, -45.86587714349185],
     });
     
