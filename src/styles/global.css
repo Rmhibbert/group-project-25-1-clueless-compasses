@@ -27,15 +27,21 @@ header{
 iframe{
    background-color: white;
 }
+#content{
+    transition: background-color 0.3s
+}
 /* Dark mode styles */
 body.dark{
     background-color: #131f2a;
 }
-section.dark{
+header.dark{
+    background: #131f2a;
+}
+#content.dark{
+    background: #333;
+}
+#content.dark section{
     color: white;
     background-color: #182938;
     border: 3px white solid;
-}
-header.dark{
-    background: #131f2a;
 }

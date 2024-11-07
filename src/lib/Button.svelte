@@ -2,16 +2,16 @@
     let dark;
     function toggle() {
         dark = !dark;
-        const sections = document.querySelectorAll('section');
+        const content = document.getElementById('content')
         const header = document.querySelector('header');
 
         if (dark) {
             document.body.classList.add('dark');
-            sections.forEach(section => section.classList.add('dark'));
+            content.classList.add('dark');
             header.classList.add('dark');
         } else {
             document.body.classList.remove('dark');
-            sections.forEach(section => section.classList.remove('dark'));
+            content.classList.remove('dark');
             header.classList.remove('dark');
         }
     }
