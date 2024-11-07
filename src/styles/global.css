@@ -37,9 +37,6 @@ body.dark{
 header.dark{
     background: #131f2a;
 }
-#content.dark{
-    background: #333;
-}
 #content.dark section{
     color: white;
     background-color: #182938;
