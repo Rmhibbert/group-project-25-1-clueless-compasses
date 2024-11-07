@@ -34,7 +34,7 @@
             <li><a href="/">FENZ</a></li>
             <li><a href="/Police-Page">Police</a></li>
             <li><a href="/">Hato Hone St John</a></li>
-            <li>
+            <li id="button">
                 <Button/>
             </li>
         </ul>
@@ -129,6 +129,9 @@
         font-size: inherit;
         color: white;
         cursor: pointer;
+    }
+    #button{
+        padding: 0;
     }
 @media (width <= 1200px){
     /*First list on nav menu*/
