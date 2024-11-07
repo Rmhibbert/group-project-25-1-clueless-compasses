@@ -5,7 +5,7 @@
 </script>
 
 <Navigation/>
-
+<main id="content">
 <slot /> <!--Page specific code-->
-
+</main>
 <Footer/>
