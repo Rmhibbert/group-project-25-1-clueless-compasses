@@ -1,8 +1,12 @@
 <script>
-let dark = false;
+let dark;
 function toggle(){
     dark = !dark;
     window.document.body.classList.toggle('dark');
+    let sections = document.querySelectorAll('section'); // Find all sections
+    sections.forEach(section => {
+        section.classList.toggle('dark');  // Apply dark mode class conditionally
+    });
 }
 </script>
 <button on:click={toggle}>
