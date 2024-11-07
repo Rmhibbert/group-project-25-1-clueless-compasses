@@ -28,6 +28,7 @@
 </script>
 
 <section>
+    <h1>{selectedCity.name} Tides</h1>
     <label for="city">Choose a city:</label>
     <select id="city" bind:value={selectedCity} on:change={() => fetchTides(selectedCity)}>
         {#each cities as city}
@@ -35,7 +36,6 @@
         {/each}
     </select>
 
-    <h1>{selectedCity.name} Tides</h1>
     <ul>
         <li><strong>Start: {new Date(tides.metadata?.start).toDateString()}</strong></li>
         <li><strong>{tides.metadata?.days} day forecast</strong></li>
