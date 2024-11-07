@@ -5,12 +5,12 @@
 
     const cities = [
         { name: "Auckland Harbour", lat: -36.8406, lon: 174.7650 },
-        { name: "Wellington Harbour", lat: -41.2834, lon: 174.7790 },
-        { name: "Lyttelton Harbour (Christchurch)", lat: -43.6028, lon: 172.7190 },
         { name: "Tauranga Harbour", lat: -37.6555, lon: 176.1770 },
         { name: "Napier Port", lat: -39.4784, lon: 176.9186 },
+        { name: "Wellington Harbour", lat: -41.2834, lon: 174.7790 },
         { name: "Nelson Harbour", lat: -41.2708, lon: 173.2830 },
-        { name: "Dunedin Harbour", lat: -45.8788, lon: 170.5080 },
+        { name: "Lyttelton Harbour", lat: -43.6028, lon: 172.7190 },
+        { name: "Dunedin Harbour", lat: -45.8788, lon: 170.5080 }
     ];
 
     let selectedCity = cities[6];
