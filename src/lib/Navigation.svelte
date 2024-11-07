@@ -3,12 +3,12 @@
 
     let dropdownMenu;
     let dropdownDisplayed=false;
-
     function displayMenu() {
         // Toggle the display style of the dropdown menu
         dropdownDisplayed=true;
         dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
     }
+    import Button from "./Button.svelte";
 
     //hides dropdown if anywhere on the page is clicked but the options or the hamburger icon
   function hideDropdown(event){
@@ -22,7 +22,7 @@
   });
 </script>
 
-<header>    
+<header>   
     <h1>Disaster Management System</h1>
     <nav>
         <!--Main Items-->
@@ -31,6 +31,9 @@
             <li><a href="/">FENZ</a></li>
             <li><a href="/Police-Page">Police</a></li>
             <li><a href="/">Hato Hone St John</a></li>
+            <li id="button">
+                <Button/>
+            </li>
         </ul>
         <!--Hamburger Menu-->
         <ul>
@@ -46,6 +49,9 @@
             <li><a href="/">FENZ</a></li>
             <li><a href="/Police-Page">Police</a></li>
             <li><a href="/">Hato Hone St John</a></li>
+            <li id="button">
+                <Button/>
+            </li>
         </ul>
     </nav>
 </header>
@@ -56,11 +62,8 @@
         justify-content: center;
         align-items: center;
         position: sticky;
-  top: 0;
-  z-index: 1000;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
-        background: rgb(5,58,120);
-        background: linear-gradient(90deg, rgba(5,58,120,1) 0%, rgba(29,115,168,1) 31%, rgba(0,212,255,1) 100%);
+        top: 0;
+        z-index: 1000;
     }
     h1 {
         width: 25em;
@@ -95,10 +98,10 @@
         padding: 1em; 
     }
     ul li{
-        padding: 0.5em;
+        padding: 0.3em 0.8em 0.3em 0.8em;
         border-radius: 0.625em;
-        margin: 10px;
-        
+        margin: 10px;  
+        align-self: center;
     }
     /*ul list that contains the #hamburger a tag ☰*/
     ul:last-of-type{
@@ -106,31 +109,26 @@
     }
     #dropdown-menu{
         display: none;
-        background-color: rgb(46, 46, 46);
-        /*Take the hamburger menu outside of the normal document flow*/
+        background-color: #333;
+        width: 20em;
         position: absolute;
-        top: 200px;
-        width: 380px;  
+        top: 10em;
+        border-radius: 1em;
     }
     #dropdown-menu ul{
         flex-direction: column;
-        /*Remove default padding*/
-        padding: 0px;
     }
-    #dropdown-menu ul li{   
-        /*Remove default padding*/
-        padding: 1em;
-        margin-left: 2.4em;
-        list-style:square;
+    #dropdown-menu ul li{
+        align-self: last baseline;
+        list-style: square;
         color: white;
+        margin-left: 2em;
     }
- 
     #dropdown-menu ul li a:hover{
         background-color: white;
         color: #333;       
     }
-
-    #dropdown-menu a{
+  #dropdown-menu a{
         padding-right: 6em;
         padding-top: 1em;
         cursor: pointer;
@@ -146,7 +144,22 @@
     /* Styles for the <ul> containing the #hamburger */
         margin-left: 2em;
     }
-
+    button{
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        font-family: inherit;
+        font-weight: bolder;
+        font-size: inherit;
+        color: white;
+        cursor: pointer;
+    }
+    #button{
+        padding: 0;
+    }
+    #hamburger:hover{
+        color: #333;
+    }
 @media (width <= 1200px){
     /*First list on nav menu*/
     ul:first-of-type{
@@ -157,9 +170,8 @@
         display: flex;
     }
     #dropdown-menu{
-        border-radius: 1em;  
-        border: 3px solid black;
-        box-shadow: 10px 10px 10px;
+        border: 5px solid black;
+        box-shadow: 3px 3px 10px black;
     }
 }
 
