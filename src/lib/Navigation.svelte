@@ -1,10 +1,25 @@
 <script>
+    import { onMount } from "svelte";
+
     let dropdownMenu;
+    let dropdownDisplayed=false;
 
     function displayMenu() {
         // Toggle the display style of the dropdown menu
+        dropdownDisplayed=true;
         dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
     }
+
+    //hides dropdown if anywhere on the page is clicked but the options or the hamburger icon
+  function hideDropdown(event){
+    if(dropdownDisplayed&&!dropdownMenu.contains(event.target)&&event.target.id!="hamburger"){
+        dropdownMenu.style.display = 'none';
+        dropdownDisplayed = false;
+    }
+  }
+  onMount(()=>{
+    document.addEventListener("click", hideDropdown);
+  });
 </script>
 
 <header>    
@@ -115,10 +130,17 @@
         color: #333;       
     }
 
-
-
+    #dropdown-menu a{
+        padding-right: 6em;
+        padding-top: 1em;
+        cursor: pointer;
+    }
+ #dropdown-menu li{
+    padding: 0;
+ }
     #hamburger{
         font-size: 40px;
+        cursor: pointer;
     }
     ul:has(#hamburger) {
     /* Styles for the <ul> containing the #hamburger */
