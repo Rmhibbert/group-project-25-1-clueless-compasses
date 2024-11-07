@@ -133,6 +133,9 @@
     #button{
         padding: 0;
     }
+    #hamburger:hover{
+        color: #333;
+    }
 @media (width <= 1200px){
     /*First list on nav menu*/
     ul:first-of-type{
