@@ -18,9 +18,9 @@
 </script>
 <button on:click={toggle}>
     {#if dark }
-        Light Mode
+    ☀️ Light Mode
     {:else}
-        Dark Mode
+    🌙 Dark Mode
     {/if}
 </button>
 <style>
