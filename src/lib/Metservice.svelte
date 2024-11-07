@@ -4,17 +4,17 @@
   let weather = {};
   
   const cities = [
-    { name: "Christchurch", lat: -43.5321, lon: 172.6362 },
     { name: "Auckland", lat: -36.8485, lon: 174.7633 },
-    { name: "Wellington", lat: -41.2865, lon: 174.7762 },
-    { name: "Dunedin", lat: -45.8666, lon: 170.5190 },
     { name: "Hamilton", lat: -37.7870, lon: 175.2793 },
     { name: "Tauranga", lat: -37.6878, lon: 176.1651 },
     { name: "Napier", lat: -39.4928, lon: 176.9120 },
-    { name: "Nelson", lat: -41.2706, lon: 173.2840 }
+    { name: "Wellington", lat: -41.2865, lon: 174.7762 },
+    { name: "Nelson", lat: -41.2706, lon: 173.2840 },
+    { name: "Christchurch", lat: -43.5321, lon: 172.6362 },
+    { name: "Dunedin", lat: -45.8666, lon: 170.5190 }
   ];
   
-  let selectedCity = cities[3].name;
+  let selectedCity = cities[7].name;
   
   async function fetchWeather(cityName) {
     const city = cities.find(c => c.name === cityName);
