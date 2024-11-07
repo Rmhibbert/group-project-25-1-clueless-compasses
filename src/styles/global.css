@@ -29,6 +29,9 @@ header{
     transform: translateY(-20px);
     animation: fadeDropIn 1s ease-out forwards;
 }
+thead{
+    color: #131f2a;
+}
 iframe{
    background-color: white;
 }
