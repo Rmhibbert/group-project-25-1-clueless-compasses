@@ -16,10 +16,8 @@
             <li><a href="/">FENZ</a></li>
             <li><a href="/Police-Page">Police</a></li>
             <li><a href="/">Hato Hone St John</a></li>
-            <li>
-                <Button>
-                    Toggle
-                </Button>
+            <li id="button">
+                <Button/>
             </li>
         </ul>
         <!--Hamburger Menu-->
@@ -37,9 +35,7 @@
             <li><a href="/Police-Page">Police</a></li>
             <li><a href="/">Hato Hone St John</a></li>
             <li>
-                <Button>
-                    Toggle
-                </Button>
+                <Button/>
             </li>
         </ul>
     </nav>
@@ -132,12 +128,8 @@
         font-weight: bolder;
         font-size: inherit;
         color: white;
-    }
-    button{
         cursor: pointer;
     }
-
-
 @media (width <= 1200px){
     /*First list on nav menu*/
     ul:first-of-type{
