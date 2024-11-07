@@ -1,39 +1,12 @@
 <script>
     let dropdownMenu;
-    let buttonBackground = '#333';
-    let buttonText = 'white';
-
-    let headerBackground = 'linear-gradient(90deg, rgba(5,58,120,1) 0%, rgba(29,115,168,1) 31%, rgba(0,212,255,1) 100%)';
-
     function displayMenu() {
         // Toggle the display style of the dropdown menu
         dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
     }
-    let text = '🌙 Dark Mode';
-    function toggleDarkMode() {
-        document.body.classList.toggle('dark');
-         // Get all section elements
-        const sections = document.querySelectorAll('section');
-    
-        // Loop through each section and toggle the 'dark' class
-        sections.forEach(section => {
-            section.classList.toggle('dark');
-        });
-        if (document.body.classList.contains('dark')) {
-            text = '☀️ Light Mode';
-            buttonBackground = '#fff';
-            buttonText = '#333';
-            headerBackground = '#333';
-        } else {
-            text = '🌙 Dark Mode';
-            buttonBackground = '#333';
-            buttonText = 'white';
-            headerBackground = 'linear-gradient(90deg, rgba(5,58,120,1) 0%, rgba(29,115,168,1) 31%, rgba(0,212,255,1) 100%)';
-        }
-    }
 </script>
 
-<header style="background:{headerBackground};">   
+<header>   
     <h1>Disaster Management System</h1>
     <nav>
         <!--Main Items-->
@@ -42,8 +15,8 @@
             <li><a href="/">FENZ</a></li>
             <li><a href="/Police-Page">Police</a></li>
             <li><a href="/">Hato Hone St John</a></li>
-            <li style="background-color: {buttonBackground};">
-                <button on:click={toggleDarkMode} style="color:{buttonText};">{text}</button>
+            <li>
+                Button
             </li>
         </ul>
         <!--Hamburger Menu-->
@@ -60,9 +33,7 @@
             <li><a href="/">FENZ</a></li>
             <li><a href="/Police-Page">Police</a></li>
             <li><a href="/">Hato Hone St John</a></li>
-            <li style="background-color: {buttonBackground};">
-                <button on:click={toggleDarkMode} style="color:{buttonText};">{text}</button>
-            </li>
+            <li>Button</li>
         </ul>
     </nav>
 </header>
@@ -76,6 +47,8 @@
   top: 0;
   z-index: 1000;
         box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+        background: rgb(5,58,120);
+        background: linear-gradient(90deg, rgba(5,58,120,1) 0%, rgba(29,115,168,1) 31%, rgba(0,212,255,1) 100%);
     }
     h1 {
         width: 25em;
