@@ -34,6 +34,7 @@
         font-weight: bolder;
         background-color: #333;
         color: white;
+        cursor: pointer;
     }
     :global(body.dark) button{
         background-color: white;
