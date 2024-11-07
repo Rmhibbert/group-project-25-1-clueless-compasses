@@ -25,7 +25,7 @@ header{
 }
 /* Dark mode styles */
 body.dark{
-    background-color: #1e1d1d;
+    background-color: #1d3040;
 }
 section.dark{
     color: white;
