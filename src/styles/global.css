@@ -51,7 +51,9 @@ header.dark{
 footer.dark{
     background: black;
 }
-
+#content.dark section a{
+    color: #ffffff;
+}
 @keyframes fadeDropIn {
     from {
         opacity: 0;
