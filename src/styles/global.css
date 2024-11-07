@@ -32,6 +32,9 @@ header{
 thead{
     color: #131f2a;
 }
+tr:hover{
+    color: #333;
+}
 iframe{
    background-color: white;
 }
