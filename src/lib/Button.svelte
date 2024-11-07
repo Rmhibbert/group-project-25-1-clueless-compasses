@@ -7,6 +7,8 @@ function toggle(){
     sections.forEach(section => {
         section.classList.toggle('dark');  // Apply dark mode class conditionally
     });
+    let header = document.querySelector('header');
+    header.classList.toggle('dark');
 }
 </script>
 <button on:click={toggle}>
