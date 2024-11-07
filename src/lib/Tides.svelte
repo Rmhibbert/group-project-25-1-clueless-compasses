@@ -60,7 +60,6 @@
               <div>{new Date(pair[1].time).toLocaleTimeString('en-NZ', timeOptions)}</div>
               <div>{pair[1].value}m</div>
             </td>
-
           </tr>
         {/each}
       </tbody>
