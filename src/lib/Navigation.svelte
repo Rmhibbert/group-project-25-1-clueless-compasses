@@ -93,7 +93,7 @@
         display: none;
     }
     #dropdown-menu{
-        display: flex;
+        display: none;
         background-color: #333;
         width: 20em;
         position: absolute;
