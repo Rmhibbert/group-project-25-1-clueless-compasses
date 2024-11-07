@@ -23,7 +23,7 @@
 </script>
 
 <header>   
-    <h1>Disaster Management System</h1>
+    <h1><a href='/'>Disaster Management System</a></h1>
     <nav>
         <!--Main Items-->
         <ul>
@@ -64,6 +64,10 @@
         position: sticky;
         top: 0;
         z-index: 1000;
+    }
+    h1 a{
+        color: #333;
+        text-decoration: none;
     }
     h1 {
         width: 25em;
