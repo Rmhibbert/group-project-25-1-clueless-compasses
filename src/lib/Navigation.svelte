@@ -4,6 +4,7 @@
         // Toggle the display style of the dropdown menu
         dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
     }
+    import Button from "./Button.svelte";
 </script>
 
 <header>   
@@ -16,7 +17,9 @@
             <li><a href="/Police-Page">Police</a></li>
             <li><a href="/">Hato Hone St John</a></li>
             <li>
-                Button
+                <Button>
+                    Toggle
+                </Button>
             </li>
         </ul>
         <!--Hamburger Menu-->
