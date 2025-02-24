@@ -1,0 +1,82 @@
+customers are multiple orgs that have to colab to prepare for and manage disasters
+
+EPIC user story: It's really difficult for multiple orgs to properly coordinate and orangised response.
+TOo many orgs have the same goal in mind but struggle to coordinate their efforts.
+
+What we've done:
+Info gathering from 3rd party
+
+
+What we will do now:
+Develop a backend
+
+
+We need to priories most important customer needs
+These will probably be most common types of disaters
+- major storms
+
+We should do research into what orgs are involved with managing during and after (mainly during) these weather events
+
+We are NOT concerned with the needs of the public.
+Their needs are taken care of by these orgs.
+Our job is to help these orgs coordinate.
+There's a phase where we know whether or not a storm will occur.
+What orgs care about this?
+- volunteer firefighters - they will meet and be briefed. What they're briefed on needs to be captured in our system.
+- civil defence are similar
+- everyone needs to know whos helping who, doing what, where and when.
+- NIWA has a great tides API - everyone needs to know about the tide (effects floods etc)
+
+Do we need a system that automatically notifies certain people when a high tide could effect an event?
+
+
+Need to start thinking about user stories.
+Think about individuals in these response teams
+- Team leaders
+- team members
+- above them, managers, coordinators
+- govt
+
+start thinking first about individual problems that we can and should solve.
+don't think about features until we have a grasp of the problems.
+share user stories around to ensure accuracy
+
+take stock of what is unfinished in our project, wrapping them up, what can be sealed off and left as is and what has to have work done before it can go live.
+- product backlog stuff
+
+what can we solve?
+- high priority things first
+
+week 5 - we will have 2 sprints before we know how to make a backend.
+- therefore first 2 sprints need to work on other things.
+- finish what is currently there etc
+- rule 6 of studio
+- first sprint will be a lot of set up and technical troubleshooting
+- try to have 2/3 actual moving the task forward style goals for the first one though
+
+
+again - MUTLIPLE ORGS NEEDS TO COORDINATE AND KNOW WHAT EVERYONE ELSE IS DOING
+
+Prioritise the phase when there's a storm warning all the way through to the flood subsiding!!!
+Ofc prep phase and clean up phase is important but not the highest priority and focus
+
+Problem: not enough information flow
+coordinating - what does this mean? who is coordinating?
+All the users have different ways of helping - so different information needs - this means the info must be split up intuitively. More than you need is worse than less than you need.
+
+We HAVE to have a good idea of the problem. If we think about solutions first you will assume what the problem is without actually knowing 
+If I'm a team lead of FENZ and I look at the dash right now it has lots of irrelevant info. I need the FENZ info.
+If I'm a high up manager or coordinator or politician, I need to be able to tell everyone else that we are officially in a state of emergency
+As someone whos involved in response to a disaster I need to know whos involved with response to what area
+
+1st focus - think of the problem as a set of problems.
+- everyone probably needs access to all the info. However they need it presented in terms of priority and not all at once.
+
+
+Team task:
+1. What are some questions we would ask an emergency response expert?
+	Ensure these are relevant questions that can't simply be googled.
+	Don't use peoples names, focus on the roles.
+2. Set up sprints
+	Step one is product backlog so we can create sprints from that. It can be everything, house keeping tasks too (choose scrum master, set up repo...)
+
