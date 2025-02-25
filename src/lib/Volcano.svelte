@@ -12,7 +12,8 @@ onMount(async () => {
 const emojis = {
         Green: "🟩",
         Yellow: "🟨",
-        Red: "🟥"
+        Red: "🟥",
+        Orange:"🟧"
 };
 
 function getACCStyles(acc) {
