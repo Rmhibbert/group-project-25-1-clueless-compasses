@@ -24,6 +24,8 @@ function getACCStyles(acc) {
             return { color: 'black', backgroundColor: 'yellow' }; // Changed to black for contrast
         case 'Red':
             return { color: 'white', backgroundColor: 'red' };
+        case 'Orange':
+        return { color: 'black', backgroundColor: 'Darkorange' }; // Changed to black for contrast
         default:
             return { color: 'white', backgroundColor: '#333' };
         }
