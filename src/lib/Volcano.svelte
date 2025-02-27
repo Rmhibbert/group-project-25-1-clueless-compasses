@@ -9,12 +9,15 @@ onMount(async () => {
   volcanos = data.features;
 });
 
+//Object of emojis for conversion from colour to emoji used by the getEmoji function
 const emojis = {
         Green: "🟩",
         Yellow: "🟨",
-        Red: "🟥"
+        Red: "🟥",
+        Orange:"🟧"
 };
 
+//Sets a background and text colour of the acc displayed from api
 function getACCStyles(acc) {
     switch (acc) {
         case 'Green':
@@ -23,11 +26,14 @@ function getACCStyles(acc) {
             return { color: 'black', backgroundColor: 'yellow' }; // Changed to black for contrast
         case 'Red':
             return { color: 'white', backgroundColor: 'red' };
+        case 'Orange':
+        return { color: 'black', backgroundColor: 'Darkorange' }; // Changed to black for contrast
         default:
             return { color: 'white', backgroundColor: '#333' };
         }
     }
 
+//Using the emojis object to grab the emoji corresponding to the colour 
 function getEmoji(acc) {
     return emojis[acc] || "⚪"; // Default emoji for unknown acc
 }
