@@ -9,6 +9,7 @@ onMount(async () => {
   volcanos = data.features;
 });
 
+//Object of emojis for conversion from colour to emoji used by the getEmoji function
 const emojis = {
         Green: "🟩",
         Yellow: "🟨",
@@ -16,6 +17,7 @@ const emojis = {
         Orange:"🟧"
 };
 
+//Sets a background and text colour of the acc displayed from api
 function getACCStyles(acc) {
     switch (acc) {
         case 'Green':
@@ -31,6 +33,7 @@ function getACCStyles(acc) {
         }
     }
 
+//Using the emojis object to grab the emoji corresponding to the colour 
 function getEmoji(acc) {
     return emojis[acc] || "⚪"; // Default emoji for unknown acc
 }
