@@ -45,6 +45,7 @@ Everything should be made in its simplest form first, before adding more to it.
 
 On the completion of a feature/finishing up with using a branch, do a code review with a teammate to check if it is alright, as well as making sure that everyone in the group is able to understand it.
 
+
 ## Running Svelte
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
