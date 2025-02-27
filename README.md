@@ -21,30 +21,49 @@ You should follow the **conventional commits** convention when committing change
 - `fix(html): fix a bug`
 - `docs(css): update documentation`
 
-### Code Formatting
+## Code Formatting Guidelines
 
-Variables will be made using camelCase.
-E.G: var thisIsAnExample
+1. **Variable Naming Convention:**
+   - Use **camelCase** for variable names.
+   - Example:
+     ```javascript
+     let thisIsAnExample;
+     ```
 
-Classes and Functions will be made using PascalCase
-E.G; function ThisIsAFunction
-class ThisIsAClass
+2. **Class and Function Naming Convention:**
+   - Use **PascalCase** for classes and functions.
+   - Example:
+     ```javascript
+     function ThisIsAFunction() { ... }  
+     class ThisIsAClass { ... }
+     ```
 
-Code should be clean, readable and tidy, with comments explaining the more in depth or advanced parts.
+3. **Clean and Readable Code:**
+   - Write code that is clean, readable, and tidy.
+   - Use comments to explain more complex or advanced sections of the code to ensure that teammates can follow along.
 
-On the creation of a new branch, a pull request should be made immediately after creation. And make sure said branch name is relevant to whatever you are (going to be) working on. DO NOT merge your own pull request EVER.
+4. **Branch Management:**
+   - When creating a new branch, **immediately** create a pull request (PR).
+   - The branch name should be descriptive and relevant to the task you're working on.
+   - **Never** merge your own PR. It’s important to have someone else review your code before merging.
 
-Do not make commits directly into main, unless everyone in the team agrees. 
+5. **Main Branch Commit Policy:**
+   - Do not commit directly to the **main** branch unless the entire team has agreed to do so.
 
-Have consistent use of whitespace, space everything out.
-E.G; const x = 5 + 3; instead of const x=5+3;
+6. **Consistent Whitespace:**
+   - Ensure consistent use of whitespace to improve readability. For example:
+     ```javascript
+     const x = 5 + 3; // instead of const x=5+3;
+     ```
 
-Make sure lines aren't too big, anything that would go off the screen in VS Code or move the screen along is too long.
+7. **Line Length:**
+   - Avoid lines of code that are too long or require scrolling horizontally in VS Code. Break up long lines to maintain readability.
 
-Everything should be made in its simplest form first, before adding more to it.
+8. **Simplicity First:**
+   - Begin by implementing a feature or function in its simplest form. Once it’s working, you can refactor or add more complexity if needed.
 
-On the completion of a feature/finishing up with using a branch, do a code review with a teammate to check if it is alright, as well as making sure that everyone in the group is able to understand it.
-
+9. **Code Reviews:**
+   - When finishing a feature or completing work on a branch, **conduct a code review** with a teammate. This ensures quality, consistency, and that everyone in the team can understand the code.
 
 ## Running Svelte
 
