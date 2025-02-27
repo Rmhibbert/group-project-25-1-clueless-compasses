@@ -15,7 +15,7 @@ You should follow the **conventional commits** convention when committing change
 - **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
 - **test**: Adding missing tests or correcting existing tests
 
-## Examples
+### Examples
 
 - `feat(javascript): add a new feature`
 - `fix(html): fix a bug`
