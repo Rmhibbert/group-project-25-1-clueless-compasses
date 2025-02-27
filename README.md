@@ -1,25 +1,4 @@
-# Coding Standards
-
-### Commit Message Conventions
-
-You should follow the **conventional commits** convention when committing changes to your repository. A **conventional commit** consists of a **type**, **scope** and **description**. The **type** and **description** are mandatory, while the **scope** is optional. The **type** must be one of the following:
-
-- **build**: Changes that affect the build system or external dependencies
-- **chore**: Regular code maintenance, such as refactoring or updating dependencies
-- **ci**: Changes to our CI configuration files and scripts
-- **docs**: Documentation only changes
-- **feat**: A new feature
-- **fix**: A bug fix
-- **perf**: A code change that improves performance
-- **refactor**: A code change that neither fixes a bug nor adds a feature
-- **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-- **test**: Adding missing tests or correcting existing tests
-
-### Examples
-
-- `feat(javascript): add a new feature`
-- `fix(html): fix a bug`
-- `docs(css): update documentation`
+# Code Formatting and Workflow Guidelines
 
 ## Code Formatting Guidelines
 
@@ -65,25 +44,39 @@ You should follow the **conventional commits** convention when committing change
 9. **Code Reviews:**
    - When finishing a feature or completing work on a branch, **conduct a code review** with a teammate. This ensures quality, consistency, and that everyone in the team can understand the code.
 
+---
+
+## Studio Rules
+
+1. **Progress == Usable Software:**
+   - Focus on delivering working, usable software. The goal is to create features that are functional and can be used, rather than just pushing forward with incomplete work.
+
+2. **Write Understandable and Maintainable Code:**
+   - Only write code that everyone on your team can understand and maintain. This ensures that all team members can collaborate effectively and can modify the codebase as needed.
+
+3. **Team Discussion Before Changes:**
+   - Always discuss with your team before making any changes to the codebase. This helps avoid conflicts, misunderstandings, and ensures everyone is aligned on the direction of the project.
+
+4. **Be Iterative:**
+   - There is no such thing as a "finished" software project. Approach development iteratively and continuously improve. Each iteration should bring a small but valuable improvement.
+
+5. **One Feature Finished is Better than Many Nearly Finished:**
+   - Focus on completing individual features fully before moving on to others. It's better to have one feature done well than many that are incomplete.
+
+6. **Make the Simplest Possible Version:**
+   - Start with the simplest possible version of a feature or functionality, and then add incremental improvements over time. This helps ensure stability and allows for easier debugging.
+
+7. **Individual Deployment Work:**
+   - Do individual deployment work outside of class time. Ensure that all deployment steps are completed independently to avoid disruptions during class or team time.
+
+---
+
 ## Running Svelte
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you've created a project and installed dependencies with `npm install`, start a development server:
 
 ```bash
 npm run dev
 
 # or start the server and open the app in a new browser tab
 npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
