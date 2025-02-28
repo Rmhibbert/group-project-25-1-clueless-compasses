@@ -28,14 +28,23 @@
 
 <select bind:value={selected}>
   <option value="All">All</option>
-  <option value="Coastguard">Coastguard</option>
+  <option value="FENZ">FENZ</option>
+  <option value="GeoNet">GeoNet</option>
+  <option value="USAR">USAR</option>
 </select>
 
 <main>
-  {#if selected === "Coastguard"}
+  {#if selected === "FENZ"}
     <Metservice />
-    <Tides />
-  {:else}
+    <AlertsRss />
+  {:else if selected === "GeoNet"}
+    <GeoNet />
+    <Volcano />
+  {:else if selected === "USAR"}
+    <Metservice />
+    <GeoNet />
+    <Volcano />
+  {:else}  <!-- Displays all -->
     <Metservice />
     <GeoNet />
     <Volcano />
@@ -43,7 +52,6 @@
     <AlertsRss />
     <Tides />
     <CivilDefence />
-
     {#if loading}
       <p>Loading resources...</p>
     {:else if error}
@@ -52,9 +60,9 @@
       <CommunityMember {resources} />
     {/if}
   {/if}
-
-  <!--More components go below-->
 </main>
+
+
 
 <style>
   main {
