@@ -1,8 +1,8 @@
 <script>
-    export let selected;
+    import { selectedAgency } from "$lib/stores.js";
 </script>
 
-<select bind:value={selected}>
+<select bind:value={$selectedAgency}>
     <option value="All">All</option>
     <option value="FENZ">FENZ</option>
     <option value="GeoNet">GeoNet</option>

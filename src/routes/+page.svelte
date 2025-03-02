@@ -8,12 +8,11 @@
   import { load as loadResources } from "./CommunityMember/+page.js";
   import AlertsRss from "$lib/AlertsRSS.svelte";
   import Map from "$lib/Map.svelte";
-  import AgencySelect from "$lib/AgencySelect.svelte";
+  import { selectedAgency } from '$lib/stores.js';
 
   let resources = [];
   let loading = true;
   let error = null;
-  let selected = "All";
 
   (async () => {
     try {
@@ -28,16 +27,15 @@
 </script>
 
 <!-- Drop down for selecting agency specific view -->
-<AgencySelect bind:selected />
 
 <main>
-  {#if selected === "FENZ"}
+  {#if $selectedAgency === "FENZ"}
     <Metservice />
     <AlertsRss />
-  {:else if selected === "GeoNet"}
+  {:else if $selectedAgency === "GeoNet"}
     <GeoNet />
     <Volcano />
-  {:else if selected === "USAR"}
+  {:else if $selectedAgency === "USAR"}
     <Metservice />
     <GeoNet />
     <Volcano />
