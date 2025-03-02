@@ -3,6 +3,8 @@
 
     let dropdownMenu;
     let dropdownDisplayed=false;
+    import AgencySelect from "$lib/AgencySelect.svelte";
+
     function displayMenu() {
         // Toggle the display style of the dropdown menu
         dropdownDisplayed=true;
@@ -31,6 +33,7 @@
             <li><a href="/">FENZ</a></li>
             <li><a href="/Police-Page">Police</a></li>
             <li><a href="/">Hato Hone St John</a></li>
+            <AgencySelect />
             <li id="button">
                 <Button/>
             </li>
