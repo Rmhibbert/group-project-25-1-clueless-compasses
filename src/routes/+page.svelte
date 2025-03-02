@@ -8,6 +8,7 @@
   import { load as loadResources } from "./CommunityMember/+page.js";
   import AlertsRss from "$lib/AlertsRSS.svelte";
   import Map from "$lib/Map.svelte";
+  import AgencySelect from "$lib/AgencySelect.svelte";
 
   let resources = [];
   let loading = true;
@@ -26,12 +27,8 @@
   })();
 </script>
 
-<select bind:value={selected}>
-  <option value="All">All</option>
-  <option value="FENZ">FENZ</option>
-  <option value="GeoNet">GeoNet</option>
-  <option value="USAR">USAR</option>
-</select>
+<!-- Drop down for selecting agency specific view -->
+<AgencySelect bind:selected />
 
 <main>
   {#if selected === "FENZ"}
@@ -44,7 +41,8 @@
     <Metservice />
     <GeoNet />
     <Volcano />
-  {:else}  <!-- Displays all -->
+  {:else}
+    <!-- Displays all -->
     <Metservice />
     <GeoNet />
     <Volcano />
@@ -61,8 +59,6 @@
     {/if}
   {/if}
 </main>
-
-
 
 <style>
   main {
