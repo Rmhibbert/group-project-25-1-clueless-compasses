@@ -24,7 +24,7 @@
 4. **Branch Management:**
    - When creating a new branch/issue, **immediately** create a pull request (PR).
    - The branch name should be descriptive and relevant to the task you're working on.
-   - **Never** merge your own PR. It’s important to have someone else review your code before merging.
+   - **Never** merge your own PR. It’s important to have someone else review your code before approving and merging. Don't just look at the code and go "good enough" sit down and interact with the code so it works.
 
 5. **Main Branch Commit Policy:**
    - Do not commit directly to the **main** branch unless the entire team has agreed to do so.
