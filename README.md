@@ -22,7 +22,7 @@
    - Use comments to explain more complex or advanced sections of the code to ensure that teammates can follow along.
 
 4. **Branch Management:**
-   - When creating a new branch, **immediately** create a pull request (PR).
+   - When creating a new branch/issue, **immediately** create a pull request (PR).
    - The branch name should be descriptive and relevant to the task you're working on.
    - **Never** merge your own PR. It’s important to have someone else review your code before merging.
 
