@@ -29,11 +29,9 @@
     <nav>
         <!--Main Items-->
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">FENZ</a></li>
-            <li><a href="/Police-Page">Police</a></li>
-            <li><a href="/">Hato Hone St John</a></li>
-            <AgencySelect />
+            <li>
+                <AgencySelect />
+            </li>
             <li id="button">
                 <Button/>
             </li>
@@ -48,10 +46,7 @@
     <nav id="dropdown-menu" bind:this={dropdownMenu}>
         <ul >
             <!-- Add items for the dropdown menu here -->
-            <li><a href="/">Home</a></li>
-            <li><a href="/">FENZ</a></li>
-            <li><a href="/Police-Page">Police</a></li>
-            <li><a href="/">Hato Hone St John</a></li>
+            <AgencySelect />
             <li id="button">
                 <Button/>
             </li>
