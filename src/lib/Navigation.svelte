@@ -29,7 +29,7 @@
     <nav>
         <!--Main Items-->
         <ul>
-            <li>
+            <li id="dropdown">
                 <AgencySelect />
             </li>
             <li id="button">
@@ -46,7 +46,9 @@
     <nav id="dropdown-menu" bind:this={dropdownMenu}>
         <ul >
             <!-- Add items for the dropdown menu here -->
-            <AgencySelect />
+            <li id="dropdown">
+                <AgencySelect />
+            </li>
             <li id="button">
                 <Button/>
             </li>
@@ -87,9 +89,7 @@
     ul li:hover a{    
         color: #333;  
     }
-    ul li:hover {
-        background-color: white; /* Example style for the <li> on hover */
-    }
+
     ul {
         display: flex;
         justify-content: center;
@@ -109,6 +109,7 @@
     ul:last-of-type{
         display: none;
     }
+
     #dropdown-menu{
         display: none;
         background-color: #333;
@@ -146,6 +147,7 @@
     /* Styles for the <ul> containing the #hamburger */
         margin-left: 2em;
     }
+
     button{
         padding: 0;
         border: none;
