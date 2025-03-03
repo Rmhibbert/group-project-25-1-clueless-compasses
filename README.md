@@ -96,8 +96,11 @@
 **test**: Adding missing tests or correcting existing tests
 
 ### Examples:
+
 `feat(javascript): add a new feature`
+
 `fix(html): fix a bug`
+
 `docs(css): update documentation`
 
 
