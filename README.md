@@ -46,7 +46,7 @@
 
 ---
 
-## Studio Rules
+# Studio Rules
 
 1. **Progress == Usable Software:**
    - Focus on delivering working, usable software. The goal is to create features that are functional and can be used, rather than just pushing forward with incomplete work.
@@ -71,9 +71,9 @@
 
 ---
 
-## Commit Messages Standards
+# Commit Messages Standards
 
-# Message Types:
+## Message Types:
 
 **build**: Changes that affect the build system or external dependencies
 
@@ -95,7 +95,7 @@
 
 **test**: Adding missing tests or correcting existing tests
 
-# Examples:
+### Examples:
 `feat(javascript): add a new feature`
 `fix(html): fix a bug`
 `docs(css): update documentation`
