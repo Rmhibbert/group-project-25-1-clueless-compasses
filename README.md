@@ -19,29 +19,31 @@
 
 3. **Clean and Readable Code:**
    - Write code that is clean, readable, and tidy.
-   - Use comments to explain more complex or advanced sections of the code to ensure that teammates can follow along.
 
-4. **Branch Management:**
+4. **Comments**
+**-Use comments to explain more complex or advanced sections of the code to ensure that teammates can follow along.**
+
+5. **Branch Management:**
    - When creating a new branch/issue, **immediately** create a pull request (PR).
    - The branch name should be descriptive and relevant to the task you're working on.
    - **Never** merge your own PR. It’s important to have someone else review your code before approving and merging. Don't just look at the code and go "good enough" sit down and interact with the code so it works.
 
-5. **Main Branch Commit Policy:**
+6. **Main Branch Commit Policy:**
    - Do not commit directly to the **main** branch unless the entire team has agreed to do so.
 
-6. **Consistent Whitespace:**
+7. **Consistent Whitespace:**
    - Ensure consistent use of whitespace to improve readability. For example:
      ```javascript
      const x = 5 + 3; // instead of const x=5+3;
      ```
 
-7. **Line Length:**
+8. **Line Length:**
    - Avoid lines of code that are too long or require scrolling horizontally in VS Code. Break up long lines to maintain readability.
 
-8. **Simplicity First:**
+9. **Simplicity First:**
    - Begin by implementing a feature or function in its simplest form. Once it’s working, you can refactor or add more complexity if needed.
 
-9. **Code Reviews:**
+10. **Code Reviews:**
    - When finishing a feature or completing work on a branch, **conduct a code review** with a teammate. This ensures quality, consistency, and that everyone in the team can understand the code.
 
 ---
