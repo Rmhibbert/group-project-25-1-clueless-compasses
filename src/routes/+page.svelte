@@ -25,7 +25,7 @@
   })();
 </script>
 
-<main>
+<main class="pt-">
   <Metservice />  
   <GeoNet />
   <Volcano />
