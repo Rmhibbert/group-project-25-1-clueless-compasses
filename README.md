@@ -21,7 +21,7 @@
    - Write code that is clean, readable, and tidy.
 
 4. **Comments**
-- **Use comments to explain more complex or advanced sections of the code to ensure that teammates can follow along.**
+   - **Use comments to explain more complex or advanced sections of the code to ensure that teammates can follow along.**
 
 5. **Branch Management:**
    - When creating a new branch/issue, **immediately** create a pull request (PR).
