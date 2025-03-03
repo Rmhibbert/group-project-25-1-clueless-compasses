@@ -27,10 +27,6 @@
     <nav>
         <!--Main Items-->
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">FENZ</a></li>
-            <li><a href="/Police-Page">Police</a></li>
-            <li><a href="/">Hato Hone St John</a></li>
             <li id="button">
                 <Button/>
             </li>
@@ -46,9 +42,6 @@
         <ul >
             <!-- Add items for the dropdown menu here -->
             <li><a href="/">Home</a></li>
-            <li><a href="/">FENZ</a></li>
-            <li><a href="/Police-Page">Police</a></li>
-            <li><a href="/">Hato Hone St John</a></li>
             <li id="button">
                 <Button/>
             </li>
