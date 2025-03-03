@@ -75,16 +75,25 @@
 
 # Message Types:
 
-build: Changes that affect the build system or external dependencies
-chore: Regular code maintenance, such as refactoring or updating dependencies
-ci: Changes to our CI configuration files and scripts
-docs: Documentation only changes
-feat: A new feature
-fix: A bug fix
-perf: A code change that improves performance
-refactor: A code change that neither fixes a bug nor adds a feature
-style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-test: Adding missing tests or correcting existing tests
+**build**: Changes that affect the build system or external dependencies
+
+**chore**: Regular code maintenance, such as refactoring or updating dependencies
+
+**ci**: Changes to our CI configuration files and scripts
+
+**docs**: Documentation only changes
+
+**feat**: A new feature
+
+**fix**: A bug fix
+
+**perf**: A code change that improves performance
+
+**refactor**: A code change that neither fixes a bug nor adds a feature
+
+**style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+
+**test**: Adding missing tests or correcting existing tests
 
 # Examples:
 `feat(javascript): add a new feature`
