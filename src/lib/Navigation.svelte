@@ -46,7 +46,7 @@
     <nav id="dropdown-menu" bind:this={dropdownMenu}>
         <ul >
             <!-- Add items for the dropdown menu here -->
-            <li id="dropdown">
+            <li>
                 <AgencySelect />
             </li>
             <li id="button">
