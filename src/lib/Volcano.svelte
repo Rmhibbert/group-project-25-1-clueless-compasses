@@ -98,7 +98,7 @@ function getEmoji(acc) {
     <h1 class="text-xl font-bold">Volcano Information</h1>
     <h3 class="text-lg">Volcano status by city:</h3>
     {#each volcanos as volcano}
-        <details class="my-2 border border rounded-md p-2">
+        <details class="my-2 border rounded-md p-2">
             <summary class="cursor-pointer font-semibold">
                 {getEmoji(volcano.properties.acc)} {volcano.properties.volcanoTitle}
             </summary>
