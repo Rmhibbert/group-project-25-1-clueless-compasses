@@ -2,9 +2,6 @@
 
 </script>
 <body>
-    <main>
-
-    </main>
 
     <footer>
         <h2>Disaster Management System</h2>
@@ -16,16 +13,9 @@
 
 <style>
 
-body {
-  min-height: 100vh; 
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
 
-main {
-  flex: 1; 
-}
+
+
 
 footer {
   box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, 
@@ -41,8 +31,7 @@ footer {
   text-align: center;
   min-height: 50px;
   width: 100%;
+  padding: 1em;
 }
-
-
 
 </style>
