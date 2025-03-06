@@ -10,24 +10,25 @@
 </select>
 
 <style>
-    .dropdown {
-        padding: 0.6em 1em 0.6em 1em;
-        font-family: inherit;
-        font-size: inherit;
-        font-weight: bolder;
-        background-color: #333;
-        color: white;
-        cursor: pointer;
-    }
+.dropdown {
+    padding: 0.6em 1em 0.6em 1em;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: bolder;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    outline: none; 
+    border-top: 2px solid #535353;
+    border-left: 2px solid #535353;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+}
 
-    :global(body.dark) .dropdown{
-        background-color: white;
-        color: #333;
-    }
+:global(body.dark) .dropdown {
+    background-color: white;
+    color: #333;
+}
 
-    /* Focus effect */
-    .dropdown:focus {
-        border-color: #007bff;
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    }
+
 </style>
