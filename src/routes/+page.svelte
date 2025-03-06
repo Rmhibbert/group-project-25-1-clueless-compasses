@@ -28,7 +28,8 @@
 
 <!-- Drop down for selecting agency specific view -->
 
-<main>
+<main class="pt-2 flex justify-center flex-wrap gap-10">
+  
   {#if $selectedAgency === "FENZ"}
     <Metservice />
     <AlertsRss />
@@ -58,12 +59,3 @@
   {/if}
 </main>
 
-<style>
-  main {
-    padding-top: 2em;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-</style>
