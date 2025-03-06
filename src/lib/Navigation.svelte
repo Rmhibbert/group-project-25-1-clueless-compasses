@@ -3,6 +3,8 @@
 
     let dropdownMenu;
     let dropdownDisplayed=false;
+    import AgencySelect from "$lib/AgencySelect.svelte";
+
     function displayMenu() {
         // Toggle the display style of the dropdown menu
         dropdownDisplayed=true;
@@ -27,6 +29,10 @@
     <nav>
         <!--Main Items-->
         <ul>
+            <li id="dropdown">
+                <AgencySelect />
+            </li>
+
             <li id="button">
                 <Button/>
             </li>
@@ -41,7 +47,9 @@
     <nav id="dropdown-menu" bind:this={dropdownMenu}>
         <ul >
             <!-- Add items for the dropdown menu here -->
-            <li><a href="/">Home</a></li>
+            <li>
+                <AgencySelect />
+            </li>
             <li id="button">
                 <Button/>
             </li>
@@ -82,9 +90,7 @@
     ul li:hover a{    
         color: #333;  
     }
-    ul li:hover {
-        background-color: white; /* Example style for the <li> on hover */
-    }
+
     ul {
         display: flex;
         justify-content: center;
@@ -104,6 +110,7 @@
     ul:last-of-type{
         display: none;
     }
+
     #dropdown-menu{
         display: none;
         background-color: #333;
@@ -141,6 +148,7 @@
     /* Styles for the <ul> containing the #hamburger */
         margin-left: 2em;
     }
+
     button{
         padding: 0;
         border: none;
