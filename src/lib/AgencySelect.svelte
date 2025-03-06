@@ -2,6 +2,7 @@
     import { selectedAgency } from "$lib/stores.js";
 </script>
 
+<!-- Dropdown to show specific information -->
 <select bind:value={$selectedAgency} class="dropdown">
     <option value="All">🌍 All</option>
     <option value="FENZ">🚒 FENZ</option>
