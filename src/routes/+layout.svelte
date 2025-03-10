@@ -1,7 +1,12 @@
 <script>
     import Navigation from "$lib/Navigation.svelte";
     import Footer from "$lib/Footer.svelte";
-    import '../styles/global.css'
+    import "../app.css";
+    import { selectedAgency } from "$lib/stores.js";
+
+    //  To display all widgets
+    selectedAgency.set("All");
+
 </script>
 
 <Navigation/>
@@ -21,3 +26,4 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 </style>
+

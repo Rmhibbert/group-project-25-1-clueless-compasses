@@ -17,6 +17,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"disaster-management-system": "file:"
+		"@tailwindcss/vite": "^4.0.9",
+		"disaster-management-system": "file:",
+		"tailwindcss": "^4.0.12"
 	}
 }
