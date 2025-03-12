@@ -101,7 +101,7 @@
 </script>
 
 <section>
-<h2>Community Centre & Halls</h2>
+<h2 class=" text-2xl font-bold">Community Centre & Halls</h2>
 <div class="view" use:createMap></div>
 </section>
 
