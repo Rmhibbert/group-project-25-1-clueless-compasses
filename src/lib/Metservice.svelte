@@ -28,7 +28,7 @@
 </script>
 
 <section>
-  <h2 class="text-2xl font-bold mb-4">Current Weather</h2>
+  <h2 class="text-2xl font-bold mb-2">Current Weather</h2>
   
   <label for="city" class="text-lg font-semibold">Choose a city:</label>
   <select id="city" bind:value={selectedCity} on:change={() => fetchWeather(selectedCity)} 
