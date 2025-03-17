@@ -9,18 +9,27 @@ export async function load({ fetch }) {
     const parser = new XMLParser();
     const data = parser.parse(xmlText);
 
-    // Required as data is returned as XML
-    const cameras = data.response.camera.map((camera) => ({
-        id: camera.id,
-        description: camera.description,
-        direction: camera.direction,
-        highway: camera.highway,
-        latitude: camera.latitude,
-        longitude: camera.longitude,
-        imageUrl: camera.imageUrl,
-        thumbUrl: camera.thumbUrl,
-        region: camera.region.name,
-    }));
+  // Required as data is returned as XML
+const cameras = data.response.camera.map((camera) => ({
+    id: camera.id,
+    description: camera.description,
+    direction: camera.direction,
+    highway: camera.highway,
+    latitude: camera.latitude,
+    longitude: camera.longitude,
+    imageUrl: camera.imageUrl,
+    thumbUrl: camera.thumbUrl,
+    regionid: camera.region.id,
+    region: camera.region.name,
+}));
 
-    return { cameras };
-}
+const groupedCameras = cameras.reduce((acc, camera) => {
+    const region = camera.region;
+    if (!acc[region]) {
+        acc[region] = [];
+    }
+    acc[region].push(camera);
+    return acc;
+}, {});
+
+return { groupedCameras }};
