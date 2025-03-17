@@ -9,7 +9,10 @@
   import AlertsRss from "$lib/AlertsRSS.svelte";
   import Map from "$lib/Map.svelte";
   import { selectedAgency } from '$lib/stores.js';
-    import NZTACameras from "$lib/NZTACameras.svelte";
+  import NZTACameras from "$lib/NZTACameras.svelte";
+
+  export let data;
+  console.log(data);
 
   let resources = [];
   let loading = true;
