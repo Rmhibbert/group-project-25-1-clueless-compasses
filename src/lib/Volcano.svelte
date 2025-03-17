@@ -21,16 +21,16 @@ const emojis = {
 function getACCStyles(acc) {
     switch (acc) {
         case 'Green':
-            return { color: 'white', backgroundColor: 'green' };
+            return 'text-white bg-green-600';
         case 'Yellow':
-            return { color: 'black', backgroundColor: 'yellow' }; // Changed to black for contrast
+            return 'text-black bg-yellow-400'; // Adjusted for better contrast
         case 'Red':
-            return { color: 'white', backgroundColor: 'red' };
+            return 'text-white bg-red-600';
         case 'Orange':
-        return { color: 'black', backgroundColor: 'Darkorange' }; // Changed to black for contrast
+            return 'text-white bg-orange-600';
         default:
-            return { color: 'white', backgroundColor: '#333' };
-        }
+            return 'text-white bg-gray-800';
+    }
     }
 
 //Using the emojis object to grab the emoji corresponding to the colour 
@@ -51,10 +51,10 @@ function getEmoji(acc) {
             <strong>ACC:</strong> {volcano.properties.acc}
         </p>
     </details>
-{/each}
+{/each} 
 
 
-</section>
+</section> -->
 
 <style>
     .ACC{
@@ -63,9 +63,9 @@ function getEmoji(acc) {
         border-radius: 5px;
         padding: 0.1em;
     }
-</style> -->
+</style> 
 
-<script>
+ <script>
     import { onMount } from 'svelte';
 
     let volcanos = [];
@@ -79,6 +79,7 @@ function getEmoji(acc) {
     const emojis = {
         Green: "🟩",
         Yellow: "🟨",
+        Orange:"🟧",
         Red: "🟥"
     };
 
@@ -88,6 +89,8 @@ function getEmoji(acc) {
                 return 'text-white bg-green-600';
             case 'Yellow':
                 return 'text-black bg-yellow-400'; // Adjusted for better contrast
+            case 'Orange':
+                return 'text-white bg-orange-600';
             case 'Red':
                 return 'text-white bg-red-600';
             default:
