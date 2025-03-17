@@ -9,6 +9,7 @@
   import AlertsRss from "$lib/AlertsRSS.svelte";
   import Map from "$lib/Map.svelte";
   import { selectedAgency } from '$lib/stores.js';
+    import NZTACameras from "$lib/NZTACameras.svelte";
 
   let resources = [];
   let loading = true;
@@ -48,6 +49,7 @@
     <Map />
     <AlertsRss />
     <Tides />
+    <NZTACameras />
     <CivilDefence />
     {#if loading}
       <p>Loading resources...</p>
