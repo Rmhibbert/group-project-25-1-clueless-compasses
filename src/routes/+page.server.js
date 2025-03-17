@@ -9,16 +9,19 @@ export async function load({ fetch }) {
     const parser = new XMLParser();
     const data = parser.parse(xmlText);
 
+    const baseUrl = "https://trafficnz.info";
+
   // Required as data is returned as XML
 const cameras = data.response.camera.map((camera) => ({
     id: camera.id,
+    name: camera.name,
     description: camera.description,
     direction: camera.direction,
     highway: camera.highway,
     latitude: camera.latitude,
     longitude: camera.longitude,
-    imageUrl: camera.imageUrl,
-    thumbUrl: camera.thumbUrl,
+    imageUrl: baseUrl + camera.imageUrl,
+    thumbUrl: baseUrl + camera.thumbUrl,
     regionid: camera.region.id,
     region: camera.region.name,
 }));

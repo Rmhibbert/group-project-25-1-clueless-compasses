@@ -5,29 +5,31 @@
   import Volcano from "$lib/Volcano.svelte";
   import Tides from "$lib/Tides.svelte";
   import CommunityMember from "$lib/CommunityMember.svelte";
-  import { load as loadResources } from "./CommunityMember/+page.js";
+  // import { load as loadResources } from "./CommunityMember/+page.js";
   import AlertsRss from "$lib/AlertsRSS.svelte";
   import Map from "$lib/Map.svelte";
   import { selectedAgency } from '$lib/stores.js';
   import NZTACameras from "$lib/NZTACameras.svelte";
 
+  //NZTA Camera Data
   export let data;
-  console.log(data);
 
   let resources = [];
   let loading = true;
   let error = null;
 
-  (async () => {
-    try {
-      const data = await loadResources();
-      resources = data.resources;
-    } catch (err) {
-      error = "Failed to load resources.";
-    } finally {
-      loading = false;
-    }
-  })();
+  //Removed in another branch caused issues with NZTA camera
+
+  // (async () => {
+  //   try {
+  //     const data = await loadResources();
+  //     resources = data.resources;
+  //   } catch (err) {
+  //     error = "Failed to load resources.";
+  //   } finally {
+  //     loading = false;
+  //   }
+  // })();
 </script>
 
 <!-- Drop down for selecting agency specific view -->
@@ -52,7 +54,7 @@
     <Map />
     <AlertsRss />
     <Tides />
-    <NZTACameras />
+    <NZTACameras {data}/>
     <CivilDefence />
     {#if loading}
       <p>Loading resources...</p>
