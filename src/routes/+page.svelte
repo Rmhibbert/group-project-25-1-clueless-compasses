@@ -5,27 +5,13 @@
   import Volcano from "$lib/Volcano.svelte";
   import Tides from "$lib/Tides.svelte";
   import CommunityMember from "$lib/CommunityMember.svelte";
-  import { load as loadResources } from "./CommunityMember/+page.js";
   import AlertsRss from "$lib/AlertsRSS.svelte";
   import Map from "$lib/Map.svelte";
   import ContactUs from '$lib/ContactUs.svelte';
   import { selectedAgency } from '$lib/stores.js';
  
 
-  let resources = [];
-  let loading = true;
-  let error = null;
 
-  (async () => {
-    try {
-      const data = await loadResources();
-      resources = data.resources;
-    } catch (err) {
-      error = "Failed to load resources.";
-    } finally {
-      loading = false;
-    }
-  })();
 </script>
 
 <!-- Drop down for selecting agency specific view -->
@@ -54,13 +40,6 @@
     <AlertsRss />
     <Tides />
     <CivilDefence />
-    {#if loading}
-      <p>Loading resources...</p>
-    {:else if error}
-      <p>{error}</p>
-    {:else}
-      <CommunityMember {resources} />
-    {/if}
+    <CommunityMember/>
   {/if}
 </main>
-
