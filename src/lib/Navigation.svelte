@@ -10,7 +10,7 @@
         dropdownDisplayed=true;
         dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
     }
-    import Button from "./DarkModeButton.svelte";
+    import DarkModeButton from "./DarkModeButton.svelte";
 
     //hides dropdown if anywhere on the page is clicked but the options or the hamburger icon
   function hideDropdown(event){
@@ -34,7 +34,7 @@
             </li>
 
             <li id="button">
-                <Button/>
+                <DarkModeButton/>
             </li>
         </ul>
         <!--Hamburger Menu-->
@@ -51,7 +51,7 @@
                 <AgencySelect />
             </li>
             <li id="button">
-                <Button/>
+                <DarkModeButton/>
             </li>
         </ul>
     </nav>
