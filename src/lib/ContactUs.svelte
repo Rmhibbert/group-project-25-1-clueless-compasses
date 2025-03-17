@@ -1,6 +1,8 @@
 <script>
     import { selectedAgency } from "$lib/stores.js";
 
+
+    //All the data related to different agency's
     const allAgencyData = {
         "FENZ": {
             phone: "04 496 3600",
@@ -16,8 +18,8 @@
         },
         "USAR": {
             phone: "",
-            email: "",
-            website: "https://www.usardogs.org.nz/",
+            email: "info@nzsar.govt.nz",
+            website: "https://nzsar.govt.nz/about-us-2/contact-us",
             description: "Urban Search and Rescue."
         }
     };
@@ -26,6 +28,8 @@
 <section>
     <h1 class="text-2xl font-bold mb-4">Contact Us!</h1>
     
+
+    <!-- Checking if they have the related data, if not it won't be displayed. -->
     {#if allAgencyData[$selectedAgency].email} 
     <h2 class="font-bold">Email:</h2> 
     <h3>{$selectedAgency ? allAgencyData[$selectedAgency].email : "ERROR"}</h3>
