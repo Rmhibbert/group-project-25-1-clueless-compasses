@@ -2,11 +2,11 @@
 
 /* Light mode styles */
 body {
-    @apply font-sans p-0 m-0 transition-colors duration-500;
+    @apply font-sans p-0 m-0 transition-colors duration-1000;
 }
 
 section {
-    @apply w-[375px] h-[375px] shadow-lg rounded-md p-4 overflow-y-auto border-4 border-[#131f2a];
+    @apply w-[375px] h-[375px] shadow-lg rounded-md p-4 overflow-y-auto border-4 border-[#131f2a] transition-colors duration-1000;
 }
 
 summary {
