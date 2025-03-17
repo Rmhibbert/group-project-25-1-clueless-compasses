@@ -8,7 +8,9 @@
   import { load as loadResources } from "./CommunityMember/+page.js";
   import AlertsRss from "$lib/AlertsRSS.svelte";
   import Map from "$lib/Map.svelte";
+  import ContactUs from '$lib/ContactUs.svelte';
   import { selectedAgency } from '$lib/stores.js';
+ 
 
   let resources = [];
   let loading = true;
@@ -33,13 +35,16 @@
   {#if $selectedAgency === "FENZ"}
     <Metservice />
     <AlertsRss />
+    <ContactUs />
   {:else if $selectedAgency === "GeoNet"}
     <GeoNet />
     <Volcano />
+    <ContactUs />
   {:else if $selectedAgency === "USAR"}
     <Metservice />
     <GeoNet />
     <Volcano />
+    <ContactUs />
   {:else}
     <!-- Displays all -->
     <Metservice />
