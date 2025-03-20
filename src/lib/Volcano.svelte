@@ -11,11 +11,11 @@
 
     //Object of emojis for conversion from colour to emoji used by the getEmoji function
     const emojis = {
-            Green: "🟩",
-            Yellow: "🟨",
-            Red: "🟥",
-            Orange:"🟧"
-    };
+        Green: "🟩",
+        Yellow: "🟨",
+        Orange:"🟧",
+        Red: "🟥"
+
 
     //Sets a background and text colour of the acc displayed from api
     function getACCStyles(acc) {
@@ -23,7 +23,9 @@
             case 'Green':
                 return { color: 'white', backgroundColor: 'green' };
             case 'Yellow':
-                return { color: 'black', backgroundColor: 'yellow' }; // Changed to black for contrast
+                return 'text-black bg-yellow-400'; // Adjusted for better contrast
+            case 'Orange':
+                return 'text-white bg-orange-600';
             case 'Red':
                 return { color: 'white', backgroundColor: 'red' };
             case 'Orange':
