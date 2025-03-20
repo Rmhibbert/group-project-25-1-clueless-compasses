@@ -5,12 +5,34 @@
   import Volcano from "$lib/Volcano.svelte";
   import Tides from "$lib/Tides.svelte";
   import CommunityMember from "$lib/CommunityMember.svelte";
+
+  // import { load as loadResources } from "./CommunityMember/+page.js";
+
   import AlertsRss from "$lib/AlertsRSS.svelte";
   import Map from "$lib/Map.svelte";
   import ContactUs from '$lib/ContactUs.svelte';
   import { selectedAgency } from '$lib/stores.js';
- 
 
+  import NZTACameras from "$lib/NZTACameras.svelte";
+
+  //NZTA Camera Data
+  export let data;
+
+
+
+
+  //Removed in another branch caused issues with NZTA camera
+
+  // (async () => {
+  //   try {
+  //     const data = await loadResources();
+  //     resources = data.resources;
+  //   } catch (err) {
+  //     error = "Failed to load resources.";
+  //   } finally {
+  //     loading = false;
+  //   }
+  // })();
 
 </script>
 
@@ -39,6 +61,7 @@
     <Map />
     <AlertsRss />
     <Tides />
+    <NZTACameras {data}/>
     <CivilDefence />
     <CommunityMember/>
   {/if}
