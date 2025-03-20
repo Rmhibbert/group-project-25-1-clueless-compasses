@@ -12,27 +12,12 @@
   import Map from "$lib/Map.svelte";
   import ContactUs from '$lib/ContactUs.svelte';
   import { selectedAgency } from '$lib/stores.js';
+  import CurrentEvents from "../lib/CurrentEvents.svelte";
 
   import NZTACameras from "$lib/NZTACameras.svelte";
 
   //NZTA Camera Data
   export let data;
-
-
-
-
-  //Removed in another branch caused issues with NZTA camera
-
-  // (async () => {
-  //   try {
-  //     const data = await loadResources();
-  //     resources = data.resources;
-  //   } catch (err) {
-  //     error = "Failed to load resources.";
-  //   } finally {
-  //     loading = false;
-  //   }
-  // })();
 
 </script>
 
@@ -47,12 +32,14 @@
   {:else if $selectedAgency === "GeoNet"}
     <GeoNet />
     <Volcano />
+    <CurrentEvents />
     <ContactUs />
   {:else if $selectedAgency === "USAR"}
     <Metservice />
     <GeoNet />
     <Volcano />
-    <ContactUs />
+     <CurrentEvents />
+     <ContactUs />
   {:else}
     <!-- Displays all -->
     <Metservice />
