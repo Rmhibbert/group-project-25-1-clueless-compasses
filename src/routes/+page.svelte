@@ -5,25 +5,20 @@
   import Volcano from "$lib/Volcano.svelte";
   import Tides from "$lib/Tides.svelte";
   import CommunityMember from "$lib/CommunityMember.svelte";
-  import { load as loadResources } from "./CommunityMember/+page.js";
+
+  // import { load as loadResources } from "./CommunityMember/+page.js";
+
   import AlertsRss from "$lib/AlertsRSS.svelte";
   import Map from "$lib/Map.svelte";
+  import ContactUs from '$lib/ContactUs.svelte';
   import { selectedAgency } from '$lib/stores.js';
+  import CurrentEvents from "../lib/CurrentEvents.svelte";
 
-  let resources = [];
-  let loading = true;
-  let error = null;
+  import NZTACameras from "$lib/NZTACameras.svelte";
 
-  (async () => {
-    try {
-      const data = await loadResources();
-      resources = data.resources;
-    } catch (err) {
-      error = "Failed to load resources.";
-    } finally {
-      loading = false;
-    }
-  })();
+  //NZTA Camera Data
+  export let data;
+
 </script>
 
 <!-- Drop down for selecting agency specific view -->
@@ -33,13 +28,18 @@
   {#if $selectedAgency === "FENZ"}
     <Metservice />
     <AlertsRss />
+    <ContactUs />
   {:else if $selectedAgency === "GeoNet"}
     <GeoNet />
     <Volcano />
+    <CurrentEvents />
+    <ContactUs />
   {:else if $selectedAgency === "USAR"}
     <Metservice />
     <GeoNet />
     <Volcano />
+     <CurrentEvents />
+     <ContactUs />
   {:else}
     <!-- Displays all -->
     <Metservice />
@@ -48,14 +48,8 @@
     <Map />
     <AlertsRss />
     <Tides />
+    <NZTACameras {data}/>
     <CivilDefence />
-    {#if loading}
-      <p>Loading resources...</p>
-    {:else if error}
-      <p>{error}</p>
-    {:else}
-      <CommunityMember {resources} />
-    {/if}
+    <CommunityMember/>
   {/if}
 </main>
-
