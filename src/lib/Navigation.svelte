@@ -30,12 +30,12 @@
 </script>
 
 <header class="flex justify-center items-center sticky top-0 z-[1000] p-2">
-    <h1 class="text-center text-xl uppercase underline tracking-widest p-3 drop-shadow-xl ml-4 bg-white w-[25em] shadow-[3px_3px_3px]">
+    <h1 class="text-center text-xl uppercase underline tracking-widest p-3 drop-shadow-xl m-4 bg-white w-[25em] shadow-[3px_3px_3px]">
         <a href="/" class="text-darkgrey no-underline">Disaster Management System</a>
     </h1>
     <nav>
         <!--Main Items-->
-        <ul class="hidden md:flex space-x-4 text-xl p-4">
+        <ul class="hidden md:flex space-x-3 text-xl p-4">
             <li class="p-4">
                 <AgencySelect />
             </li>
