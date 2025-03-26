@@ -29,119 +29,38 @@
     });
 </script>
 
-<header class="flex justify-center items-center sticky top-0 z-1000 p-2">
+<header class="flex justify-center items-center sticky top-0 z-[1000] p-2">
     <h1 class="text-center text-xl uppercase underline tracking-widest p-3 drop-shadow-xl ml-4 bg-white w-[25em] shadow-[3px_3px_3px]">
-        <a href="/" class="text-gray-800 no-underline">Disaster Management System</a>
+        <a href="/" class="text-darkgrey no-underline">Disaster Management System</a>
     </h1>
     <nav>
         <!--Main Items-->
-        <ul>
-            <li id="dropdown">
+        <ul class="hidden md:flex space-x-4 text-xl p-4">
+            <li class="p-4">
                 <AgencySelect />
             </li>
-
-            <li id="button">
+            <li class="p-4">
                 <DarkModeButton />
             </li>
         </ul>
         <!--Hamburger Menu-->
-        <ul>
+        <ul class="md:hidden ml-8">
             <li>
-                <button id="hamburger" on:click={displayMenu}>☰</button>
+                <button id="hamburger" on:click={displayMenu} class="text-4xl cursor-pointer hover:text-gray-800">
+                    ☰
+                </button>
             </li>
         </ul>
     </nav>
-    <nav id="dropdown-menu" bind:this={dropdownMenu}>
-        <ul>
-            <!-- Add items for the dropdown menu here -->
-            <li>
+    <nav id="dropdown-menu" bind:this={dropdownMenu}
+        class="hidden absolute top-[10em] w-[20em] h-[10em] bg-[#333] text-white rounded-lg border-4 border-black shadow-[3px_3px_10px_black]">
+        <ul class="flex flex-col space-y-2 p-4">
+            <li class="list-disc ml-8">
                 <AgencySelect />
             </li>
-            <li id="button">
+            <li class="list-disc ml-8">
                 <DarkModeButton />
             </li>
         </ul>
     </nav>
 </header>
-
-<style>
-    ul {
-        display: flex;
-        justify-content: center;
-        list-style: none;
-        font-size: 1.2em;
-        /* Puts the title onto the same line */
-        /*Centers list elements directly*/
-        padding: 1em;
-    }
-    ul li {
-        padding: 0.3em 0.8em 0.3em 0.8em;
-        border-radius: 0.625em;
-        margin: 10px;
-        align-self: center;
-    }
-    /*ul list that contains the #hamburger a tag ☰*/
-    ul:last-of-type {
-        display: none;
-    }
-
-    #dropdown-menu {
-        display: none;
-        background-color: #333;
-        width: 20em;
-        position: absolute;
-        top: 10em;
-        border-radius: 1em;
-    }
-    #dropdown-menu ul {
-        flex-direction: column;
-    }
-    #dropdown-menu ul li {
-        align-self: last baseline;
-        list-style: square;
-        color: white;
-        margin-left: 2em;
-    }
-    #dropdown-menu li {
-        padding: 0;
-    }
-    #hamburger {
-        font-size: 40px;
-        cursor: pointer;
-    }
-    ul:has(#hamburger) {
-        /* Styles for the <ul> containing the #hamburger */
-        margin-left: 2em;
-    }
-
-    button {
-        padding: 0;
-        border: none;
-        background-color: transparent;
-        font-family: inherit;
-        font-weight: bolder;
-        font-size: inherit;
-        color: white;
-        cursor: pointer;
-    }
-    #button {
-        padding: 0;
-    }
-    #hamburger:hover {
-        color: #333;
-    }
-    @media (width <= 1200px) {
-        /*First list on nav menu*/
-        ul:first-of-type {
-            display: none;
-        }
-        /*Last list on nav menu for hamburger menu*/
-        ul:last-of-type {
-            display: flex;
-        }
-        #dropdown-menu {
-            border: 5px solid black;
-            box-shadow: 3px 3px 10px black;
-        }
-    }
-</style>
