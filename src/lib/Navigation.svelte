@@ -29,8 +29,10 @@
     });
 </script>
 
-<header class="flex justify-center items-center sticky top-0 z-1000 shadow-md p-4">
-    <h1><a href="/">Disaster Management System</a></h1>
+<header class="flex justify-center items-center sticky top-0 z-1000 p-2">
+    <h1 class="text-center text-xl uppercase underline tracking-widest p-3 drop-shadow-xl ml-4 bg-white w-[25em] shadow-[3px_3px_3px]">
+        <a href="/" class="text-gray-800 no-underline">Disaster Management System</a>
+    </h1>
     <nav>
         <!--Main Items-->
         <ul>
@@ -63,23 +65,6 @@
 </header>
 
 <style>
-    h1 a {
-        color: #333;
-        text-decoration: none;
-    }
-    h1 {
-        width: 25em;
-        font-size: 20px;
-        text-transform: uppercase;
-        text-decoration: underline;
-        letter-spacing: 4px;
-        text-align: center;
-        background-color: white;
-        padding: 0.6em;
-        box-shadow: 3px 3px 3px;
-        margin-left: 1em;
-    }
-
     ul {
         display: flex;
         justify-content: center;
