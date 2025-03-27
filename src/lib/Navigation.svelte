@@ -53,6 +53,9 @@
             <li id="button">
                 <DarkModeButton/>
             </li>
+            <li>
+                <a href="/hazard-Page/">Hazard logs</a>
+            </li>
         </ul>
     </nav>
 </header>
