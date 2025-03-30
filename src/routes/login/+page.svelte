@@ -47,7 +47,7 @@
         class="bg-blue-700 text-white py-2 px-4 rounded hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
         on:click={enterData}
       >
-        Submit
+        Login
       </button>
 
       <button
