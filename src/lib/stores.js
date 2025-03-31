@@ -2,4 +2,6 @@ import { writable } from 'svelte/store';
 
 export const selectedAgency = writable('All');
 
-export const hazardAddress= writable('');
+export let hazardAddress= writable('');
+
+export let searchQuery=writable('');
