@@ -17,7 +17,7 @@
 </script>
 
 <div class="flex justify-center items-center min-h-screen bg-gray-100">
-  <div class="login-box bg-gradient-to-r from-[#053a78] via-[#1d73a8] to-[#00d4ff] p-8 rounded-lg shadow-[rgba(0,0,0,0.35)_0px_-50px_36px_-28px_inset] border-4 border-[#131f2a] opacity-0 transform translate-y-[-20px] animate-fadeDropIn transition-colors duration-1000 max-w-200  w-full">
+  <div class="login-box bg-gradient-to-r from-[#053a78] via-[#1d73a8] to-[#00d4ff] p-8 rounded-lg shadow-[rgba(0,0,0,0.35)_0px_-50px_36px_-28px_inset] border-4 border-[#131f2a] opacity-0 transform translate-y-[-20px] animate-fadeDropIn transition-colors duration-1000 max-w-200 w-full">
     <h2 class="text-2xl font-semibold text-white text-center mb-6">Login</h2>
 
     <div class="mb-4">
@@ -64,11 +64,11 @@
   @keyframes fadeDropIn {
     0% {
       opacity: 0;
-      transform: translateY(-20px);
+      transform: translateY(-150px); /* Start 20px higher */
     }
     100% {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(-100px); /* End at its normal position */
     }
   }
 
