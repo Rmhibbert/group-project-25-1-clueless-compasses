@@ -25,7 +25,7 @@
         {#each resources as resource}
             <li class="mb-6">
                 <h3 class="text-lg font-semibold">{resource.title}</h3>
-                <p class="text-gray-700">{resource.description}</p>
+                <p>{resource.description}</p>
                 <a href={resource.link} target="_blank" rel="noopener" class="text-blue-600 hover:underline">Learn more</a>
             </li>
         {/each}
