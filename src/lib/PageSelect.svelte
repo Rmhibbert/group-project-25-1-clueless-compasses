@@ -1,4 +1,5 @@
 <script>
+
 	import { goto } from '$app/navigation';
 
 	function navigate(event) {
@@ -17,6 +18,8 @@
 	<option value="hazard">Hazard Reporting</option>
 	<option value="contact">Contact Us</option>
 </select>
+
+
 
 
 
@@ -41,6 +44,5 @@
         color: #333;
     }
     </style>
-
 
     
