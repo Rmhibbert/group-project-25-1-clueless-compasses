@@ -57,7 +57,10 @@
         </ul>
     </nav>
     <nav id="dropdown-menu" bind:this={dropdownMenu}
-        class="hidden absolute top-[10em] w-[20em] h-[10em] bg-[#333] text-white rounded-lg border-4 border-black shadow-[3px_3px_10px_black]">
+
+        class="hidden absolute top-[10em] w-[20em] h-[12em] bg-[#333] text-white rounded-lg border-4 border-black shadow-[3px_3px_10px_black]">
+
+
         <ul class="flex flex-col space-y-2 p-4">
             <li class="list-disc ml-8">
                 <AgencySelect />
