@@ -15,8 +15,8 @@
 
   //NZTA Camera & Meservice Alerts Data
   export let data;
-  
-  const { groupedCameras, metserviceAlerts } = data;
+
+  const { groupedCameras, fullAlertDetails } = data;
 </script>
 
 <!-- Drop down for selecting agency specific view -->
@@ -45,7 +45,7 @@
     <Volcano />
     <Map />
     <AlertsRss />
-    <RssEmergencyAlerts {metserviceAlerts} />
+    <RssEmergencyAlerts {fullAlertDetails} />
     <Tides />
     <NZTACameras {groupedCameras} />
     <CivilDefence />
