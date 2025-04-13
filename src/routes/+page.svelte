@@ -13,8 +13,10 @@
   import NZTACameras from "$lib/NZTACameras.svelte";
   import RssEmergencyAlerts from "$lib/RSSEmergencyAlerts.svelte";
 
-  //NZTA Camera Data
+  //NZTA Camera & Meservice Alerts Data
   export let data;
+  
+  const { groupedCameras, metserviceAlerts } = data;
 </script>
 
 <!-- Drop down for selecting agency specific view -->
@@ -43,9 +45,9 @@
     <Volcano />
     <Map />
     <AlertsRss />
-    <RssEmergencyAlerts />
+    <RssEmergencyAlerts {metserviceAlerts} />
     <Tides />
-    <NZTACameras {data} />
+    <NZTACameras {groupedCameras} />
     <CivilDefence />
     <CommunityMember />
   {/if}
