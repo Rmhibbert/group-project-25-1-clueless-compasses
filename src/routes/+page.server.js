@@ -34,12 +34,28 @@ export async function load({ fetch }) {
     const alertsXml = await alertsRes.text();
     const alertsParser = new XMLParser({
         ignoreAttributes: false,
-        isArray: (name) => name === "item"
+        isArray: (name) => name === "item",
     });
     const metserviceAlerts = alertsParser.parse(alertsXml);
 
+    // Fetch full alert details from each alert link
+    const fullAlertDetails = await Promise.all(
+        metserviceAlerts.rss.channel.item.map(async (alert) => {
+            const alertRes = await fetch(alert.link);
+            const alertXml = await alertRes.text();
+            const alertParser = new XMLParser({ ignoreAttributes: false });
+            const alertDetails = alertParser.parse(alertXml);
+            return {
+                ...alert,
+                ...alertDetails.alert.info,
+            };
+        })
+    );
+
+
+
     return {
         groupedCameras,
-        metserviceAlerts
+        fullAlertDetails
     };
 }
