@@ -1,20 +1,6 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import axios from "axios";
-    import { XMLParser } from "fast-xml-parser";
-
-    let alerts = [];
-
-    onMount(async () => {
-        const rssUrl = "https://alerts.metservice.com/cap/rss";
-        const response = await axios.get(rssUrl);
-        const xml = response.data;
-
-        const parser = new XMLParser();
-        const result = parser.parse(xml);
-
-        alerts = result.rss.channel.item ?? [];
-    });
+    export let metserviceAlerts;
+    const alerts = metserviceAlerts.rss.channel.item ?? [];
 </script>
 
 <section>
