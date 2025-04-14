@@ -5,7 +5,6 @@
   import Volcano from "$lib/Volcano.svelte";
   import Tides from "$lib/Tides.svelte";
   import CommunityMember from "$lib/CommunityMember.svelte";
-  import AlertsRss from "$lib/AlertsRSS.svelte";
   import Map from "$lib/Map.svelte";
   import ContactUs from "$lib/ContactUs.svelte";
   import { selectedAgency } from "$lib/stores.js";
@@ -24,7 +23,6 @@
 <main class="pt-2 flex justify-center flex-wrap gap-10">
   {#if $selectedAgency === "FENZ"}
     <Metservice />
-    <AlertsRss />
     <RssEmergencyAlerts />
     <ContactUs />
   {:else if $selectedAgency === "GeoNet"}
@@ -44,7 +42,6 @@
     <GeoNet />
     <Volcano />
     <Map />
-    <AlertsRss />
     <RssEmergencyAlerts {fullAlertDetails} />
     <Tides />
     <NZTACameras {groupedCameras} />
