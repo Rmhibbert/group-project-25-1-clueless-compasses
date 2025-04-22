@@ -115,3 +115,18 @@ npm run dev
 
 # or start the server and open the app in a new browser tab
 npm run dev -- --open
+
+# Branch Naming Convention
+# Format: type/short-description
+# Example: feat/login-form
+
+# Prefix Types:
+# feat/     -> New feature
+# fix/      -> Bug fix
+# docs/     -> Docs only
+# style/    -> Code style, formatting
+# refactor/ -> Code refactor, no new features or fixes
+# test/     -> Adding or updating tests
+# chore/    -> Maintenance tasks (e.g., deps, config)
+
+# Use kebab-case, keep it short & meaningful.
