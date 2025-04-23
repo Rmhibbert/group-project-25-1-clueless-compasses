@@ -1,8 +1,16 @@
 <script>
     import { selectedPage } from "$lib/stores.js";
+    import { goto } from '$app/navigation';
+
+    function PageChange() {
+    const newPage = selectedPage;
+    goto(`/${newPage}`);
+  }
 </script>
 
-<select bind:value={$selectedPage} class="px-4 py-[0.6em] font-bold bg-[#333] text-white cursor-pointer outline-none border-t-[2px] border-l-[2px] border-b-[2px] border-r-[2px] border-t-[#535353] border-l-[#535353] border-b-black border-r-black"
+<select bind:value={$selectedPage} 
+on:change={PageChange}
+class="px-4 py-[0.6em] font-bold bg-[#333] text-white cursor-pointer outline-none border-t-[2px] border-l-[2px] border-b-[2px] border-r-[2px] border-t-[#535353] border-l-[#535353] border-b-black border-r-black"
 >
     <option value="Login">Login</option>
     <option value="Home">Home</option>
