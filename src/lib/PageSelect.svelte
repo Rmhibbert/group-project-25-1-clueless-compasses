@@ -2,7 +2,8 @@
     import { selectedPage } from "$lib/stores.js";
 </script>
 
-<select bind:value={$selectedPage} class="dropdown">
+<select bind:value={$selectedPage} class="px-4 py-[0.6em] font-bold bg-[#333] text-white cursor-pointer outline-none border-t-[2px] border-l-[2px] border-b-[2px] border-r-[2px] border-t-[#535353] border-l-[#535353] border-b-black border-r-black"
+>
     <option value="Login">Login</option>
     <option value="Home">Home</option>
     <option value="Hazard">Harzard Reporting</option>
