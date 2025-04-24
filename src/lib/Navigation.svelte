@@ -27,6 +27,7 @@
 <header>   
     <h1><a href='/'>Disaster Management System</a></h1>
     <nav>
+        
         <!--Main Items-->
         <ul>
             <li id="dropdown">
@@ -55,6 +56,7 @@
             </li>
         </ul>
     </nav>
+    <h2><a href="incident">incident</a></h2>
 </header>
 
 <style>
@@ -76,6 +78,17 @@
         text-transform: uppercase;
         text-decoration: underline;
         letter-spacing: 4px;    
+        text-align: center;
+        background-color: white;
+        padding: 0.6em;
+        box-shadow: 3px 3px 3px;
+        margin-left: 1em;
+    }
+    h2{
+        width: 15em;
+        font-size: 15px;
+        text-transform: uppercase;
+        text-decoration: underline;
         text-align: center;
         background-color: white;
         padding: 0.6em;
