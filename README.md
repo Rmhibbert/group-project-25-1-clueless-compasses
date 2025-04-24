@@ -119,6 +119,6 @@ npm run dev -- --open
 ```
 
 # Branch Naming Convention
-# Example: login-page
-# Use kebab-case, keep it short and simple.
+**Example:** login-page
+**Use kebab-case, keep it short and simple.**
 
