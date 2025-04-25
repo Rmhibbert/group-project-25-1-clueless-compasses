@@ -1,6 +1,12 @@
 <script>
     let avatar, fileinput;
 
+    let inputText = "";
+    let inputText2 = "";
+ 
+ $: showField = inputText.trim().length > 0;
+ $: showField2 = inputText2.trim().length > 0;
+
     const onFileSelected =(e)=>{
         let image = e.target.files[0];
             let reader = new FileReader();
@@ -41,7 +47,7 @@
         class="border rounded-md mt-1 p-1" />
       </label>
 
-      <label class="m-3 grid" for="suburb">
+      <!-- <label class="m-3 grid" for="suburb">
         suburb
         <input type="text" placeholder="Enter suburb"
         class="border rounded-md mt-1 p-1" required />
@@ -57,7 +63,53 @@
         building number
         <input type="text" placeholder="Enter building number"
         class="border rounded-md mt-1 p-1" required />
-      </label>
+      </label> -->
+
+      <form class="space-y-4">
+        <div>
+          <label for="triggerInput" class="block text-sm font-medium text-gray-700"
+            >suburb</label
+          >
+          <input
+            type="text"
+            id="triggerInput"
+            class="mt-1 block w-full pl-3 pr-3 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+            bind:value={inputText}
+            placeholder="enter suburb"
+          />
+        </div>
+       
+        {#if showField}
+          <div>
+            <label for="hiddenField" class="block text-sm font-medium text-gray-700"
+              >street</label
+            >
+            <input
+              type="text"
+              id="hiddenField"
+              name="hiddenField"
+              class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+              bind:value={inputText2}
+              placeholder="enter street"
+            />
+          </div>
+        {/if}
+
+        {#if showField2}
+        <div>
+          <label for="hiddenField" class="block text-sm font-medium text-gray-700"
+            >closest building number</label
+          >
+          <input
+            type="text"
+            id="hiddenField"
+            name="hiddenField"
+            class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+            placeholder="enter closest building number"
+          />
+        </div>
+      {/if}
+      </form>
 
       <label class="m-3 grid" for="Date">
         Date of recording
