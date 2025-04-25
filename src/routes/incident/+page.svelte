@@ -46,70 +46,51 @@
         <input type="text" placeholder="Enter Cause"
         class="border rounded-md mt-1 p-1" />
       </label>
-
-      <!-- <label class="m-3 grid" for="suburb">
-        suburb
-        <input type="text" placeholder="Enter suburb"
-        class="border rounded-md mt-1 p-1" required />
-      </label>
-
-      <label class="m-3 grid" for="street">
-        street
-        <input type="text" placeholder="Enter street"
-        class="border rounded-md mt-1 p-1" required />
-      </label>
-
-      <label class="m-3 grid" for="building number">
-        building number
-        <input type="text" placeholder="Enter building number"
-        class="border rounded-md mt-1 p-1" required />
-      </label> -->
-
-      <form class="space-y-4">
-        <div>
+      
+        <div  class="m-3 grid">
           <label for="triggerInput" class="block text-sm font-medium text-gray-700"
-            >suburb</label
+            >Suburb</label
           >
           <input
             type="text"
             id="triggerInput"
-            class="mt-1 block w-full pl-3 pr-3 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+            class="border rounded-md mt-1 p-1"
             bind:value={inputText}
-            placeholder="enter suburb"
+            placeholder="Enter Suburb"
           />
         </div>
        
         {#if showField}
-          <div>
+          <div  class="m-3 grid">
             <label for="hiddenField" class="block text-sm font-medium text-gray-700"
-              >street</label
+              >Street</label
             >
             <input
               type="text"
               id="hiddenField"
               name="hiddenField"
-              class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+              class="border rounded-md mt-1 p-1"
               bind:value={inputText2}
-              placeholder="enter street"
+              placeholder="Enter Street"
             />
           </div>
         {/if}
 
         {#if showField2}
-        <div>
+        <div  class="m-3 grid">
           <label for="hiddenField" class="block text-sm font-medium text-gray-700"
-            >closest building number</label
+            >Closest building number</label
           >
           <input
             type="text"
             id="hiddenField"
             name="hiddenField"
-            class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-            placeholder="enter closest building number"
+            class="border rounded-md mt-1 p-1"
+            placeholder="Enter Closest Building Number"
           />
         </div>
       {/if}
-      </form>
+     
 
       <label class="m-3 grid" for="Date">
         Date of recording
@@ -127,8 +108,12 @@
         <button class="bg-gray-50 hover:bg-gray-300 transition border rounded-md m-2 p-1 cursor-pointer" on:click={()=>{fileinput.click();}}>Upload</button>
         <input style="display:none" type="file" accept=".jpg, .jpeg, .png" on:change={(e)=>onFileSelected(e)} bind:this={fileinput} />
       </label>
+
+      <button class="bg-gray-50 hover:bg-blue-300 transition border rounded-md m-2 p-1 cursor-pointer">submit</button>
+
     </div>
 
+    
     <!-- Third Section -->
     <div class="w-1/3 m-3 bg-gray-50 rounded-lg shadow-md">
       <h2>Locations already logged</h2>
