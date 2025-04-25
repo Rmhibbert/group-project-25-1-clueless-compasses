@@ -32,7 +32,7 @@
           type="text"
           placeholder="Enter Description"
           class="border rounded-md mt-1 p-1"
-        />
+          required />
       </label>
 
       <label class="m-3 grid" for="Cause">
@@ -41,9 +41,27 @@
         class="border rounded-md mt-1 p-1" />
       </label>
 
+      <label class="m-3 grid" for="suburb">
+        suburb
+        <input type="text" placeholder="Enter suburb"
+        class="border rounded-md mt-1 p-1" required />
+      </label>
+
+      <label class="m-3 grid" for="street">
+        street
+        <input type="text" placeholder="Enter street"
+        class="border rounded-md mt-1 p-1" required />
+      </label>
+
+      <label class="m-3 grid" for="building number">
+        building number
+        <input type="text" placeholder="Enter building number"
+        class="border rounded-md mt-1 p-1" required />
+      </label>
+
       <label class="m-3 grid" for="Date">
         Date of recording
-        <input type="datetime-local" />
+        <input type="datetime-local" required />
       </label>
 
       <label class="m-3 grid" for="Photo">
