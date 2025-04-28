@@ -1,13 +1,26 @@
 <script>
-    import { selectedPage } from "$lib/stores.js";
+
+	import { goto } from '$app/navigation';
+
+	function navigate(event) {
+		const page = event.target.value;
+		if (page === 'home') {
+			goto('/');
+		} else {
+			goto(`/${page}`);
+		}
+	}
 </script>
 
-<select bind:value={$selectedPage} class="dropdown">
-    <option value="Login">Login</option>
-    <option value="Home">Home</option>
-    <option value="Hazard">Harzard Reporting</option>
-    <option value="Contact">Contact Us</option>
+<select on:change={navigate} class="dropdown">
+	<option value="home">Home</option>
+	<option value="login">Login</option>
+	<option value="hazard">Hazard Reporting</option>
+	<option value="contact">Contact Us</option>
 </select>
+
+
+
 
 
 <style>
@@ -31,4 +44,5 @@
         color: #333;
     }
     </style>
+
     
