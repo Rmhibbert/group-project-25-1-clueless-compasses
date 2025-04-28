@@ -19,4 +19,5 @@ class="dropdown px-4 py-[0.6em] font-bold bg-[#333] text-white cursor-pointer ou
     <option value="hazard">Harzard Reporting</option>
     <option value="incident">Incident Reporting</option>
 </select>
+
     
