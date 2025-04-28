@@ -115,3 +115,11 @@ npm run dev
 
 # or start the server and open the app in a new browser tab
 npm run dev -- --open
+
+```
+
+# Branch Naming Convention
+**Example:** login-page
+
+**Use kebab-case, keep it short and simple.**
+
