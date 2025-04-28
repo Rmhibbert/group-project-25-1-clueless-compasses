@@ -15,6 +15,7 @@
   //NZTA Camera & Meservice Alerts Data
   export let data;
 
+  // Variable was required to be data, so I'm destructuring two variables from inside data 
   const { groupedCameras, fullAlertDetails } = data;
 </script>
 
