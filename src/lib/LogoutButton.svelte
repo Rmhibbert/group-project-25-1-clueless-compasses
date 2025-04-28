@@ -1,5 +1,20 @@
+<script>
+
+var blackList;
+
+function Logout()
+{
+    blackList += "Token Here";
+    console.log("button hit");
+}
+
+
+
+
+</script>
+
 <button class=""
-    on:click={ThingyHere}>
+    on:click={Logout}>
         Logout
 </button>
 
@@ -22,5 +37,5 @@
     :global(body.dark) button{
         background-color: white;
         color: #333;
-    }
+    } 
 </style>
