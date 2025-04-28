@@ -7,7 +7,7 @@
 
     //  To display all widgets
     selectedAgency.set("All");
-    selectedPage.set("Home");
+    selectedPage.set("");
 
 </script>
 
