@@ -1,6 +1,5 @@
 <script>
   export let fullAlertDetails;
-  console.log(fullAlertDetails); // Check the prop value
 
   // Object of emojis for conversion from colour to emoji used by the getEmoji function
   const emojis = {
