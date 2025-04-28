@@ -37,5 +37,5 @@ function Logout()
     :global(body.dark) button{
         background-color: white;
         color: #333;
-    }
+    } 
 </style>
