@@ -5,29 +5,26 @@
   import Volcano from "$lib/Volcano.svelte";
   import Tides from "$lib/Tides.svelte";
   import CommunityMember from "$lib/CommunityMember.svelte";
-
-  // import { load as loadResources } from "./CommunityMember/+page.js";
-
-  import AlertsRss from "$lib/AlertsRSS.svelte";
   import Map from "$lib/Map.svelte";
-  import ContactUs from '$lib/ContactUs.svelte';
-  import { selectedAgency } from '$lib/stores.js';
-  import CurrentEvents from "../lib/CurrentEvents.svelte";
-
+  import ContactUs from "$lib/ContactUs.svelte";
+  import { selectedAgency } from "$lib/stores.js";
+  import CurrentEvents from "$lib/CurrentEvents.svelte";
   import NZTACameras from "$lib/NZTACameras.svelte";
+  import RssEmergencyAlerts from "$lib/RSSEmergencyAlerts.svelte";
 
-  //NZTA Camera Data
+  //NZTA Camera & Meservice Alerts Data
   export let data;
 
+  // Variable was required to be data, so I'm destructuring two variables from inside data 
+  const { groupedCameras, fullAlertDetails } = data;
 </script>
 
 <!-- Drop down for selecting agency specific view -->
 
 <main class="pt-2 flex justify-center flex-wrap gap-10">
-  
   {#if $selectedAgency === "FENZ"}
     <Metservice />
-    <AlertsRss />
+    <RssEmergencyAlerts />
     <ContactUs />
   {:else if $selectedAgency === "GeoNet"}
     <GeoNet />
@@ -38,18 +35,18 @@
     <Metservice />
     <GeoNet />
     <Volcano />
-     <CurrentEvents />
-     <ContactUs />
+    <CurrentEvents />
+    <ContactUs />
   {:else}
     <!-- Displays all -->
     <Metservice />
     <GeoNet />
     <Volcano />
     <Map />
-    <AlertsRss />
+    <RssEmergencyAlerts {fullAlertDetails} />
     <Tides />
-    <NZTACameras {data}/>
+    <NZTACameras {groupedCameras} />
     <CivilDefence />
-    <CommunityMember/>
+    <CommunityMember />
   {/if}
 </main>
