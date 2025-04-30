@@ -46,10 +46,10 @@
                 <AgencySelect />
             </li>
             <li class="p-4">
-                <DarkModeButton />
+                <PageSelect />
             </li>
             <li class="p-4">
-                <PageSelect />
+                <DarkModeButton />
             </li>
             <li class="p-4">
                 <LogoutButton />
@@ -78,10 +78,10 @@
                 <AgencySelect />
             </li>
             <li class="list-disc ml-8">
-                <DarkModeButton />
+                <PageSelect />
             </li>
             <li class="list-disc ml-8">
-                <PageSelect />
+                <DarkModeButton />
             </li>
             <li class="list-disc ml-8">
                 <LogoutButton />
