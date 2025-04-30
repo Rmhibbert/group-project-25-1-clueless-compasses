@@ -192,7 +192,7 @@
     #hamburger:hover{
         color: #333;
     }
-@media (width <= 1200px){
+@media (width <= 1545px){
     /*First list on nav menu*/
     ul:first-of-type{
         display: none;
