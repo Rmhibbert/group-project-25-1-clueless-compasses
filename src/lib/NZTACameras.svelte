@@ -1,13 +1,14 @@
 <script>
-    export let data;
+    export let groupedCameras;
 
-    // Initialize otagoCameras only when data is available
-    let otagoCameras = data ? data.groupedCameras.Otago : [];
-    console.log(data.groupedCameras.Otago);
+    // Get Otago cameras from the loaded data
+    let otagoCameras = groupedCameras?.Otago ?? [];
+
+    // Selected camera state
     let selectedCameraId = null;
     let selectedCamera = null;
 
-    // Find the selected camera based on the ID
+    // Watch for selection changes and find the camera
     $: selectedCamera = otagoCameras.find(
         (camera) => camera.id === selectedCameraId,
     );
@@ -18,7 +19,7 @@
 
     <select
         bind:value={selectedCameraId}
-        class="mb-2 w-fit p-1 mt-2 rounded bg-white text-gray-800 border cursor-pointer focus:outline-none focus:ring- focus:ring-blue-500"
+        class="mb-2 w-fit p-1 mt-2 rounded bg-white text-gray-800 border cursor-pointer focus:outline-none focus:ring focus:ring-blue-500"
     >
         <option value="" disabled>Select a camera</option>
 
@@ -28,14 +29,17 @@
     </select>
 
     {#if selectedCamera}
-        <div>
+        <div class="mt-4">
             <img
                 src={selectedCamera.imageUrl}
                 alt={selectedCamera.name || "Image Loading"}
+                class="w-full max-w-md rounded shadow"
             />
-            <p>{selectedCamera.description}</p>
+            <p class="mt-2 text-gray-700">{selectedCamera.description}</p>
         </div>
     {:else}
-        <p class=" text-tex font-bold">Please select a traffic camera from above</p>
+        <p class=" text-tex font-bold">
+            Please select a traffic camera from above
+        </p>
     {/if}
 </section>

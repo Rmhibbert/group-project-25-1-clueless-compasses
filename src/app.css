@@ -59,6 +59,10 @@ footer.dark {
     @apply text-white;
 }
 
+body.dark .dropdown {
+    @apply bg-white text-[#333];
+}
+
 @keyframes fadeDropIn {
     from {
         opacity: 0;
