@@ -40,7 +40,7 @@ export async function load({ fetch }) {
 
     // Fetch full alert details from each alert link
     const fullAlertDetails = await Promise.all(
-        metserviceAlerts.rss.channel.item.map(async (alert) => {
+        (metserviceAlerts.rss.channel.item || []).map(async (alert) => {
             const alertRes = await fetch(alert.link);
             const alertXml = await alertRes.text();
             const alertParser = new XMLParser({ ignoreAttributes: false });
@@ -51,7 +51,7 @@ export async function load({ fetch }) {
             };
         })
     );
-
+    
 
 
     return {
