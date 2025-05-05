@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
 
   let password = '';
-  let username = '';
+  let email = '';
   let error = '';
 
   // Function to handle login (replace with your own API call logic)
@@ -10,19 +10,19 @@
     event.preventDefault(); // Prevent the form from submitting the default way (reloading the page)
 
     // Simulate an API call (you should replace this with actual logic)
-    const isValid = username === 'user' && password === 'password'; // Example validation
+    const isValid = email === 'user' && password === 'password'; // Example validation
 
     if (isValid) {
       // Store the token or user info (e.g. store JWT token in localStorage)
       localStorage.setItem('token', 'dummy-jwt-token'); // Replace with actual token after login
       window.location.href = '/'; // Redirect after successful login
     } else {
-      error = 'Invalid username or password.';
+      error = 'Invalid email or password.';
     }
   }
 
   function clearData() {
-    username = '';
+    email = '';
     password = '';
     error = '';
   }
@@ -49,12 +49,12 @@
     <!-- Form for login -->
     <form on:submit={enterData}>
       <div class="mb-4">
-        <label for="name" class="block text-white text-sm">Username</label>
+        <label for="name" class="block text-white text-sm">Email</label>
         <input
-          id="name"
+          id="email"
           type="text"
-          placeholder="Please enter your username"
-          bind:value={username}
+          placeholder="Please enter your email"
+          bind:value={email}
           class="w-full p-2 rounded border border-blue-300 bg-blue-200"
           required
         />
