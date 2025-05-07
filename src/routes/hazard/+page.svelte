@@ -77,8 +77,6 @@
                 entry: saved.RelevantDetails,
             };
 
-            hazards = [savedHazard, ...hazards];
-
             // Reset form
             entry = "";
             agency = "";
@@ -88,6 +86,9 @@
             hazardAddress.set("");
             searchQuery.set("");
             error = null;
+
+            // Refetch hazards to get the updated list from the server
+            await fetchHazards(); // This will refresh the hazards with the new data from the server
         } catch (err) {
             console.error("Failed to submit hazard:", err);
             error = "Failed to submit hazard. Please try again.";
@@ -114,7 +115,7 @@
             </h2>
 
             {#if isFetching}
-            <p class="text-gray-600">Loading hazards...</p>
+                <p class="text-gray-600">Loading hazards...</p>
             {:else if error}
                 <p class="text-red-500">{error}</p>
             {:else if hazards.length === 0}
