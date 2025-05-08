@@ -99,15 +99,19 @@
       <label class="m-3 grid" for="Description">
         Description of incident
         <input
-          type="text"
-          placeholder="Enter Description"
-          class="border rounded-md mt-1 p-1"
-          required />
+        type="text"
+        bind:value={description}
+        placeholder="Enter Description"
+        class="border rounded-md mt-1 p-1"
+        required />
       </label>
 
       <label class="m-3 grid" for="Cause">
         Cause of incident
-        <input type="text" placeholder="Enter Cause"
+        <input
+        type="text"
+        bind:value={cause}
+        placeholder="Enter Cause"
         class="border rounded-md mt-1 p-1" />
       </label>
       
@@ -116,12 +120,11 @@
             >Suburb</label
           >
           <input
-            type="text"
-            id="triggerInput"
-            class="border rounded-md mt-1 p-1"
-            bind:value={inputText}
-            placeholder="Enter Suburb"
-          />
+          type="text"
+          id="triggerInput"
+          bind:value={inputText}
+          class="border rounded-md mt-1 p-1"
+          placeholder="Enter Suburb" />
         </div>
        
         {#if showField}
@@ -130,13 +133,11 @@
               >Street</label
             >
             <input
-              type="text"
-              id="hiddenField"
-              name="hiddenField"
-              class="border rounded-md mt-1 p-1"
-              bind:value={inputText2}
-              placeholder="Enter Street"
-            />
+            type="text"
+            id="hiddenField"
+            bind:value={street}
+            class="border rounded-md mt-1 p-1"
+            placeholder="Enter Street" />
           </div>
         {/if}
 
@@ -146,26 +147,27 @@
             >Closest building number</label
           >
           <input
-            type="text"
-            id="hiddenField"
-            name="hiddenField"
-            class="border rounded-md mt-1 p-1"
-            placeholder="Enter Closest Building Number"
-          />
+          type="text"
+          bind:value={buildingNumber}
+          class="border rounded-md mt-1 p-1"
+          placeholder="Enter Closest Building Number" />
         </div>
       {/if}
      
 
       <label class="m-3 grid" for="Date">
         Date of recording
-        <input type="datetime-local" required />
+        <input
+        type="datetime-local"
+        bind:value={recordedAt}
+        required />
       </label>
 
       <label class="m-3 grid" for="Photo">
         Upload a photo
         
         {#if avatar}
-        <img src="{avatar}" alt="User Upload" />
+        <img src={avatar} alt="Preview" />
         {:else}
         <img src="" alt="" />
         {/if}
