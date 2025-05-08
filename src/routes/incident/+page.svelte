@@ -1,20 +1,84 @@
 <script>
-    let avatar, fileinput;
+  let avatar, fileinput;
 
-    let inputText = "";
-    let inputText2 = "";
+  let inputText = "";
+  let inputText2 = "";
+  let description = "";
+  let cause = "";
+  let suburb = "";
+  let street = "";
+  let buildingNumber = "";
+  let recordedAt = "";
+
+  let imageBase64 = null;
  
  $: showField = inputText.trim().length > 0;
  $: showField2 = inputText2.trim().length > 0;
 
-    const onFileSelected =(e)=>{
-        let image = e.target.files[0];
-            let reader = new FileReader();
-            reader.readAsDataURL(image);
-            reader.onload = e => {
-                avatar = e.target.result
-            };
+
+ //Sends photo to Imgur
+  async function uploadToImgur(imageBase64) {
+  const response = await fetch("https://api.imgur.com/3/image", {
+    method: "POST",
+    headers: {
+      Authorization: `Client-ID ${import.meta.env.VITE_IMGUR_CLIENT_ID}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      image: imageBase64.split(",")[1], // remove the "data:image/*;base64," part
+      type: "base64",
+    }),
+  });
+
+  const data = await response.json();
+  if (!data.success) {
+    throw new Error("Imgur upload failed");
+  }
+  return data.data.link; // this is the image URL
+  }
+
+  const onFileSelected = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      imageBase64 = e.target.result;
+      avatar = imageBase64;
+    };
+    reader.readAsDataURL(file);
+  };
+
+  async function submitForm() {
+    try {
+      let photoUrl = null;
+      if (imageBase64) {
+        photoUrl = await uploadToImgur(imageBase64);
+      }
+
+      const body = {
+        description,
+        cause,
+        suburb,
+        street,
+        buildingNumber,
+        recordedAt,
+        photoUrl,
+      };
+
+      const res = await fetch("http://localhost:3000/api/v1/incidents", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+
+      const data = await res.json();
+      console.log("Incident logged:", data);
+    } catch (error) {
+      console.error("Error submitting form:", error);
     }
+  }
+
 </script>
 
 <!-- Header -->
@@ -109,7 +173,10 @@
         <input style="display:none" type="file" accept=".jpg, .jpeg, .png" on:change={(e)=>onFileSelected(e)} bind:this={fileinput} />
       </label>
 
-      <button class="bg-gray-50 hover:bg-blue-300 transition border rounded-md m-2 p-1 cursor-pointer">submit</button>
+      <button on:click={submitForm}
+      class="bg-gray-50 hover:bg-blue-300 transition border rounded-md m-2 p-1 cursor-pointer">
+      Submit
+    </button>
 
     </div>
 
