@@ -5,19 +5,30 @@
   let email = '';
   let error = '';
 
-  // Function to handle login (replace with your own API call logic)
+  // Function to handle login
   async function enterData(event) {
-    event.preventDefault(); // Prevent the form from submitting the default way (reloading the page)
+    event.preventDefault();
 
-    // Simulate an API call (you should replace this with actual logic)
-    const isValid = email === 'user' && password === 'password'; // Example validation
+    try {
+      const res = await fetch('http://localhost:3000/api/v1/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ emailAddress: email, password }), // Ensure the correct field names
+      });
 
-    if (isValid) {
-      // Store the token or user info (e.g. store JWT token in localStorage)
-      localStorage.setItem('token', 'dummy-jwt-token'); // Replace with actual token after login
-      window.location.href = '/'; // Redirect after successful login
-    } else {
-      error = 'Invalid email or password.';
+      const data = await res.json();
+
+      if (res.ok) {
+        localStorage.setItem('token', data.token);
+        window.location.href = '/';  // Redirect to home page
+      } else {
+        error = data.message || 'Invalid email or password.';
+      }
+    } catch (err) {
+      error = 'An error occurred while logging in.';
+      console.error(err);
     }
   }
 
@@ -28,10 +39,10 @@
   }
 
   onMount(() => {
-    // Optional: Redirect if already logged in
     const token = localStorage.getItem('token');
     if (token) {
-      window.location.href = '/'; // Redirect to homepage if token exists
+      console.log("Valid token found");
+      window.location.href = '/';  // Redirect if already logged in
     }
   });
 </script>
