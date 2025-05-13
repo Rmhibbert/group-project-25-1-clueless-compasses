@@ -1,4 +1,7 @@
 <script>
+    import AddressLookup from "../../lib/AddressLookup.svelte";
+    import { hazardAddress, searchQuery } from "$lib/stores.js";
+
     let avatar, fileinput;
 
     let inputText = "";
@@ -47,49 +50,11 @@
         class="border rounded-md mt-1 p-1" />
       </label>
       
-        <div  class="m-3 grid">
-          <label for="triggerInput" class="block text-sm font-medium text-gray-700"
-            >Suburb</label
-          >
-          <input
-            type="text"
-            id="triggerInput"
-            class="border rounded-md mt-1 p-1"
-            bind:value={inputText}
-            placeholder="Enter Suburb"
-          />
-        </div>
-       
-        {#if showField}
-          <div  class="m-3 grid">
-            <label for="hiddenField" class="block text-sm font-medium text-gray-700"
-              >Street</label
-            >
-            <input
-              type="text"
-              id="hiddenField"
-              name="hiddenField"
-              class="border rounded-md mt-1 p-1"
-              bind:value={inputText2}
-              placeholder="Enter Street"
-            />
-          </div>
-        {/if}
 
-        {#if showField2}
-        <div  class="m-3 grid">
-          <label for="hiddenField" class="block text-sm font-medium text-gray-700"
-            >Closest building number</label
-          >
-          <input
-            type="text"
-            id="hiddenField"
-            name="hiddenField"
-            class="border rounded-md mt-1 p-1"
-            placeholder="Enter Closest Building Number"
-          />
-        </div>
-      {/if}
+            <label for="address-input-id" class="block mb-3">
+                <span class="text-sm font-medium">Approximate Address</span>
+            </label>
+            <AddressLookup id="address-input-id" bind:value={$hazardAddress} />
      
 
       <label class="m-3 grid" for="Date">
