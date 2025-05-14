@@ -10,7 +10,7 @@
     async function Logout() {
       if (token) {
         try {
-          const res = await fetch('http://localhost:3000/api/v1/auth/logout', {
+          const res = await fetch('https://staging-group-project-25-1-clueless.onrender.com/api/v1/auth/logout', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
