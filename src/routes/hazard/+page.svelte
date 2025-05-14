@@ -108,7 +108,7 @@
     <div class="flex gap-6 flex-col md:flex-row">
         <!-- Hazard List -->
         <div
-            class="md:w-1/2 p-6 bg-white rounded-lg shadow-md border border-gray-300"
+            class="md:w-1/2 p-6  rounded-lg shadow-md border border-gray-300"
         >
             <h2 class="text-2xl font-semibold mb-4 text-gray-800">
                 Known Hazards and Risks
@@ -123,7 +123,7 @@
             {:else}
                 {#each hazards as hazard}
                     <details
-                        class="mb-3 border border-gray-300 rounded-lg p-4 bg-gray-50"
+                        class="mb-3 border border-gray-300 rounded-lg p-4"
                     >
                         <summary
                             class="cursor-pointer text-lg font-medium text-gray-900"
@@ -158,14 +158,14 @@
         </div>
 
         <!-- Add New Hazard -->
-        <div class="md:w-1/2 p-4 bg-gray-50 rounded-lg shadow-md">
+        <div class="md:w-1/2 p-4  rounded-lg shadow-md">
             <h2 class="text-lg font-semibold mb-3">Log a New Hazard</h2>
 
             <label class="block mb-3">
                 <span class="text-sm font-medium">Agency</span>
                 <select
                     bind:value={agency}
-                    class="w-full p-2 border rounded-md"
+                    class="w-full p-2 border rounded-md bg-white text-gray-800"
                 >
                     <option value="">All</option>
                     <option value="USAR">USAR</option>
@@ -183,7 +183,7 @@
                 <span class="text-sm font-medium">Severity Level</span>
                 <select
                     bind:value={severity}
-                    class="w-full p-2 border rounded-md"
+                    class="w-full p-2 border rounded-md text-gray-800"
                 >
                     <option value="">Select severity</option>
                     <option value="Low">Low</option>
@@ -197,7 +197,7 @@
                 <span class="text-sm font-medium">Status</span>
                 <select
                     bind:value={status}
-                    class="w-full p-2 border rounded-md"
+                    class="w-full p-2 border rounded-md text-gray-800"
                 >
                     <option value="">Select status</option>
                     <option value="Active">Active</option>

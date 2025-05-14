@@ -2,18 +2,18 @@
     let dark;
     function toggle() {
         dark = !dark;
-        const content = document.getElementById('content');
+        const main = document.getElementById('main');
         const header = document.querySelector('header');
         const footer = document.querySelector('footer');
 
         if (dark) {
             document.body.classList.add('dark');
-            content.classList.add('dark');
+            main.classList.add('dark');
             header.classList.add('dark');
             footer.classList.add('dark');
         } else {
             document.body.classList.remove('dark');
-            content.classList.remove('dark');
+            main.classList.remove('dark');
             header.classList.remove('dark');
             footer.classList.remove('dark');
         }

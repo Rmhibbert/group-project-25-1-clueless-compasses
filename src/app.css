@@ -47,10 +47,18 @@ header.dark {
     @apply bg-[#131f2a] border-b-4 border-white;
 }
 
-#content.dark section {
+body.dark section {
     @apply text-white bg-[#182938] border-4 border-white;
-}
-
+  }
+    
+  body.dark h1,
+  body.dark h2,
+  body.dark summary,
+  body.dark label,
+  body.dark p {
+    @apply text-white;
+  }
+  
 footer.dark {
     @apply bg-black;
 }
