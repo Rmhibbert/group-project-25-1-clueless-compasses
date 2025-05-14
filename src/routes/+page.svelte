@@ -13,6 +13,7 @@
   import RssEmergencyAlerts from "$lib/RSSEmergencyAlerts.svelte";
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
+  import ReportedHazards from "$lib/ReportedHazards.svelte";
 
   onMount(() => {
     const token = localStorage.getItem('token');
@@ -31,32 +32,40 @@
 
 <!-- Drop down for selecting agency specific view -->
 
-<main class="pt-2 flex justify-center flex-wrap gap-10">
-  {#if $selectedAgency === "FENZ"}
-    <Metservice />
-    <RssEmergencyAlerts />
-    <ContactUs />
-  {:else if $selectedAgency === "GeoNet"}
-    <GeoNet />
-    <Volcano />
-    <CurrentEvents />
-    <ContactUs />
-  {:else if $selectedAgency === "USAR"}
-    <Metservice />
-    <GeoNet />
-    <Volcano />
-    <CurrentEvents />
-    <ContactUs />
-  {:else}
-    <!-- Displays all -->
-    <Metservice />
-    <GeoNet />
-    <Volcano />
-    <Map />
-    <RssEmergencyAlerts {fullAlertDetails} />
-    <Tides />
-    <NZTACameras {groupedCameras} />
-    <CivilDefence />
-    <CommunityMember />
-  {/if}
-</main>
+  <div class="flex flex-col md:flex-row min-h-screen">
+
+    <aside class="w-full md:w-60 bg-white p-4 border-r border-gray-200 shadow-sm">
+    <ReportedHazards />
+  </aside>
+
+  <!-- Main content area -->
+  <main class="flex-1 pt-4 px-6 flex justify-center flex-wrap gap-10">
+    {#if $selectedAgency === "FENZ"}
+      <Metservice />
+      <RssEmergencyAlerts />
+      <ContactUs />
+    {:else if $selectedAgency === "GeoNet"}
+      <GeoNet />
+      <Volcano />
+      <CurrentEvents />
+      <ContactUs />
+    {:else if $selectedAgency === "USAR"}
+      <Metservice />
+      <GeoNet />
+      <Volcano />
+      <CurrentEvents />
+      <ContactUs />
+    {:else}
+      <!-- Displays all -->
+      <Metservice />
+      <GeoNet />
+      <Volcano />
+      <Map />
+      <RssEmergencyAlerts {fullAlertDetails} />
+      <Tides />
+      <NZTACameras {groupedCameras} />
+      <CivilDefence />
+      <CommunityMember />
+    {/if}
+  </main>
+</div>
