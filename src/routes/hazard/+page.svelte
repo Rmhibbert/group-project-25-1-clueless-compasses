@@ -183,7 +183,7 @@
                 <span class="text-sm font-medium">Severity Level</span>
                 <select
                     bind:value={severity}
-                    class="w-full p-2 border rounded-md text-gray-800"
+                    class="w-full p-2 border rounded-md bg-white text-gray-800"
                 >
                     <option value="">Select severity</option>
                     <option value="Low">Low</option>
@@ -197,7 +197,7 @@
                 <span class="text-sm font-medium">Status</span>
                 <select
                     bind:value={status}
-                    class="w-full p-2 border rounded-md text-gray-800"
+                    class="w-full p-2 border rounded-md bg-white text-gray-800"
                 >
                     <option value="">Select status</option>
                     <option value="Active">Active</option>
@@ -210,12 +210,12 @@
             </label>
 
             <label class="block mb-3">
-                <span class="text-sm font-medium">Contact Info</span>
+                <span class="text-sm font-medium ">Contact Info</span>
                 <input
                     type="text"
                     bind:value={contactInfo}
                     placeholder="Enter phone/email..."
-                    class="w-full p-2 border rounded-md"
+                    class="w-full p-2 border rounded-md bg-white text-gray-800"
                 />
             </label>
 
@@ -224,7 +224,7 @@
                 <textarea
                     bind:value={entry}
                     placeholder="Enter details here..."
-                    class="w-full p-2 border rounded-md"
+                    class="w-full p-2 border rounded-md bg-white text-gray-800"
                 ></textarea>
             </label>
 
