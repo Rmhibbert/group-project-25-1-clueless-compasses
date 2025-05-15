@@ -159,7 +159,7 @@
 
         <!-- Add New Hazard -->
         <div class="md:w-1/2 p-4  rounded-lg shadow-md">
-            <h2 class="text-lg font-semibold mb-3">Log a New Hazard</h2>
+            <h2 class="text-2xl font-semibold mb-3">Log a New Hazard</h2>
 
             <label class="block mb-3">
                 <span class="text-sm font-medium">Agency</span>

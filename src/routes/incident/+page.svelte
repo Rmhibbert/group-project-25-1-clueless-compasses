@@ -18,43 +18,43 @@
 </script>
 
 <!-- Header -->
-<h1 class="text-3xl font-bold text-gray-800 border-b-2 border-gray-300 p-1 text-center">
+<h1 class="text-3xl font-bold border-b-2 border-gray-300 p-1 text-center">
     Incident Log
   </h1>
 
 <main class="flex p-3">
     <!-- First Section -->
-    <div class="w-1/3 m-3 bg-gray-50 rounded-lg shadow-md">
-      <h2>Incidents</h2>
+    <div class="w-1/3 p-2 m-2 border rounded-md text-gray-800">
+      <h2 class="text-2xl font-semibold mb-3">Incidents</h2>
     </div>
 
     <!-- Second Section -->
-    <div class="w-1/3 m-3 bg-gray-50 rounded-lg shadow-md grid">
-      <h2 class="mt-3 ml-3">Incident Report</h2>
+    <div class="w-1/3 p-2 m-2 border rounded-md text-gray-800">
+      <h2 class="text-2xl font-semibold mb-3">Incident Report</h2>
 
-      <label class="m-3 grid" for="Description">
+      <label class="m-3 grid text-sm font-medium" for="Description">
         Description of incident
         <input
           type="text"
           placeholder="Enter Description"
-          class="border rounded-md mt-1 p-1"
+          class="w-full p-2 border rounded-md bg-white text-gray-800"
           required />
       </label>
 
-      <label class="m-3 grid" for="Cause">
+      <label class="m-3 grid text-sm font-medium" for="Cause">
         Cause of incident
         <input type="text" placeholder="Enter Cause"
-        class="border rounded-md mt-1 p-1" />
+        class="w-full p-2 border rounded-md bg-white text-gray-800" />
       </label>
       
-        <div  class="m-3 grid">
+        <div  class="m-3 grid text-sm font-medium">
           <label for="triggerInput" class="block text-sm font-medium text-gray-700"
             >Suburb</label
           >
           <input
             type="text"
             id="triggerInput"
-            class="border rounded-md mt-1 p-1"
+            class="w-full p-2 border rounded-md bg-white text-gray-800"
             bind:value={inputText}
             placeholder="Enter Suburb"
           />
@@ -69,7 +69,7 @@
               type="text"
               id="hiddenField"
               name="hiddenField"
-              class="border rounded-md mt-1 p-1"
+              class="w-full p-2 border rounded-md bg-white text-gray-800"
               bind:value={inputText2}
               placeholder="Enter Street"
             />
@@ -85,19 +85,19 @@
             type="text"
             id="hiddenField"
             name="hiddenField"
-            class="border rounded-md mt-1 p-1"
+            class="w-full p-2 border rounded-md bg-white text-gray-800"
             placeholder="Enter Closest Building Number"
           />
         </div>
       {/if}
      
 
-      <label class="m-3 grid" for="Date">
+      <label class="m-3 grid text-sm font-medium" for="Date">
         Date of recording
         <input type="datetime-local" required />
       </label>
 
-      <label class="m-3 grid" for="Photo">
+      <label class="m-3 grid text-sm font-medium" for="Photo">
         Upload a photo
         
         {#if avatar}
@@ -105,18 +105,18 @@
         {:else}
         <img src="" alt="" />
         {/if}
-        <button class="bg-gray-50 hover:bg-gray-300 transition border rounded-md m-2 p-1 cursor-pointer" on:click={()=>{fileinput.click();}}>Upload</button>
+        <button class=" hover:bg-gray-300 transition border rounded-md m-2 p-1 cursor-pointer" on:click={()=>{fileinput.click();}}>Upload</button>
         <input style="display:none" type="file" accept=".jpg, .jpeg, .png" on:change={(e)=>onFileSelected(e)} bind:this={fileinput} />
       </label>
 
-      <button class="bg-gray-50 hover:bg-blue-300 transition border rounded-md m-2 p-1 cursor-pointer">submit</button>
+      <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">Submit Incident</button>
 
     </div>
 
     
     <!-- Third Section -->
-    <div class="w-1/3 m-3 bg-gray-50 rounded-lg shadow-md">
-      <h2>Locations already logged</h2>
+    <div class="w-1/3 p-2 m-2 border rounded-md text-gray-800">
+      <h2 class="text-2xl font-semibold mb-3">Locations already logged</h2>
     </div>
   
 </main>
