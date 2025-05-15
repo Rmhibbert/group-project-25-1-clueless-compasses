@@ -5,7 +5,7 @@
   let debounceTimeout;
 
   const fetchSuggestions = () => {
-    clearTimeout(debounceTimeout); // Reset the timeout if user types again
+    clearTimeout(debounceTimeout);
 
     debounceTimeout = setTimeout(async () => {
       if ($searchQuery.length < 4) {
@@ -25,7 +25,7 @@
           full_address: suggestion.display_name
         };
       });
-    }, 500); // Waits 500ms after last input before fetching
+    }, 500);
   };
 
   const selectHazard = (formattedAddress) => {
@@ -41,36 +41,16 @@
   on:input={fetchSuggestions}
   placeholder="Enter an address"
   aria-label="Search address"
+  class="w-full p-2 mb-3 text-base border rounded bg-white text-gray-800"
 />
 
-<ul>
+<ul class="list-none p-0">
   {#each suggestions as suggestion}
-    <li on:click={() => selectHazard(suggestion.formattedAddress)}>
+    <li
+      on:click={() => selectHazard(suggestion.formattedAddress)}
+      class="p-2 mb-1 bg-gray-100 border border-gray-300 cursor-pointer hover:bg-gray-200 transition-colors"
+    >
       {suggestion.formattedAddress}
     </li>
   {/each}
 </ul>
-
-<style>
-  input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    font-size: 16px;
-  }
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  li {
-    padding: 5px;
-    background: #f4f4f4;
-    border: 1px solid #ddd;
-    margin-bottom: 2px;
-    cursor: pointer;
-  }
-  li:hover {
-    background-color: #f0f0f0;
-  }
-</style>
-
