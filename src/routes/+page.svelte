@@ -5,57 +5,58 @@
   import Volcano from "$lib/Volcano.svelte";
   import Tides from "$lib/Tides.svelte";
   import CommunityMember from "$lib/CommunityMember.svelte";
-  import { load as loadResources } from "./CommunityMember/+page.js";
-  import AlertsRss from "$lib/AlertsRSS.svelte";
   import Map from "$lib/Map.svelte";
-  import { selectedAgency } from '$lib/stores.js';
+  import ContactUs from "$lib/ContactUs.svelte";
+  import { selectedAgency } from "$lib/stores.js";
+  import CurrentEvents from "$lib/CurrentEvents.svelte";
+  import NZTACameras from "$lib/NZTACameras.svelte";
+  import RssEmergencyAlerts from "$lib/RSSEmergencyAlerts.svelte";
+  import { onMount } from 'svelte';
+  import { goto } from '$app/navigation';
 
-  let resources = [];
-  let loading = true;
-  let error = null;
-
-  (async () => {
-    try {
-      const data = await loadResources();
-      resources = data.resources;
-    } catch (err) {
-      error = "Failed to load resources.";
-    } finally {
-      loading = false;
+  onMount(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.log('No Token Detected, Redirecting to Login Page')
+      goto('/login'); 
     }
-  })();
+  });
+
+  export let data;
+
+  const { groupedCameras, fullAlertDetails } = data;
+
+  
 </script>
 
 <!-- Drop down for selecting agency specific view -->
 
 <main class="pt-2 flex justify-center flex-wrap gap-10">
-  
   {#if $selectedAgency === "FENZ"}
     <Metservice />
-    <AlertsRss />
+    <RssEmergencyAlerts />
+    <ContactUs />
   {:else if $selectedAgency === "GeoNet"}
     <GeoNet />
     <Volcano />
+    <CurrentEvents />
+    <ContactUs />
   {:else if $selectedAgency === "USAR"}
     <Metservice />
     <GeoNet />
     <Volcano />
+    <CurrentEvents />
+    <ContactUs />
   {:else}
     <!-- Displays all -->
     <Metservice />
     <GeoNet />
     <Volcano />
     <Map />
-    <AlertsRss />
+    <RssEmergencyAlerts {fullAlertDetails} />
     <Tides />
+    <NZTACameras {groupedCameras} />
     <CivilDefence />
-    {#if loading}
-      <p>Loading resources...</p>
-    {:else if error}
-      <p>{error}</p>
-    {:else}
-      <CommunityMember {resources} />
-    {/if}
+    <CommunityMember />
   {/if}
 </main>
-

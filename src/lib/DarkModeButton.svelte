@@ -19,25 +19,11 @@
         }
     }
 </script>
-<button on:click={toggle}>
+<button class="dropdown px-4 py-[0.6em] font-bold bg-[#333] text-white cursor-pointer outline-none border-t-[2px] border-l-[2px] border-b-[2px] border-r-[2px] border-t-[#535353] border-l-[#535353] border-b-black border-r-black"
+on:click={toggle}>
     {#if dark }
     ☀️ Light Mode
     {:else}
     🌙 Dark Mode
     {/if}
 </button>
-<style>
-    button{
-        padding: 0.6em 1em 0.6em 1em;
-        font-family: inherit;
-        font-size: inherit;
-        font-weight: bolder;
-        background-color: #333;
-        color: white;
-        cursor: pointer;
-    }
-    :global(body.dark) button{
-        background-color: white;
-        color: #333;
-    }
-</style>
