@@ -33,8 +33,7 @@
 
 <header class="flex justify-center items-center sticky top-0 z-[1000] p-2">
   <h1
-    class="text-center text-xl uppercase underline tracking-widest p-3 drop-shadow-xl m-4 bg-white w-[25em] shadow-[3px_3px_3px]"
-  >
+    class="text-center text-xl uppercase underline tracking-widest drop-shadow-xl m-4 bg-white w-[20em] shadow-[3px_3px_3px]">
     <a href="/" class="text-darkgrey no-underline">Disaster Management System</a
     >
   </h1>
@@ -125,9 +124,9 @@
     padding: 1em;
   }
   ul li {
-    padding: 0.3em 0.8em 0.3em 0.8em;
+    padding: 0.3em 0.8em 0.3em 0.25em;
     border-radius: 0.625em;
-    margin: 10px;
+    margin: 1px;
     align-self: center;
   }
   /*ul list that contains the #hamburger a tag ☰*/
@@ -184,6 +183,7 @@
     ul:first-of-type {
       display: none;
     }
+    
     /*Last list on nav menu for hamburger menu*/
     ul:last-of-type {
       display: flex;
@@ -193,4 +193,22 @@
       box-shadow: 3px 3px 10px black;
     }
   }
+
+  @media (width <= 1377) {
+    /*First list on nav menu*/
+    ul:first-of-type {
+      display: none;
+    }
+    
+    ul:last-of-type {
+      display: flex;
+    }
+    #dropdown-menu {
+      border: 5px solid black;
+      box-shadow: 3px 3px 10px black;
+    }
+  }
+
+
+
 </style>

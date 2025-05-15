@@ -32,7 +32,7 @@ function Logout()
         border-right: 2px solid black;
         border-bottom: 2px solid black;
         border-left: 2px solid #535353;
-        width: 10em;
+        width: 8em;
     }
     :global(body.dark) button{
         background-color: white;
