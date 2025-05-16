@@ -32,11 +32,6 @@
 
 <!-- Drop down for selecting agency specific view -->
 
-  <div class="flex flex-col md:flex-row min-h-screen">
-
-    <aside class="w-full md:w-60 bg-white p-4 border-r border-gray-200 shadow-sm">
-    <ReportedHazards />
-  </aside>
 
   <!-- Main content area -->
   <main class="flex-1 pt-4 px-6 flex justify-center flex-wrap gap-10">
@@ -57,6 +52,7 @@
       <ContactUs />
     {:else}
       <!-- Displays all -->
+      <ReportedHazards />
       <Metservice />
       <GeoNet />
       <Volcano />
@@ -68,4 +64,3 @@
       <CommunityMember />
     {/if}
   </main>
-</div>
