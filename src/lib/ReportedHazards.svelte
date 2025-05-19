@@ -47,8 +47,8 @@ import { onMount } from "svelte";
 </script>
 
 <section>
-  <h1 class="text-xl font-bold text-gray-800 mb-4">
-    Latest reported hazards to responders
+  <h1 class="text-2xl font-bold mb-4">
+    Latest Reported Hazards To Responders
   </h1>
   
     <!-- Hazard List -->
@@ -60,17 +60,16 @@ import { onMount } from "svelte";
         <p class="text-gray-600">No hazards reported yet.</p>
       {:else}
         {#each hazards.slice(0, 5) as hazard}
-          <details class="mb-4 border border-gray-200 rounded-md p-4 bg-gray-50">
-            <summary class="cursor-pointer text-base font-medium text-gray-800">
-              {hazard.entry}
-            </summary>
-            <div class="mt-2 text-sm text-gray-700 space-y-1">
-              <p><span class="font-semibold">Address:</span> {hazard.address}</p>
-              <p><span class="font-semibold">Agency:</span> {hazard.agency}</p>
-              <p><span class="font-semibold">Severity:</span> {hazard.severity}</p>
-              <p><span class="font-semibold">Status:</span> {hazard.status}</p>
-              <p><span class="font-semibold">Contact Info:</span> {hazard.contactInfo}</p>
-              <p><span class="font-semibold">Source:</span> {hazard.source}</p>
+          <details class="mt-4 border p-2 rounded shadow-md">
+            <summary class="cursor-pointer text-lg font-semibold">{hazard.entry}</summary>
+            <div class="mt-2 text-sm space-y-2">
+              <p><strong >Agency:</strong> {hazard.agency}</p>
+              <p><strong>Severity:</strong> {hazard.severity}</p>
+              <p><strong>Status:</strong> {hazard.status}</p>
+              <p><strong>Address:</strong> {hazard.address}</p>
+              <p><strong>Contact Info:</strong> {hazard.contactInfo}</p>
+              <p><strong>Source:</strong> {hazard.source}</p>
+              <small><strong>Time: </strong></small>
             </div>
           </details>
         {/each}

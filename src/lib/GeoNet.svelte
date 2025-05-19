@@ -47,7 +47,7 @@
       <p><strong>Depth: </strong>{quake.properties.depth.toFixed(2)} km</p>
       <p><strong>Magnitude: </strong>{quake.properties.magnitude.toFixed(2)}</p>
       <p><strong>MMI:</strong> {quake.properties.mmi}</p>
-      <small class="text-gray-600"><strong>Time: </strong>{new Date(quake.properties.time).toLocaleString('en-NZ')}</small>
+      <small c><strong>Time: </strong>{new Date(quake.properties.time).toLocaleString('en-NZ')}</small>
     </details>
   {/each}
 
