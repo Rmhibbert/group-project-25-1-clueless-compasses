@@ -9,6 +9,7 @@
     let status = "";
     let contactInfo = "";
     let hazards = [];
+    let source = "";
 
     let isFetching = true;
     let isSubmitting = false;
@@ -85,6 +86,7 @@
             contactInfo = "";
             hazardAddress.set("");
             searchQuery.set("");
+            source = "";
             error = null;
 
             // Refetch hazards to get the updated list from the server
@@ -217,6 +219,15 @@
                     placeholder="Enter phone/email..."
                     class="w-full p-2 border rounded-md bg-white text-gray-800"
                 />
+            </label>
+
+            <label class="block mb-3">
+                <span class="text-sm font-medium">Source of info</span>
+                <textarea
+                    bind:value={source}
+                    placeholder="Enter Source of info here..."
+                    class="w-full p-2 border rounded-md"
+                ></textarea>
             </label>
 
             <label class="block mb-3">

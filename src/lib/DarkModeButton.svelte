@@ -19,11 +19,13 @@
         }
     }
 </script>
-<button class="dropdown px-4 py-[0.6em] font-bold bg-[#333] text-white cursor-pointer outline-none border-t-[2px] border-l-[2px] border-b-[2px] border-r-[2px] border-t-[#535353] border-l-[#535353] border-b-black border-r-black"
-on:click={toggle}>
-    {#if dark }
+<button
+  class="dropdown px-4 py-[0.6em] font-bold bg-[#333] text-white cursor-pointer outline-none border-[2px] border-t-[#535353] border-l-[#535353] border-b-black border-r-black  min-w-[10em] whitespace-nowrap text-sm md:text-base"
+  on:click={toggle}
+>
+  {#if dark}
     ☀️ Light Mode
-    {:else}
+  {:else}
     🌙 Dark Mode
-    {/if}
+  {/if}
 </button>

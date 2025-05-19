@@ -46,6 +46,12 @@
         <input type="text" placeholder="Enter Cause"
         class="w-full p-2 border rounded-md bg-white text-gray-800" />
       </label>
+
+      <label class="m-3 grid" for="source">
+        source
+        <input type="text" placeholder="Enter source"
+        class="border rounded-md mt-1 p-1" />
+      </label>
       
         <div  class="m-3 grid text-sm font-medium">
           <label for="triggerInput" class="block text-sm font-medium text-gray-700"
