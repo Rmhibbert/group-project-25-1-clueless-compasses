@@ -19,7 +19,7 @@
 
     <select
         bind:value={selectedCameraId}
-        class="mb-2 w-fit p-1 mt-2 rounded bg-white text-gray-800 border cursor-pointer focus:outline-none focus:ring focus:ring-blue-500"
+        class="mb-2 w-fit p-1 mt-2 bg-white text-gray-800 rounded border cursor-pointer focus:outline-none focus:ring focus:ring-blue-500"
     >
         <option value="" disabled>Select a camera</option>
 
@@ -35,10 +35,10 @@
                 alt={selectedCamera.name || "Image Loading"}
                 class="w-full max-w-md rounded shadow"
             />
-            <p class="mt-2 text-gray-700">{selectedCamera.description}</p>
+            <p class="mt-2">{selectedCamera.description}</p>
         </div>
     {:else}
-        <p class=" text-tex font-bold">
+        <p class="font-bold">
             Please select a traffic camera from above
         </p>
     {/if}
