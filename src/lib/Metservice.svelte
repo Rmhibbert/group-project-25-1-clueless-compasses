@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
 
   let weather = {};
+  let loading = true;
   
   const cities = [
     { name: "Auckland", lat: -36.8485, lon: 174.7633 },
@@ -17,9 +18,11 @@
   let selectedCity = cities[7].name;
   
   async function fetchWeather(cityName) {
+    loading = true;
     const city = cities.find(c => c.name === cityName);
     const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=82336dbf0297a6e4f7502d515fcbad51&units=metric`);
     weather = await res.json();
+    loading = false;
   }
 
   onMount(() => {
@@ -38,6 +41,9 @@
     {/each}
   </select>
  
+{#if loading}
+  <p class="mt-4 text-gray-600">Loading weather data...</p>
+{:else}
   <ul class="mt-4 space-y-2">
     <li><strong>Location: </strong>{weather.name ? weather.name : "No location data"}</li>
     <li><strong>Temperature: </strong>{weather.main?.temp ? `${weather.main.temp} °C` : "No temperature data"}</li>
@@ -46,4 +52,5 @@
     <li><strong>Windspeed: </strong>{weather.wind?.speed ? `${weather.wind.speed} Knots` : "No wind data"}</li>
     <li><strong>Windspeed Gusts: </strong>{weather.wind?.gust ? `${weather.wind.gust} Knots` : "No gust data"}</li>    
   </ul>
+{/if}
 </section>
