@@ -1,10 +1,8 @@
 import { XMLParser } from "fast-xml-parser";
 
-export async function load({ fetch }) {
-  // Cameras
-  const cameraRes = await fetch(
-    "https://trafficnz.info/service/traffic/rest/4/cameras/all",
-  );
+/** @type {import('./$types').RequestHandler} */
+export async function GET({ fetch }) {
+  const cameraRes = await fetch("https://trafficnz.info/service/traffic/rest/4/cameras/all");
   const cameraXml = await cameraRes.text();
   const cameraParser = new XMLParser();
   const cameraData = cameraParser.parse(cameraXml);
@@ -31,7 +29,6 @@ export async function load({ fetch }) {
     return acc;
   }, {});
 
-  // MetService Alerts
   const alertsRes = await fetch("https://alerts.metservice.com/cap/rss");
   const alertsXml = await alertsRes.text();
   const alertsParser = new XMLParser({
@@ -40,7 +37,6 @@ export async function load({ fetch }) {
   });
   const metserviceAlerts = alertsParser.parse(alertsXml);
 
-  // Fetch full alert details from each alert link
   const fullAlertDetails = await Promise.all(
     (metserviceAlerts.rss.channel.item || []).map(async (alert) => {
       const alertRes = await fetch(alert.link);
@@ -51,11 +47,10 @@ export async function load({ fetch }) {
         ...alert,
         ...alertDetails.alert.info,
       };
-    }),
+    })
   );
 
-  return {
-    groupedCameras,
-    fullAlertDetails,
-  };
+  return new Response(JSON.stringify({ groupedCameras, fullAlertDetails }), {
+    headers: { 'Content-Type': 'application/json' }
+  });
 }
