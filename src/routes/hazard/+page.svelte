@@ -15,8 +15,8 @@
     let isSubmitting = false;
     let error = null;
 
-    // Please change me for production & merging into staging (if api branch is up to date)
-    const API_URL = "http://localhost:3000/api/v1/hazards";
+    //VITE_LOCAL fetches from localhost api and VITE_LIVE fetches from deployed api
+    const API_URL = import.meta.env.VITE_LIVE_HAZARDS_URL;
 
     // Fetch hazards on mount
     onMount(async () => {
@@ -25,6 +25,8 @@
 
     async function fetchHazards() {
         try {
+            console.log("VITE_LIVE_HAZARDS_URL:", import.meta.env.VITE_LIVE_HAZARDS_URL);
+            console.log("fetching hazards from:", API_URL);
             const response = await fetch(API_URL);
             if (!response.ok) {
                 throw new Error(`API error: ${response.status}`);
