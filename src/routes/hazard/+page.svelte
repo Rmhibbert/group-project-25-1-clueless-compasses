@@ -16,7 +16,11 @@
     let error = null;
 
     //VITE_LOCAL fetches from localhost api and VITE_LIVE fetches from deployed api
-    const API_URL = import.meta.env.VITE_LIVE_HAZARDS_URL;
+   //change APP_ENV in .env to switch between live and local
+    const env = import.meta.env.VITE_APP_ENV;
+    const API_URL = env === "live"
+            ? import.meta.env.VITE_LIVE_HAZARDS_URL
+            : import.meta.env.VITE_LOCAL_HAZARDS_URL;
 
     // Fetch hazards on mount
     onMount(async () => {
@@ -25,8 +29,6 @@
 
     async function fetchHazards() {
         try {
-            console.log("VITE_LIVE_HAZARDS_URL:", import.meta.env.VITE_LIVE_HAZARDS_URL);
-            console.log("fetching hazards from:", API_URL);
             const response = await fetch(API_URL);
             if (!response.ok) {
                 throw new Error(`API error: ${response.status}`);
@@ -111,9 +113,7 @@
 
     <div class="flex gap-6 flex-col md:flex-row">
         <!-- Hazard List -->
-        <div
-            class="md:w-1/2 p-6  rounded-lg shadow-md border border-gray-300"
-        >
+        <div class="md:w-1/2 p-6 rounded-lg shadow-md border border-gray-300">
             <h2 class="text-2xl font-semibold mb-4 text-gray-800">
                 Known Hazards and Risks
             </h2>
@@ -126,9 +126,7 @@
                 <p class="text-gray-600">No hazards reported yet.</p>
             {:else}
                 {#each hazards as hazard}
-                    <details
-                        class="mb-3 border border-gray-300 rounded-lg p-4"
-                    >
+                    <details class="mb-3 border border-gray-300 rounded-lg p-4">
                         <summary
                             class="cursor-pointer text-lg font-medium text-gray-900"
                         >
@@ -162,7 +160,7 @@
         </div>
 
         <!-- Add New Hazard -->
-        <div class="md:w-1/2 p-4  rounded-lg shadow-md">
+        <div class="md:w-1/2 p-4 rounded-lg shadow-md">
             <h2 class="text-2xl font-semibold mb-3">Log a New Hazard</h2>
 
             <label class="block mb-3">
@@ -214,7 +212,7 @@
             </label>
 
             <label class="block mb-3">
-                <span class="text-sm font-medium ">Contact Info</span>
+                <span class="text-sm font-medium">Contact Info</span>
                 <input
                     type="text"
                     bind:value={contactInfo}
