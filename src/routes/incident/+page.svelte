@@ -26,6 +26,7 @@
 </h1>
 
 <main class="flex p-3">
+  
   <!-- First Section -->
   <div class="w-1/3 p-2 m-2 border rounded-md text-gray-800">
     <h2 class="text-2xl font-semibold mb-3">Incidents</h2>
@@ -59,16 +60,16 @@
       <input
         type="text"
         placeholder="Enter source"
-        class="full p-2 border rounded-md bg-white text-gray-800"
+        class="w-full p-2 border rounded-md bg-white text-gray-800"
       />
     </label>
 
-<label class="m-3 grid text-sm font-medium" for="address-input-id">
-  <span class="text-sm font-medium">Approximate Address</span>
-  <div class=" rounded-md mt-1 ">
-    <AddressLookup id="address-input-id" bind:value={$hazardAddress} class="w-full" />
-  </div>
-</label>
+    <label class="m-3 grid text-sm font-medium" for="address-input-id">
+      <span class="text-sm font-medium">Approximate Address</span>
+      <div class="rounded-md mt-1">
+        <AddressLookup id="address-input-id" bind:value={$hazardAddress} class="w-full" />
+      </div>
+    </label>
 
     <label class="m-3 grid text-sm font-medium" for="Date">
       Date of recording

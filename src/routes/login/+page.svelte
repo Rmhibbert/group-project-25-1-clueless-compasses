@@ -5,12 +5,16 @@
   let email = '';
   let error = '';
 
+  const API_URL = import.meta.env.VITE_DEPLOYED_API_URL
+    ? `${import.meta.env.VITE_DEPLOYED_API_URL}/api/v1/auth/login`
+    : "http://localhost:3000/api/v1/auth/login";
+
   // Function to handle login
   async function enterData(event) {
     event.preventDefault();
 
     try {
-      const res = await fetch('https://staging-group-project-25-1-clueless.onrender.com/api/v1/auth/login', {
+      const res = await fetch(API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
