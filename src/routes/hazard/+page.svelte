@@ -17,10 +17,9 @@
 
     //by default it will fetch from the live api but will fetch from localhost if there is no url in .env file
 
-        const API_URL = import.meta.env.VITE_HAZARDS_URL 
-        ? import.meta.env.VITE_HAZARDS_URL 
+    const API_URL = import.meta.env.VITE_DEPLOYED_API_URL
+        ? `${import.meta.env.VITE_DEPLOYED_API_URL}/api/v1/hazards`
         : "http://localhost:3000/api/v1/hazards";
- 
 
     // Fetch hazards on mount
     onMount(async () => {
