@@ -1,19 +1,10 @@
 <script>
 import { onMount } from "svelte";
 
-    let entry = "";
-    let agency = "";
-    let severity = "";
-    let status = "";
-    let contactInfo = "";
     let hazards = [];
-    let source="";
-
     let isFetching = true;
-    let isSubmitting = false;
     let error = null;
-
-    // Please change me for production & merging into staging (if api branch is up to date)
+    
     const API_URL = "https://staging-group-project-25-1-clueless.onrender.com/api/v1/hazards";
 
  // Fetch hazards on mount
