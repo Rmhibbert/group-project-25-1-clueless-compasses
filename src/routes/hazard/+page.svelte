@@ -15,12 +15,12 @@
     let isSubmitting = false;
     let error = null;
 
-    //VITE_LOCAL fetches from localhost api and VITE_LIVE fetches from deployed api
-   //change APP_ENV in .env to switch between live and local
-    const env = import.meta.env.VITE_APP_ENV;
-    const API_URL = env === "live"
-            ? import.meta.env.VITE_LIVE_HAZARDS_URL
-            : import.meta.env.VITE_LOCAL_HAZARDS_URL;
+    //by default it will fetch from the live api but will fetch from localhost if there is no url in .env file
+
+        const API_URL = import.meta.env.VITE_HAZARDS_URL 
+        ? import.meta.env.VITE_HAZARDS_URL 
+        : "http://localhost:3000/api/v1/hazards";
+ 
 
     // Fetch hazards on mount
     onMount(async () => {
