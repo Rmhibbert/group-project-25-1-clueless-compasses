@@ -47,8 +47,8 @@
         class="w-full p-2 border rounded-md bg-white text-gray-800" />
       </label>
 
-      <label class="m-3 grid" for="source">
-        source
+      <label class="m-3 grid text-sm font-medium" for="source">
+        Source
         <input type="text" placeholder="Enter source"
         class="border rounded-md mt-1 p-1" />
       </label>
