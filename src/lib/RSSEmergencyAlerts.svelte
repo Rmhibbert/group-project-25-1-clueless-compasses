@@ -1,6 +1,8 @@
 <script>
   export let fullAlertDetails;
 
+  $: hasAlerts = fullAlertDetails && fullAlertDetails.length > 0;
+
   // Object of emojis for conversion from colour to emoji used by the getEmoji function
   const emojis = {
     Green: "🟩",
@@ -34,7 +36,7 @@
 <section>
   <h1 class="text-2xl font-bold mb-4">Metservice Warnings</h1>
   <!-- If there is an alert display other wise show no alerts message -->
-  {#if fullAlertDetails && fullAlertDetails.length > 0}
+  {#if hasAlerts}
     <ul class="space-y-4">
       {#each fullAlertDetails as alert}
         <li class="border p-4 rounded-lg shadow">
