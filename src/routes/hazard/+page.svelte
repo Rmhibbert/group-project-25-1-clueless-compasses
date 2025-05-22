@@ -9,6 +9,7 @@
     let status = "";
     let contactInfo = "";
     let hazards = [];
+    let source = "";
 
     let isFetching = true;
     let isSubmitting = false;
@@ -85,6 +86,7 @@
             contactInfo = "";
             hazardAddress.set("");
             searchQuery.set("");
+            source = "";
             error = null;
 
             // Refetch hazards to get the updated list from the server
@@ -108,7 +110,7 @@
     <div class="flex gap-6 flex-col md:flex-row">
         <!-- Hazard List -->
         <div
-            class="md:w-1/2 p-6 bg-white rounded-lg shadow-md border border-gray-300"
+            class="md:w-1/2 p-6  rounded-lg shadow-md border border-gray-300"
         >
             <h2 class="text-2xl font-semibold mb-4 text-gray-800">
                 Known Hazards and Risks
@@ -123,7 +125,7 @@
             {:else}
                 {#each hazards as hazard}
                     <details
-                        class="mb-3 border border-gray-300 rounded-lg p-4 bg-gray-50"
+                        class="mb-3 border border-gray-300 rounded-lg p-4"
                     >
                         <summary
                             class="cursor-pointer text-lg font-medium text-gray-900"
@@ -158,14 +160,14 @@
         </div>
 
         <!-- Add New Hazard -->
-        <div class="md:w-1/2 p-4 bg-gray-50 rounded-lg shadow-md">
-            <h2 class="text-lg font-semibold mb-3">Log a New Hazard</h2>
+        <div class="md:w-1/2 p-4  rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold mb-3">Log a New Hazard</h2>
 
             <label class="block mb-3">
                 <span class="text-sm font-medium">Agency</span>
                 <select
                     bind:value={agency}
-                    class="w-full p-2 border rounded-md"
+                    class="w-full p-2 border rounded-md bg-white text-gray-800"
                 >
                     <option value="">All</option>
                     <option value="USAR">USAR</option>
@@ -183,7 +185,7 @@
                 <span class="text-sm font-medium">Severity Level</span>
                 <select
                     bind:value={severity}
-                    class="w-full p-2 border rounded-md"
+                    class="w-full p-2 border rounded-md bg-white text-gray-800"
                 >
                     <option value="">Select severity</option>
                     <option value="Low">Low</option>
@@ -197,7 +199,7 @@
                 <span class="text-sm font-medium">Status</span>
                 <select
                     bind:value={status}
-                    class="w-full p-2 border rounded-md"
+                    class="w-full p-2 border rounded-md bg-white text-gray-800"
                 >
                     <option value="">Select status</option>
                     <option value="Active">Active</option>
@@ -210,13 +212,22 @@
             </label>
 
             <label class="block mb-3">
-                <span class="text-sm font-medium">Contact Info</span>
+                <span class="text-sm font-medium ">Contact Info</span>
                 <input
                     type="text"
                     bind:value={contactInfo}
                     placeholder="Enter phone/email..."
-                    class="w-full p-2 border rounded-md"
+                    class="w-full p-2 border rounded-md bg-white text-gray-800"
                 />
+            </label>
+
+            <label class="block mb-3">
+                <span class="text-sm font-medium">Source of info</span>
+                <textarea
+                    bind:value={source}
+                    placeholder="Enter Source of info here..."
+                    class="w-full p-2 border rounded-md"
+                ></textarea>
             </label>
 
             <label class="block mb-3">
@@ -224,7 +235,7 @@
                 <textarea
                     bind:value={entry}
                     placeholder="Enter details here..."
-                    class="w-full p-2 border rounded-md"
+                    class="w-full p-2 border rounded-md bg-white text-gray-800"
                 ></textarea>
             </label>
 
