@@ -3,19 +3,18 @@
 
   let dropdownMenu;
   let dropdownDisplayed = false;
+
   import AgencySelect from "$lib/AgencySelect.svelte";
   import PageSelect from "$lib/PageSelect.svelte";
   import DarkModeButton from "./DarkModeButton.svelte";
   import LogoutButton from "./LogoutButton.svelte";
 
   function displayMenu() {
-    // Toggle the display style of the dropdown menu
     dropdownDisplayed = true;
     dropdownMenu.style.display =
       dropdownMenu.style.display === "flex" ? "none" : "flex";
   }
 
-  //hides dropdown if anywhere on the page is clicked but the options or the hamburger icon
   function hideDropdown(event) {
     if (
       dropdownDisplayed &&
@@ -26,143 +25,58 @@
       dropdownDisplayed = false;
     }
   }
+
   onMount(() => {
     document.addEventListener("click", hideDropdown);
   });
 </script>
 
-<header class="flex justify-center items-center sticky top-0 z-[1000] p-2">
-  <h1
-    class="text-center text-xl uppercase underline tracking-widest p-3 drop-shadow-xl m-4 bg-white w-[25em] shadow-[3px_3px_3px]"
-  >
-    <a href="/" class="text-darkgrey no-underline">Disaster Management System</a
-    >
+<header class="flex justify-center items-center sticky top-0 z-[1000] p-2 bg-white shadow-md">
+  <h1 class="text-center text-xl uppercase underline tracking-widest drop-shadow-xl h-[3em] flex items-center justify-center bg-white w-[20em] shadow-[3px_3px_3px] m-4">
+    <a href="/" class="text-darkgrey no-underline">Disaster Management System</a>
   </h1>
-  <nav>
-    <!--Main Items-->
-    <ul class="hidden md:flex space-x-3 text-xl p-4">
-      <li class="p-4">
-        <AgencySelect />
-      </li>
-      <li class="p-4">
-        <PageSelect />
-      </li>
-      <li class="p-4">
-        <DarkModeButton />
-      </li>
-      <li class="p-4">
-        <LogoutButton />
-      </li>
+
+  <nav class="flex items-center">
+    <!-- Full navbar (only visible on lg screens and up) -->
+    <ul class="hidden lg:flex items-center space-x-4 text-base">
+      <li><AgencySelect /></li>
+      <li><PageSelect /></li>
+      <li><DarkModeButton /></li>
+      <li><LogoutButton /></li>
     </ul>
-    <!--Hamburger Menu-->
-    <ul class="md:hidden ml-8">
+
+    <!-- Hamburger menu icon (visible below lg) -->
+    <ul class="flex lg:hidden ml-4">
       <li>
         <button
           id="hamburger"
           on:click={displayMenu}
-          class="text-4xl cursor-pointer hover:text-gray-800"
+          class="text-3xl text-black cursor-pointer hover:text-gray-700"
         >
           ☰
         </button>
       </li>
     </ul>
   </nav>
+
+  <!-- Dropdown menu for mobile/small screens -->
   <nav
     id="dropdown-menu"
     bind:this={dropdownMenu}
-    class="hidden absolute top-[10em] w-[20em] h-[12em] bg-[#333] text-white rounded-lg border-4 border-black shadow-[3px_3px_10px_black]"
+    class="hidden absolute top-[10em] left-[1em] w-[18em] bg-[#333] text-white rounded-lg border-4 border-black shadow-[3px_3px_10px_black] z-[1001]"
   >
-    <ul class="flex flex-col space-y-2 p-4">
-      <li class="list-disc ml-8">
-        <AgencySelect />
-      </li>
-      <li class="list-disc ml-8">
-        <PageSelect />
-      </li>
-      <li class="list-disc ml-8">
-        <DarkModeButton />
-      </li>
-      <li class="list-disc ml-8">
-        <LogoutButton />
-      </li>
+    <ul class="flex flex-col space-y-2 p-4 text-sm">
+      <li><AgencySelect /></li>
+      <li><PageSelect /></li>
+      <li><DarkModeButton /></li>
+      <li><LogoutButton /></li>
     </ul>
   </nav>
 </header>
 
 <style>
-  header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  h1 a {
-    color: #333;
-    text-decoration: none;
-  }
-  h1 {
-    width: 25em;
-    font-size: 20px;
-    text-transform: uppercase;
-    text-decoration: underline;
-    letter-spacing: 4px;
-    text-align: center;
-    background-color: white;
-    padding: 0.6em;
-    box-shadow: 3px 3px 3px;
-    margin-left: 1em;
-  }
-
-  ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    font-size: 1.2em;
-    /* Puts the title onto the same line */
-    /*Centers list elements directly*/
-    padding: 1em;
-  }
-  ul li {
-    padding: 0.3em 0.8em 0.3em 0.8em;
-    border-radius: 0.625em;
-    margin: 10px;
-    align-self: center;
-  }
-  /*ul list that contains the #hamburger a tag ☰*/
-  ul:last-of-type {
-    display: none;
-  }
-
   #dropdown-menu {
     display: none;
-    background-color: #333;
-    width: 20em;
-    height: 20em;
-    position: absolute;
-    top: 10em;
-    border-radius: 1em;
-  }
-  #dropdown-menu ul {
-    flex-direction: column;
-  }
-  #dropdown-menu ul li {
-    align-self: last baseline;
-    list-style: square;
-    color: white;
-    margin-left: 2em;
-  }
-  #dropdown-menu li {
-    padding: 0;
-  }
-  #hamburger {
-    font-size: 40px;
-    cursor: pointer;
-  }
-  ul:has(#hamburger) {
-    /* Styles for the <ul> containing the #hamburger */
-    margin-left: 2em;
   }
 
   button {
@@ -178,19 +92,5 @@
 
   #hamburger:hover {
     color: #333;
-  }
-  @media (width <= 1555px) {
-    /*First list on nav menu*/
-    ul:first-of-type {
-      display: none;
-    }
-    /*Last list on nav menu for hamburger menu*/
-    ul:last-of-type {
-      display: flex;
-    }
-    #dropdown-menu {
-      border: 5px solid black;
-      box-shadow: 3px 3px 10px black;
-    }
   }
 </style>

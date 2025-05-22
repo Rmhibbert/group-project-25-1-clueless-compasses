@@ -47,11 +47,11 @@
       <p><strong>Depth: </strong>{quake.properties.depth.toFixed(2)} km</p>
       <p><strong>Magnitude: </strong>{quake.properties.magnitude.toFixed(2)}</p>
       <p><strong>MMI:</strong> {quake.properties.mmi}</p>
-      <small c><strong>Time: </strong>{new Date(quake.properties.time).toLocaleString('en-NZ')}</small>
+      <small><strong>Time: </strong>{new Date(quake.properties.time).toLocaleString('en-NZ')}</small>
     </details>
   {/each}
 
   {#if quakes.length === 0}
-    <p class="mt-4 text-gray-600">No earthquakes found with MMI equal to {selectedMmi}.</p>
+    <p>No earthquakes found with MMI equal to {selectedMmi}.</p>
   {/if}
 </section>
