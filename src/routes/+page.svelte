@@ -1,10 +1,8 @@
 <script>
   import Metservice from "$lib/Metservice.svelte";
-  import CivilDefence from "$lib/CivilDefence.svelte";
   import GeoNet from "$lib/GeoNet.svelte";
   import Volcano from "$lib/Volcano.svelte";
   import Tides from "$lib/Tides.svelte";
-  import CommunityMember from "$lib/CommunityMember.svelte";
   import Map from "$lib/Map.svelte";
   import ContactUs from "$lib/ContactUs.svelte";
   import { selectedAgency } from "$lib/stores.js";
@@ -60,7 +58,5 @@
       <RssEmergencyAlerts {fullAlertDetails} />
       <Tides />
       <NZTACameras {groupedCameras} />
-      <CivilDefence />
-      <CommunityMember />
     {/if}
   </main>

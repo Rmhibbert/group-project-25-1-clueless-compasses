@@ -48,7 +48,7 @@ import { onMount } from "svelte";
 
 <section>
   <h1 class="text-2xl font-bold mb-4">
-    Latest Reported Hazards To Responders
+    Latest Reported Hazards
   </h1>
   
     <!-- Hazard List -->
