@@ -2,74 +2,81 @@
 
 /* Light mode styles */
 body {
-    @apply font-sans p-0 m-0 transition-colors duration-1000;
+  @apply font-sans p-0 m-0 transition-colors duration-1000;
 }
 
 section {
-    @apply w-[375px] h-[375px] shadow-lg rounded-md p-4 overflow-y-auto border-4 border-[#131f2a] transition-colors duration-1000;
+  @apply w-[375px] h-[375px] shadow-lg rounded-md p-4 overflow-y-auto border-4 border-[#131f2a] transition-colors duration-1000;
 }
 
 summary {
-    @apply font-bold text-base cursor-pointer;
+  @apply font-bold text-base cursor-pointer;
 }
 
 header {
-    @apply shadow-[rgba(0,0,0,0.35)_0px_-50px_36px_-28px_inset] bg-gradient-to-r from-[#053a78] via-[#1d73a8] to-[#00d4ff] transition-colors duration-1000 border-4 border-[#131f2a]
-    ;
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: fadeDropIn 1s ease-out forwards;
-
+  @apply shadow-[rgba(0,0,0,0.35)_0px_-50px_36px_-28px_inset] bg-gradient-to-r from-[#053a78] via-[#1d73a8] to-[#00d4ff] transition-colors duration-1000 border-4 border-[#131f2a];
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeDropIn 1s ease-out forwards;
 }
 
 thead {
-    @apply text-[#131f2a];
+  @apply text-[#131f2a];
 }
 
 tr:hover {
-    @apply text-gray-800;
+  @apply text-gray-800;
 }
 
 iframe {
-    @apply bg-white;
+  @apply bg-white;
 }
 
 #content {
-    @apply transition-colors duration-500;
+  @apply transition-colors duration-500;
 }
 
 /* Dark mode styles */
 body.dark {
-    @apply bg-[#131f2a] ;
+  @apply bg-[#131f2a];
 }
 
 header.dark {
-    @apply bg-[#131f2a] border-b-4 border-white;
+  @apply bg-[#131f2a] border-b-4 border-white;
 }
 
-#content.dark section {
+
+body.dark section {
     @apply text-white bg-[#182938] border-4 border-white;
-}
+  }
+    
+  body.dark h1,
+  body.dark h2,
+  body.dark summary,
+  body.dark label,
+  body.dark p {
+    @apply text-white;
+  }
 
 footer.dark {
-    @apply bg-black;
+  @apply bg-black;
 }
 
 #content.dark section a {
-    @apply text-white;
+  @apply text-white;
 }
 
 body.dark .dropdown {
-    @apply bg-white text-[#333];
+  @apply bg-white text-[#333];
 }
 
 @keyframes fadeDropIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
