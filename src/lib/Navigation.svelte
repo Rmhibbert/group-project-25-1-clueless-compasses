@@ -1,8 +1,13 @@
 <script>
   import { onMount } from "svelte";
+  import { derived } from "svelte/store";
+  import { page } from "$app/stores";
 
   let dropdownMenu;
   let dropdownDisplayed = false;
+
+  const isLoginPage = derived(page, $page => $page.url.pathname === '/login');
+
 
   import AgencySelect from "$lib/AgencySelect.svelte";
   import PageSelect from "$lib/PageSelect.svelte";
@@ -36,13 +41,14 @@
     <a href="/" class="text-darkgrey no-underline">Disaster Management System</a>
   </h1>
 
-  <nav class="flex items-center">
-    <!-- Full navbar (only visible on lg screens and up) -->
+<nav class="flex items-center">
     <ul class="hidden lg:flex items-center space-x-4 text-base">
-      <li><AgencySelect /></li>
-      <li><PageSelect /></li>
-      <li><DarkModeButton /></li>
-      <li><LogoutButton /></li>
+      {#if !$isLoginPage}
+        <li><AgencySelect /></li>
+        <li><PageSelect /></li>
+        <li><DarkModeButton /></li>
+        <li><LogoutButton /></li>
+      {/if}
     </ul>
 
     <!-- Hamburger menu icon (visible below lg) -->
