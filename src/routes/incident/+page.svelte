@@ -4,29 +4,69 @@
   import { hazardAddress, searchQuery } from "$lib/stores.js";
   let avatar, fileinput;
 
-  let inputText = "";
-  let inputText2 = "";
+  let description = "";
+  let cause = "";
+  let recordedAt = "";
+  let imageFile = null;
+  let preview = null;
 
-  $: showField = inputText.trim().length > 0;
-  $: showField2 = inputText2.trim().length > 0;
 
-  const onFileSelected = (e) => {
-    let image = e.target.files[0];
-    let reader = new FileReader();
-    reader.readAsDataURL(image);
+  async function onFileSelected(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const compressed = await imageCompression(file, {
+      maxSizeMB: 0.5,
+      maxWidthOrHeight: 1024,
+      useWebWorker: true,
+    });
+    imageFile = compressed;
+    const reader = new FileReader();
     reader.onload = (e) => {
       avatar = e.target.result;
     };
-  };
+
+    reader.readAsDataURL(compressed);
+  }
+
+  async function submitForm() {
+    try {
+      const formData = new FormData();
+      formData.append("description", description);
+      formData.append("cause", cause);
+      formData.append("address", $hazardAddress);
+      formData.append("recordedAt", recordedAt);
+      if (imageFile) {
+        formData.append("photo", imageFile);
+      }
+      const res = await fetch("http://localhost:3000/api/v1/incidents", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      console.log("Incident logged:", data);
+      console.log(
+        "Server message:",
+        data.message || data.error?.message || data.error
+      );
+
+      // Clear form
+      description = "";
+      cause = "";
+      hazardAddress.set("");
+      recordedAt = "";
+      imageFile = null;
+      preview = null;
+      fileinput.value = null;
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  }
 </script>
 
 <!-- Header -->
 <h1
   class="text-3xl font-bold text-gray-800 border-b-2 border-gray-300 p-1 text-center"
 >
-  Incident Log
-</h1>
-<h1 class="text-3xl font-bold border-b-2 border-gray-300 p-1 text-center">
   Incident Log
 </h1>
 
@@ -44,7 +84,7 @@
       Description of incident
       <input
         type="text"
-                bind:value={description}
+        bind:value={description}
         placeholder="Enter Description"
         class="border rounded-md mt-1 p-1"
         required
@@ -55,18 +95,21 @@
       Cause of incident
       <input
         type="text"
-                bind:value={cause}
+        bind:value={cause}
         placeholder="Enter Cause"
         class="w-full p-2 border rounded-md bg-white text-gray-800"
       />
     </label>
- <label class="m-3 grid text-sm font-medium" for="address-input-id">
+    <label class="m-3 grid text-sm font-medium" for="address-input-id">
       <span class="text-sm font-medium">Approximate Address</span>
       <div class="rounded-md mt-1">
-        <AddressLookup id="address-input-id" bind:value={$hazardAddress} class="w-full" />
+        <AddressLookup
+          id="address-input-id"
+          bind:value={$hazardAddress}
+          class="w-full"
+        />
       </div>
     </label>
-
 
     <label class="m-3 grid text-sm font-medium" for="Date">
       Date of recording
@@ -96,6 +139,7 @@
     </label>
 
     <button
+      on:click={submitForm}
       class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
       >Submit Incident</button
     >
