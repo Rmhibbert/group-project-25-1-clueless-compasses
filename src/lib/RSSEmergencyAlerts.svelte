@@ -1,5 +1,6 @@
 <script>
   export let fullAlertDetails;
+  console.log(fullAlertDetails);
 
   $: hasAlerts = fullAlertDetails && fullAlertDetails.length > 0;
 
@@ -13,6 +14,11 @@
 
   function getEmoji(colorValue) {
     return emojis[colorValue] || "⚪";
+  }
+
+  //Finds a specific parameter value, needed as the color isn't always the same index
+  function getParameterValue(params, name) {
+    return params.find((p) => p.valueName === name)?.value;
   }
 
   // Formats date to nicer format
@@ -41,7 +47,7 @@
       {#each fullAlertDetails as alert}
         <li class="border p-4 rounded-lg shadow">
           <h2 class="text-xl font-semibold mb-1">
-            {getEmoji(alert.parameter[1].value)}
+            {getEmoji(getParameterValue(alert.parameter, "ColourCode"))}
             {alert.title}
           </h2>
           <p class="text-sm mb-1">📍 {alert.area.areaDesc}</p>
