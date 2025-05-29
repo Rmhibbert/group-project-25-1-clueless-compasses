@@ -15,8 +15,11 @@
     let isSubmitting = false;
     let error = null;
 
-    // Please change me for production & merging into staging (if api branch is up to date)
-    const API_URL = "http://localhost:3000/api/v1/hazards";
+    //by default it will fetch from the live api but will fetch from localhost if there is no url in .env file
+
+    const API_URL = import.meta.env.VITE_DEPLOYED_API_URL
+        ? `${import.meta.env.VITE_DEPLOYED_API_URL}/api/v1/hazards`
+        : "http://localhost:3000/api/v1/hazards";
 
     // Fetch hazards on mount
     onMount(async () => {
@@ -109,9 +112,7 @@
 
     <div class="flex gap-6 flex-col md:flex-row">
         <!-- Hazard List -->
-        <div
-            class="md:w-1/2 p-6  rounded-lg shadow-md border border-gray-300"
-        >
+        <div class="md:w-1/2 p-6 rounded-lg shadow-md border border-gray-300">
             <h2 class="text-2xl font-semibold mb-4 text-gray-800">
                 Known Hazards and Risks
             </h2>
@@ -124,9 +125,7 @@
                 <p class="text-gray-600">No hazards reported yet.</p>
             {:else}
                 {#each hazards as hazard}
-                    <details
-                        class="mb-3 border border-gray-300 rounded-lg p-4"
-                    >
+                    <details class="mb-3 border border-gray-300 rounded-lg p-4">
                         <summary
                             class="cursor-pointer text-lg font-medium text-gray-900"
                         >
@@ -160,7 +159,7 @@
         </div>
 
         <!-- Add New Hazard -->
-        <div class="md:w-1/2 p-4  rounded-lg shadow-md">
+        <div class="md:w-1/2 p-4 rounded-lg shadow-md">
             <h2 class="text-2xl font-semibold mb-3">Log a New Hazard</h2>
 
             <label class="block mb-3">
@@ -212,7 +211,7 @@
             </label>
 
             <label class="block mb-3">
-                <span class="text-sm font-medium ">Contact Info</span>
+                <span class="text-sm font-medium">Contact Info</span>
                 <input
                     type="text"
                     bind:value={contactInfo}
