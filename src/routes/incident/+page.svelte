@@ -10,6 +10,9 @@
   let imageFile = null;
   let preview = null;
 
+  const API_URL = import.meta.env.VITE_DEPLOYED_API_URL
+    ? `${import.meta.env.VITE_DEPLOYED_API_URL}/api/v1/incidents`
+    : "http://localhost:3000/api/v1/incidents";
 
   async function onFileSelected(event) {
     const file = event.target.files[0];
@@ -38,7 +41,7 @@
       if (imageFile) {
         formData.append("photo", imageFile);
       }
-      const res = await fetch("http://localhost:3000/api/v1/incidents", {
+      const res = await fetch(API_URL, {
         method: "POST",
         body: formData,
       });
@@ -46,7 +49,7 @@
       console.log("Incident logged:", data);
       console.log(
         "Server message:",
-        data.message || data.error?.message || data.error
+        data.message || data.error?.message || data.error,
       );
 
       // Clear form
