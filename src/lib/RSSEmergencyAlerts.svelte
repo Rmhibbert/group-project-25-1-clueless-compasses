@@ -1,6 +1,5 @@
 <script>
   export let fullAlertDetails;
-  console.log(fullAlertDetails);
 
   $: hasAlerts = fullAlertDetails && fullAlertDetails.length > 0;
 
