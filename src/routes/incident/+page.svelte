@@ -72,12 +72,12 @@
 
 <main class="flex p-3">
   <!-- First Section -->
-  <div class="w-1/3 p-2 m-2 border rounded-md text-gray-800">
+  <div class="w-1/2 p-2 m-2 border rounded-md text-gray-800">
     <h2 class="text-2xl font-semibold mb-3">Incidents</h2>
   </div>
 
   <!-- Second Section -->
-  <div class="w-1/3 p-2 m-2 border rounded-md text-gray-800">
+  <div class="w-1/2 p-2 m-2 border rounded-md text-gray-800">
     <h2 class="text-2xl font-semibold mb-3">Incident Report</h2>
 
     <label class="m-3 grid text-sm font-medium" for="Description">
@@ -144,12 +144,4 @@
       >Submit Incident</button
     >
   </div>
-
-  <!-- Third Section -->
-  <div class="w-1/3 p-2 m-2 border rounded-md text-gray-800">
-    <h2 class="text-2xl font-semibold mb-3">Locations already logged</h2>
-  </div>
 </main>
-
-<style>
-</style>
