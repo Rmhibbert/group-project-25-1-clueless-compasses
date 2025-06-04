@@ -12,6 +12,9 @@
   import NZTACameras from "$lib/NZTACameras.svelte";
   import RssEmergencyAlerts from "$lib/RSSEmergencyAlerts.svelte";
   import ReportedHazards from "$lib/ReportedHazards.svelte";
+  import { currentPage } from "$lib/stores.js";
+
+  $currentPage='home';
 
   let groupedCameras = {};
   let fullAlertDetails = [];

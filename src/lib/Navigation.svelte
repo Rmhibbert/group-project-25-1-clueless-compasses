@@ -8,6 +8,7 @@
   import PageSelect from "$lib/PageSelect.svelte";
   import DarkModeButton from "./DarkModeButton.svelte";
   import LogoutButton from "./LogoutButton.svelte";
+  import { currentPage } from "$lib/stores.js";
 
   function displayMenu() {
     dropdownDisplayed = true;
@@ -25,7 +26,7 @@
       dropdownDisplayed = false;
     }
   }
-
+console.log($currentPage);
   onMount(() => {
     document.addEventListener("click", hideDropdown);
   });
@@ -39,10 +40,17 @@
   <nav class="flex items-center">
     <!-- Full navbar (only visible on lg screens and up) -->
     <ul class="hidden lg:flex items-center space-x-4 text-base">
+      {#if $currentPage==='home'}
       <li><AgencySelect /></li>
       <li><PageSelect /></li>
       <li><DarkModeButton /></li>
       <li><LogoutButton /></li>
+      {:else}
+      <li><PageSelect /></li>
+      <li><DarkModeButton /></li>
+      <li><LogoutButton /></li>
+      {/if}
+
     </ul>
 
     <!-- Hamburger menu icon (visible below lg) -->
@@ -66,10 +74,16 @@
     class="hidden absolute top-[10em] left-[1em] w-[18em] bg-[#333] text-white rounded-lg border-4 border-black shadow-[3px_3px_10px_black] z-[1001]"
   >
     <ul class="flex flex-col space-y-2 p-4 text-sm">
+      {#if $currentPage==='home'}
       <li><AgencySelect /></li>
       <li><PageSelect /></li>
       <li><DarkModeButton /></li>
       <li><LogoutButton /></li>
+      {:else}
+      <li><PageSelect /></li>
+      <li><DarkModeButton /></li>
+      <li><LogoutButton /></li>
+      {/if}
     </ul>
   </nav>
 </header>
