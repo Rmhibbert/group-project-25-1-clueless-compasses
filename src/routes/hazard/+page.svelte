@@ -90,7 +90,7 @@
 
 <main class="p-6">
   <h1
-    class="text-3xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 text-center"
+    class="text-3xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 text-center rounded"
   >
     Reported Hazards
   </h1>
@@ -201,7 +201,7 @@
         <textarea
           bind:value={source}
           placeholder="Enter Source of info here..."
-          class="w-full p-2 border rounded-md "
+          class="w-full p-2 border rounded-md bg-white text-gray-800 dark:bg-gray-800 dark:text-white "
         ></textarea>
       </label>
 
