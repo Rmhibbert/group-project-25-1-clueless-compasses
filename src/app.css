@@ -37,6 +37,8 @@ iframe {
 }
 
 /* Dark mode styles */
+@custom-variant dark (&:where(.dark, .dark *));
+
 body.dark {
   @apply bg-[#131f2a];
 }

@@ -70,7 +70,7 @@
     id="city" 
     bind:value={selectedCity} 
     on:change={handleCityChange}
-    class="w-40 p-1 rounded bg-white text-gray-800 text-base border border-gray-300 cursor-pointer mb-4"
+    class="w-40 p-1 rounded bg-white text-gray-800 dark:bg-gray-800 dark:text-white text-base border border-gray-300 cursor-pointer mb-4"
   >
     {#each cities as city}
       <option value={city}>{city.name}</option>
@@ -81,7 +81,7 @@
   <select 
     bind:value={selectedForecast} 
     on:change={handleForecastChange}
-    class="w-40 p-1 rounded bg-white text-gray-800 text-base border border-gray-300 cursor-pointer mb-4"
+    class="w-40 p-1 rounded bg-white text-gray-800 dark:bg-gray-800 dark:text-white text-base border border-gray-300 cursor-pointer mb-4"
   >
     <option value="1 day">1 day forecast</option>
     <option value="2 day">2 day forecast</option>
@@ -96,9 +96,9 @@
     <table class="w-full border-collapse mt-4">
       <thead>
         <tr class="bg-gray-100">
-          <th class="px-4 py-2 text-left border-b">Date</th>
-          <th class="px-4 py-2 text-left border-b">HIGH</th>
-          <th class="px-4 py-2 text-left border-b">LOW</th>
+          <th class="px-4 py-2 text-left border-b bg-white text-gray-800 dark:bg-gray-800 dark:text-white">Date</th>
+          <th class="px-4 py-2 text-left border-b bg-white text-gray-800 dark:bg-gray-800 dark:text-white">HIGH</th>
+          <th class="px-4 py-2 text-left border-b bg-white text-gray-800 dark:bg-gray-800 dark:text-white">LOW</th>
         </tr>
       </thead>
       <tbody>

@@ -144,7 +144,7 @@
         <span class="text-sm font-medium">Agency</span>
         <select
           bind:value={agency}
-          class="w-full p-2 border rounded-md bg-white text-gray-800"
+          class="w-full p-2 border rounded-md bg-white text-gray-800 dark:bg-gray-800 dark:text-white"
         >
           <option value="">All</option>
           <option value="USAR">USAR</option>
@@ -162,7 +162,7 @@
         <span class="text-sm font-medium">Severity Level</span>
         <select
           bind:value={severity}
-          class="w-full p-2 border rounded-md bg-white text-gray-800"
+          class="w-full p-2 border rounded-md bg-white text-gray-800 dark:bg-gray-800 dark:text-white"
         >
           <option value="">Select severity</option>
           <option value="Low">Low</option>
@@ -176,7 +176,7 @@
         <span class="text-sm font-medium">Status</span>
         <select
           bind:value={status}
-          class="w-full p-2 border rounded-md bg-white text-gray-800"
+          class="w-full p-2 border rounded-md bg-white text-gray-800 dark:bg-gray-800 dark:text-white"
         >
           <option value="">Select status</option>
           <option value="Active">Active</option>
@@ -192,7 +192,7 @@
           type="text"
           bind:value={contactInfo}
           placeholder="Enter phone/email..."
-          class="w-full p-2 border rounded-md bg-white text-gray-800"
+          class="w-full p-2 border rounded-md bg-white text-gray-800 dark:bg-gray-800 dark:text-white"
         />
       </label>
 
@@ -201,7 +201,7 @@
         <textarea
           bind:value={source}
           placeholder="Enter Source of info here..."
-          class="w-full p-2 border rounded-md"
+          class="w-full p-2 border rounded-md "
         ></textarea>
       </label>
 
@@ -210,7 +210,7 @@
         <textarea
           bind:value={relevantDetails}
           placeholder="Enter details here..."
-          class="w-full p-2 border rounded-md bg-white text-gray-800"
+          class="w-full p-2 border rounded-md bg-white text-gray-800 dark:bg-gray-800 dark:text-white"
         ></textarea>
       </label>
 

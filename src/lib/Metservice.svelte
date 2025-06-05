@@ -35,7 +35,7 @@
   
   <label for="city" class="text-lg font-semibold">Choose a city:</label>
   <select id="city" bind:value={selectedCity} on:change={() => fetchWeather(selectedCity)} 
-    class="w-fit p-1 mt-2 rounded bg-white text-gray-800 border cursor-pointer focus:outline-none focus:ring- focus:ring-blue-500">
+    class="w-fit p-1 mt-2 rounded border cursor-pointer focus:outline-none focus:ring- focus:ring-blue-500 bg-white text-gray-800 dark:bg-gray-800 dark:text-white">
     {#each cities as city}
       <option value={city.name} class="cursor-pointer">{city.name}</option>
     {/each}

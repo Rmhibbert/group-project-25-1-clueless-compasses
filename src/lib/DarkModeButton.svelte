@@ -1,26 +1,27 @@
 <script>
-    let dark;
-    function toggle() {
-        dark = !dark;
-        const main = document.getElementById('main');
-        const header = document.querySelector('header');
-        const footer = document.querySelector('footer');
+  import { onMount } from 'svelte';
 
-        if (dark) {
-            document.body.classList.add('dark');
-            main.classList.add('dark');
-            header.classList.add('dark');
-            footer.classList.add('dark');
-        } else {
-            document.body.classList.remove('dark');
-            main.classList.remove('dark');
-            header.classList.remove('dark');
-            footer.classList.remove('dark');
-        }
-    }
+  let dark = false;
+
+  onMount(() => {
+    // Safe: runs only in browser
+    dark = document.body.classList.contains("dark");
+  });
+
+  function toggle() {
+    dark = !dark;
+
+    const method = dark ? 'add' : 'remove';
+
+    document.body.classList[method]('dark');
+    document.getElementById('main')?.classList[method]('dark');
+    document.querySelector('header')?.classList[method]('dark');
+    document.querySelector('footer')?.classList[method]('dark');
+  }
 </script>
+
 <button
-  class="dropdown px-4 py-[0.6em] font-bold bg-[#333] text-white cursor-pointer outline-none border-[2px] border-t-[#535353] border-l-[#535353] border-b-black border-r-black  min-w-[10em] whitespace-nowrap text-sm md:text-base"
+  class="dropdown px-4 py-[0.6em] font-bold bg-[#333] text-white cursor-pointer outline-none border-[2px] border-t-[#535353] border-l-[#535353] border-b-black border-r-black min-w-[10em] whitespace-nowrap text-sm md:text-base"
   on:click={toggle}
 >
   {#if dark}

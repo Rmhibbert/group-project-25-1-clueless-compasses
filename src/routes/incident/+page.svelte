@@ -86,7 +86,7 @@
         type="text"
         bind:value={description}
         placeholder="Enter Description"
-        class="border rounded-md mt-1 p-1"
+        class="border rounded-md mt-1 p-1 bg-white text-gray-800 dark:bg-gray-800 dark:text-white"
         required
       />
     </label>
@@ -97,7 +97,7 @@
         type="text"
         bind:value={cause}
         placeholder="Enter Cause"
-        class="w-full p-2 border rounded-md bg-white text-gray-800"
+        class="border rounded-md mt-1 p-1 bg-white text-gray-800 dark:bg-gray-800 dark:text-white"
       />
     </label>
     <label class="m-3 grid text-sm font-medium" for="address-input-id">
@@ -106,12 +106,12 @@
         <AddressLookup
           id="address-input-id"
           bind:value={$hazardAddress}
-          class="w-full"
+          class="dark:bg-gray-800 dark:text-white"
         />
       </div>
     </label>
 
-    <label class="m-3 grid text-sm font-medium" for="Date">
+    <label class="m-3 grid text-sm font-medium " for="Date">
       Date of recording
       <input type="datetime-local" bind:value={recordedAt} required />
     </label>
@@ -124,7 +124,7 @@
         <img src="" alt="" />
       {/if}
       <button
-        class="bg-gray-50 hover:bg-gray-300 transition border rounded-md m-2 p-1 cursor-pointer"
+        class="bg-gray-50 text-black hover:bg-gray-300 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 transition border rounded-md m-2 p-1 cursor-pointer"
         on:click={() => {
           fileinput.click();
         }}>Upload</button
