@@ -2,6 +2,9 @@
   import AddressLookup from "../../lib/AddressLookup.svelte";
   import { hazardAddress, searchQuery } from "$lib/stores.js";
   import { onMount } from "svelte";
+  import { currentPage } from "$lib/stores.js";
+
+  $currentPage='hazard'
 
   let relevantDetails = "";
   let agency = "";
