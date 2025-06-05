@@ -43,24 +43,14 @@
   }
 </script>
 
-<button class="logout-button" on:click={Logout}> Logout </button>
+<button
+  on:click={Logout}
+  class="w-full px-4 py-[0.6em] font-bold bg-[#333] text-white cursor-pointer border-[2px] border-t-[#535353] border-l-[#535353] border-b-black border-r-black text-sm md:text-base"
+>
+  Logout
+</button>
 
 <style>
-  .logout-button {
-    padding: 0.6em 1em;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: bolder;
-    background-color: #333;
-    color: white;
-    cursor: pointer;
-    border: black;
-    border-top: 2px solid #535353;
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;
-    border-left: 2px solid #535353;
-    width: 7em;
-  }
 
   :global(body.dark) button {
     background-color: white;
