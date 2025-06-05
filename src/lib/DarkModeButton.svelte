@@ -20,7 +20,7 @@
     }
 </script>
 <button
-  class="dropdown px-4 py-[0.6em] font-bold bg-[#333] text-white cursor-pointer outline-none border-[2px] border-t-[#535353] border-l-[#535353] border-b-black border-r-black  min-w-[10em] whitespace-nowrap text-sm md:text-base"
+  class="w-full dropdown pl-0 pr-4 py-[0.6em] font-bold bg-[#333] text-white cursor-pointer outline-none border-[2px] border-t-[#535353] border-l-[#535353] border-b-black border-r-black min-w-[10em] whitespace-nowrap text-sm md:text-base"
   on:click={toggle}
 >
   {#if dark}

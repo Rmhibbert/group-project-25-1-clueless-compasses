@@ -3,6 +3,9 @@
   import AddressLookup from "../../lib/AddressLookup.svelte";
   import { hazardAddress, searchQuery } from "$lib/stores.js";
   import { onMount } from "svelte";
+  import { currentPage } from "$lib/stores.js";
+
+  $currentPage='incident';
 
   let avatar, fileinput;
   let description = "";
