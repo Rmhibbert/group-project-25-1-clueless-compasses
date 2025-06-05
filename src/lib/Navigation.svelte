@@ -74,9 +74,9 @@ console.log($currentPage);
     class="hidden absolute top-[10em] left-[1em] w-[18em] bg-[#333] text-white rounded-lg border-4 border-black shadow-[3px_3px_10px_black] z-[1001]"
   >
 <ul class="flex flex-col space-y-2 p-4 text-sm w-full">
-    {#if $currentPage === 'home'}
-    <li class="w-full"><AgencySelect class="w-full" /></li>
-    {/if}
+ {#if $currentPage === 'home'}
+  <li class="w-full"><AgencySelect class="w-full" /></li>
+ {/if}
   <li class="w-full"><PageSelect class="w-full" /></li>
   <li class="w-full"><DarkModeButton class="w-full" /></li>
   <li class="w-full"><LogoutButton class="w-full" /></li>
