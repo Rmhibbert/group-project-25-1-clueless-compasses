@@ -2,126 +2,63 @@
   import imageCompression from "browser-image-compression";
   import AddressLookup from "../../lib/AddressLookup.svelte";
   import { hazardAddress, searchQuery } from "$lib/stores.js";
-  import { onMount } from "svelte";
-
   let avatar, fileinput;
+
   let description = "";
   let cause = "";
-  let source = "";
   let recordedAt = "";
   let imageFile = null;
+  let preview = null;
 
-  let incidents = [];
-  let isFetching = true;
-  let isSubmitting = false;
-  let error = null;
-
-  // API URL based on environment variable or default to local
-  const BASE_API_URL = import.meta.env.VITE_DEPLOYED_API_URL
-    ? `${import.meta.env.VITE_DEPLOYED_API_URL}`
-    : "http://localhost:3000";
-
-  // Incident API endpoint
-  const API_URL = import.meta.env.VITE_DEPLOYED_API_URL
-    ? `${import.meta.env.VITE_DEPLOYED_API_URL}/api/v1/incidents`
-    : "http://localhost:3000/api/v1/incidents";
-
-  onMount(() => {
-    fetchIncidents();
-  });
-
-  async function fetchIncidents() {
-    isFetching = true;
-    error = null;
-    try {
-      const res = await fetch(API_URL);
-      if (!res.ok) throw new Error(`API error: ${res.status} - ${res.statusText}`);
-      const result = await res.json();
-      if (Array.isArray(result.data)) {
-        incidents = result.data;
-      } else {
-        error = "Unexpected API format when fetching incidents.";
-        incidents = [];
-      }
-    } catch (err) {
-      console.error("Error fetching incidents:", err);
-      error = `Failed to load incidents: ${err.message}`;
-      incidents = [];
-    } finally {
-      isFetching = false;
-    }
-  }
 
   async function onFileSelected(event) {
     const file = event.target.files[0];
     if (!file) return;
-    error = null;
-    try {
-      const compressed = await imageCompression(file, {
-        maxSizeMB: 0.5,
-        maxWidthOrHeight: 1024,
-        useWebWorker: true,
-      });
-      imageFile = compressed;
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        avatar = e.target.result;
-      };
-      reader.readAsDataURL(compressed);
-    } catch (compressionError) {
-      console.error("Error compressing image:", compressionError);
-      error = "Failed to process image. Please try a different image or check the console.";
-      imageFile = null;
-      avatar = null;
-      if (fileinput) fileinput.value = null;
-    }
+    const compressed = await imageCompression(file, {
+      maxSizeMB: 0.5,
+      maxWidthOrHeight: 1024,
+      useWebWorker: true,
+    });
+    imageFile = compressed;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      avatar = e.target.result;
+    };
+
+    reader.readAsDataURL(compressed);
   }
 
   async function submitForm() {
-    isSubmitting = true;
-    error = null;
     try {
-      if (!description.trim() || !recordedAt || !$hazardAddress.trim()) {
-        error = "Description, Address, and Date of recording are required.";
-        isSubmitting = false;
-        return;
-      }
-
       const formData = new FormData();
       formData.append("description", description);
       formData.append("cause", cause);
-      formData.append("source", source);
       formData.append("address", $hazardAddress);
       formData.append("recordedAt", recordedAt);
       if (imageFile) {
         formData.append("photo", imageFile);
       }
-
-      const res = await fetch(API_URL, {
+      const res = await fetch("http://localhost:3000/api/v1/incidents", {
         method: "POST",
         body: formData,
       });
+      const data = await res.json();
+      console.log("Incident logged:", data);
+      console.log(
+        "Server message:",
+        data.message || data.error?.message || data.error
+      );
 
-      if (!res.ok) {
-        const errorData = await res.json().catch(() => ({ message: "Unknown error" }));
-        throw new Error(`API error: ${res.status} - ${errorData.message || res.statusText}`);
-      }
-
+      // Clear form
       description = "";
       cause = "";
-      source = "";
       hazardAddress.set("");
       recordedAt = "";
       imageFile = null;
-      avatar = null;
-      if (fileinput) fileinput.value = null;
-
-      await fetchIncidents();
-    } catch (err) {
-      console.error("Error submitting form:", err);
-      error = `Failed to submit incident: ${err.message}. Please try again.`;
-    } finally {
-      isSubmitting = false;
+      preview = null;
+      fileinput.value = null;
+    } catch (error) {
+      console.error("Error submitting form:", error);
     }
   }
 </script>
@@ -190,13 +127,21 @@
         class="bg-gray-50 text-black hover:bg-gray-300 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 transition border rounded-md m-2 p-1 cursor-pointer"
         on:click={() => {
           fileinput.click();
-        }}>Upload</button>
+        }}>Upload</button
+      >
+      <input
+        style="display:none"
+        type="file"
+        accept=".jpg, .jpeg, .png"
+        on:change={(e) => onFileSelected(e)}
+        bind:this={fileinput}
+      />
+    </label>
 
-      <button>
-        {#if isSubmitting}Submitting...{:else}Submit Incident{/if}
-      </button>
-    </form>
+    <button
+      on:click={submitForm}
+      class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+      >Submit Incident</button
+    >
   </div>
-
-
 </main>
