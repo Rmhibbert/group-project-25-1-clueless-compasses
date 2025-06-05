@@ -45,18 +45,21 @@ header.dark {
   @apply bg-[#131f2a] border-b-4 border-white;
 }
 
-
 body.dark section {
-    @apply text-white bg-[#182938] border-4 border-white;
-  }
-    
-  body.dark h1,
-  body.dark h2,
-  body.dark summary,
-  body.dark label,
-  body.dark p {
-    @apply text-white;
-  }
+  @apply text-white bg-[#182938] border-4 border-white;
+}
+
+body.dark h1,
+body.dark h2,
+body.dark summary,
+body.dark label,
+body.dark p {
+  @apply text-white;
+}
+
+body.dark h1 {
+  background-color: #1f2937; /* gray-900 */
+}
 
 footer.dark {
   @apply bg-black;
