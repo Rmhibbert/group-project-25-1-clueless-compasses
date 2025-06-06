@@ -3,6 +3,7 @@
 
   let suggestions = [];
   let debounceTimeout;
+  
 
   const fetchSuggestions = () => {
     clearTimeout(debounceTimeout);
@@ -41,14 +42,14 @@
   on:input={fetchSuggestions}
   placeholder="Enter an address"
   aria-label="Search address"
-  class="w-full p-2 mb-3 text-base border rounded bg-white text-gray-800"
+  class="w-full p-2 mb-3 text-base border rounded bg-white text-gray-800 dark:bg-gray-800 dark:text-white"
 />
 
 <ul class="list-none p-0">
   {#each suggestions as suggestion}
     <li
       on:click={() => selectHazard(suggestion.formattedAddress)}
-      class="p-2 mb-1 bg-gray-100 border border-gray-300 cursor-pointer hover:bg-gray-200 transition-colors"
+      class="p-2 mb-1 bg-gray-100 text-black border border-gray-300 cursor-pointer hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600"
     >
       {suggestion.formattedAddress}
     </li>

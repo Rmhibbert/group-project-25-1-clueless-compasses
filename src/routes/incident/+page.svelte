@@ -1,11 +1,10 @@
 <script>
   import imageCompression from "browser-image-compression";
   import AddressLookup from "../../lib/AddressLookup.svelte";
-  import { hazardAddress, searchQuery } from "$lib/stores.js";
+  import { hazardAddress, searchQuery, currentPage } from "$lib/stores.js";
   import { onMount } from "svelte";
-  import { currentPage } from "$lib/stores.js";
 
-  $currentPage='incident';
+  $currentPage = 'incident';
 
   let avatar, fileinput;
   let description = "";
@@ -19,35 +18,19 @@
   let isSubmitting = false;
   let error = null;
 
-  // API URL based on environment variable or default to local
-  const BASE_API_URL = import.meta.env.VITE_DEPLOYED_API_URL
-    ? `${import.meta.env.VITE_DEPLOYED_API_URL}`
-    : "http://localhost:3000";
+  const BASE_API_URL = import.meta.env.VITE_DEPLOYED_API_URL || "http://localhost:3000";
+  const API_URL = `${BASE_API_URL}/api/v1/incidents`;
 
-  // Incident API endpoint
-  const API_URL = import.meta.env.VITE_DEPLOYED_API_URL
-    ? `${import.meta.env.VITE_DEPLOYED_API_URL}/api/v1/incidents`
-    : "http://localhost:3000/api/v1/incidents";
-
-  onMount(() => {
-    fetchIncidents();
-  });
+  onMount(fetchIncidents);
 
   async function fetchIncidents() {
     isFetching = true;
-    error = null;
     try {
       const res = await fetch(API_URL);
-      if (!res.ok) throw new Error(`API error: ${res.status} - ${res.statusText}`);
+      if (!res.ok) throw new Error(`API error: ${res.status}`);
       const result = await res.json();
-      if (Array.isArray(result.data)) {
-        incidents = result.data;
-      } else {
-        error = "Unexpected API format when fetching incidents.";
-        incidents = [];
-      }
+      incidents = Array.isArray(result.data) ? result.data : [];
     } catch (err) {
-      console.error("Error fetching incidents:", err);
       error = `Failed to load incidents: ${err.message}`;
       incidents = [];
     } finally {
@@ -58,107 +41,78 @@
   async function onFileSelected(event) {
     const file = event.target.files[0];
     if (!file) return;
-    error = null;
-    try {
-      const compressed = await imageCompression(file, {
-        maxSizeMB: 0.5,
-        maxWidthOrHeight: 1024,
-        useWebWorker: true,
-      });
-      imageFile = compressed;
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        avatar = e.target.result;
-      };
-      reader.readAsDataURL(compressed);
-    } catch (compressionError) {
-      console.error("Error compressing image:", compressionError);
-      error = "Failed to process image. Please try a different image or check the console.";
-      imageFile = null;
-      avatar = null;
-      if (fileinput) fileinput.value = null;
-    }
+    const compressed = await imageCompression(file, {
+      maxSizeMB: 0.5,
+      maxWidthOrHeight: 1024,
+      useWebWorker: true
+    });
+    imageFile = compressed;
+    const reader = new FileReader();
+    reader.onload = (e) => avatar = e.target.result;
+    reader.readAsDataURL(compressed);
   }
 
   async function submitForm() {
     isSubmitting = true;
     error = null;
     try {
-      if (!description.trim() || !recordedAt || !$hazardAddress.trim()) {
-        error = "Description, Address, and Date of recording are required.";
-        isSubmitting = false;
+      if (!description || !recordedAt || !$hazardAddress.trim()) {
+        error = "Description, Address, and Date are required.";
         return;
       }
-
       const formData = new FormData();
       formData.append("description", description);
       formData.append("cause", cause);
       formData.append("source", source);
       formData.append("address", $hazardAddress);
       formData.append("recordedAt", recordedAt);
-      if (imageFile) {
-        formData.append("photo", imageFile);
-      }
+      if (imageFile) formData.append("photo", imageFile);
 
       const res = await fetch(API_URL, {
         method: "POST",
-        body: formData,
+        body: formData
       });
-
       if (!res.ok) {
-        const errorData = await res.json().catch(() => ({ message: "Unknown error" }));
-        throw new Error(`API error: ${res.status} - ${errorData.message || res.statusText}`);
+        const data = await res.json();
+        throw new Error(data.message || "Submission failed");
       }
 
-      description = "";
-      cause = "";
-      source = "";
-      hazardAddress.set("");
-      recordedAt = "";
-      imageFile = null;
-      avatar = null;
-      if (fileinput) fileinput.value = null;
-
       await fetchIncidents();
+      // Clear form
+      description = cause = source = recordedAt = "";
+      hazardAddress.set("");
+      imageFile = avatar = null;
+      if (fileinput) fileinput.value = null;
     } catch (err) {
-      console.error("Error submitting form:", err);
-      error = `Failed to submit incident: ${err.message}. Please try again.`;
+      error = err.message;
     } finally {
       isSubmitting = false;
     }
   }
 </script>
 
-<!-- Header -->
-
 <main class="flex p-3 h-screen">
-  <!-- First Section - Incidents List -->
-  <div class="w-1/3 p-2 m-2 border rounded-md text-gray-800 flex flex-col">
-    <h2 class="text-2xl font-semibold mb-3 shrink-0">Incidents</h2>
+  <!-- Incident List -->
+  <div class="w-1/2 p-2 m-2 border rounded-md text-gray-800 dark:text-white flex flex-col">
+    <h2 class="text-2xl font-semibold mb-3">Incidents</h2>
     <div class="overflow-y-auto flex-grow pr-2">
       {#if isFetching}
-        <p class="text-gray-600">Loading incidents...</p>
-      {:else if error && incidents.length === 0}
-        <p class="text-red-500">Could not load incidents. Check form for error messages.</p>
+        <p class="text-gray-600 dark:text-gray-300">Loading...</p>
+      {:else if error}
+        <p class="text-red-500">{error}</p>
       {:else if incidents.length === 0}
-        <p class="text-gray-600">No incidents reported yet.</p>
+        <p class="text-gray-600 dark:text-gray-300">No incidents reported.</p>
       {:else}
-        {#each incidents as incident (incident.id || incident.description + incident.recordedAt)}
-          <details class="mb-3 border border-gray-300 rounded-lg p-4">
-            <summary class="text-lg font-medium cursor-pointer text-gray-800">
-              {incident.description}
-            </summary>
-            <div class="mt-2 text-sm text-gray-700">
-              <p><span class="font-semibold">Cause:</span> {incident.cause || 'N/A'}</p>
-              <p><span class="font-semibold">Source:</span> {incident.source || 'N/A'}</p>
-              <p><span class="font-semibold">Address:</span> {incident.address || 'N/A'}</p>
-              <p><span class="font-semibold">Recorded:</span> {new Date(incident.recordedAt).toLocaleString()}</p>
+        {#each incidents as incident}
+          <details class="mb-3 border rounded-lg p-4">
+            <summary class="text-lg font-medium">{incident.description}</summary>
+            <div class="mt-2 text-sm">
+              <p><strong>Cause:</strong> {incident.cause || "N/A"}</p>
+              <p><strong>Source:</strong> {incident.source || "N/A"}</p>
+              <p><strong>Address:</strong> {incident.address || "N/A"}</p>
+              <p><strong>Recorded:</strong> {new Date(incident.recordedAt).toLocaleString()}</p>
               {#if incident.photoUrl}
-                <img
-                  src={`${BASE_API_URL}${incident.photoUrl}`}
-                  alt="Incident report"
-                  class="mt-2 w-48 max-w-full h-auto rounded-md border"
-                />
+                <img src={`${BASE_API_URL}${incident.photoUrl}`} alt="Incident photo" class="mt-2 w-48 rounded border" />
               {/if}
             </div>
           </details>
@@ -167,114 +121,97 @@
     </div>
   </div>
 
-  <!-- Second Section - Incident Report Form -->
-  <div class="w-1/3 p-2 m-2 border rounded-md text-gray-800 overflow-y-auto"> 
-    <h2 class="text-2xl font-semibold mb-3">Incident Report</h2>
+  <!-- Form -->
+  <div class="w-1/2 p-2 m-2 border rounded-md text-gray-800 dark:text-white overflow-y-auto">
+    <h2 class="text-2xl font-semibold mb-3">Report Incident</h2>
 
     {#if error}
-      <p class="text-red-700 bg-red-100 border border-red-400 p-3 rounded mb-4 text-sm">{error}</p>
+      <p class="text-red-700 bg-red-100 border border-red-400 p-3 rounded mb-4 text-sm dark:bg-red-900 dark:text-red-100">{error}</p>
     {/if}
-    {#if isSubmitting && !error}
-      <p class="text-blue-700 bg-blue-100 border border-blue-400 p-3 rounded mb-4 text-sm">Submitting incident...</p>
+    {#if isSubmitting}
+      <p class="text-blue-700 bg-blue-100 border border-blue-400 p-3 rounded mb-4 text-sm dark:bg-blue-900 dark:text-blue-100">Submitting...</p>
     {/if}
 
-    <form on:submit|preventDefault={submitForm} class="space-y-4"> 
-      <label class="block text-sm font-medium" for="description-input"> 
-        Description of incident
+    <form on:submit|preventDefault={submitForm} class="space-y-4">
+      <label class="block text-sm font-medium">
+        Description
         <input
-          id="description-input"
           type="text"
           bind:value={description}
-          placeholder="Enter Description"
-          class="border rounded-md mt-1 p-2 w-full"
+          placeholder="Description"
+          class="w-full p-2 mt-1 border rounded bg-white text-black dark:bg-gray-800 dark:text-white"
           required
         />
       </label>
 
-      <label class="block text-sm font-medium" for="cause-input">
-        Cause of incident
+      <label class="block text-sm font-medium">
+        Cause
         <input
-          id="cause-input"
           type="text"
           bind:value={cause}
-          placeholder="Enter Cause"
-          class="w-full p-2 border rounded-md bg-white text-gray-800 mt-1"
+          placeholder="Cause"
+          class="w-full p-2 mt-1 border rounded bg-white text-black dark:bg-gray-800 dark:text-white"
         />
       </label>
 
-      <label class="block text-sm font-medium" for="source-input">
-        Source (e.g. person who reported)
+      <label class="block text-sm font-medium">
+        Source
         <input
-          id="source-input"
           type="text"
           bind:value={source}
-          placeholder="Enter Source"
-          class="w-full p-2 border rounded-md bg-white text-gray-800 mt-1"
+          placeholder="Source"
+          class="w-full p-2 mt-1 border rounded bg-white text-black dark:bg-gray-800 dark:text-white"
         />
       </label>
 
-      <label class="block text-sm font-medium" for="address-input-id">
-        <span class="text-sm font-medium">Approximate Address</span>
-        <div class="rounded-md mt-1">
-          <AddressLookup
-            id="address-input-id"
-            bind:value={$hazardAddress}
-            class="w-full"
-            required
+      <label class="block text-sm font-medium">
+        Address
+        <AddressLookup
+          bind:value={$hazardAddress}
+          class="w-full p-2 mt-1 border rounded bg-white text-black dark:bg-gray-800 dark:text-white"
+        />
+      </label>
+
+      <label class="block text-sm font-medium">
+        Date
+        <input
+          type="datetime-local"
+          bind:value={recordedAt}
+          class="w-full p-2 mt-1 border rounded bg-white text-black dark:bg-gray-800 dark:text-white"
+          required
+        />
+      </label>
+
+      <label class="block text-sm font-medium">
+        Photo
+        <div class="flex flex-col items-center gap-2 mt-2">
+          {#if avatar}
+            <img src={avatar} alt="Preview" class="w-48 rounded border" />
+          {/if}
+          <button
+            type="button"
+            on:click={() => fileinput.click()}
+            class="bg-gray-200 text-black dark:bg-gray-700 dark:text-white px-4 py-2 rounded hover:bg-gray-300 dark:hover:bg-gray-600"
+          >
+            Choose File
+          </button>
+          <input
+            type="file"
+            accept=".jpg,.jpeg,.png,.gif"
+            style="display: none"
+            bind:this={fileinput}
+            on:change={onFileSelected}
           />
         </div>
-      </label>
-
-      <label class="block text-sm font-medium" for="date-input">
-        Date of recording
-        <input id="date-input" type="datetime-local" bind:value={recordedAt} class="mt-1 p-1 border rounded-md w-full" required />
-      </label>
-
-      <label class="block text-sm font-medium w-full" for="photo-input-trigger"> 
-        Upload a photo
-        <div class="mt-1 mb-2 w-full">
-          {#if avatar}
-            <img src={avatar} alt="User Upload Preview" class="max-w-xs max-h-48 object-contain rounded border my-2 mx-auto" />
-          {:else}
-            <div class="w-full max-w-xs h-48 bg-gray-100 rounded border flex items-center justify-center text-gray-500 my-2 mx-auto">
-              No photo selected
-            </div>
-          {/if}
-        </div>
-        <button
-          id="photo-input-trigger"
-          type="button"
-          class="bg-gray-200 hover:bg-gray-300 transition border rounded-md p-2 cursor-pointer text-sm w-full"
-          on:click={() => {
-            if (fileinput) fileinput.click();
-          }}
-        >
-          Choose Photo
-        </button>
-        <input
-          style="display:none"
-          type="file"
-          accept=".jpg, .jpeg, .png, .gif, .webp"
-          on:change={onFileSelected}
-          bind:this={fileinput}
-          aria-labelledby="photo-input-trigger" 
-        />
       </label>
 
       <button
         type="submit"
         disabled={isSubmitting}
-        class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition disabled:opacity-50 w-full"
+        class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition disabled:opacity-50"
       >
         {#if isSubmitting}Submitting...{:else}Submit Incident{/if}
       </button>
     </form>
-  </div>
-
-  <!-- Third Section -->
-  <div class="w-1/3 p-2 m-2 border rounded-md text-gray-800 overflow-y-auto"> 
-    <h2 class="text-2xl font-semibold mb-3">Locations already logged</h2>
-     <p class="text-gray-600">Map or further details about locations can be displayed here.</p>
-     <!-- Add more content here to test scrolling if needed -->
   </div>
 </main>

@@ -20,7 +20,7 @@
     {#if otagoCameras.length > 0}
         <select
             bind:value={selectedCameraId}
-            class="mb-2 w-fit p-1 mt-2 bg-white text-gray-800 rounded border cursor-pointer focus:outline-none focus:ring focus:ring-blue-500"
+            class="mb-2 w-fit p-1 mt-2 bg-white text-gray-800 dark:bg-gray-800 dark:text-white rounded border cursor-pointer focus:outline-none focus:ring focus:ring-blue-500"
         >
             <option value="" disabled>Select a camera</option>
 
