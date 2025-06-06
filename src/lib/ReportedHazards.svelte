@@ -9,7 +9,6 @@
     ? `${import.meta.env.VITE_DEPLOYED_API_URL}/api/v1/hazards`
     : "http://localhost:3000/api/v1/hazards";
 
-  // Fetch hazards on mount
   onMount(async () => {
     await fetchHazards();
   });
@@ -23,10 +22,7 @@
 
       const result = await response.json();
       if (Array.isArray(result.data)) {
-        hazards = result.data.map((h) => ({
-          ...h,
-          entry: h.RelevantDetails, // map RelevantDetails → entry
-        }));
+        hazards = result.data; // ✅ no mapping or aliasing needed
       } else {
         error = "Unexpected API format.";
       }
@@ -52,9 +48,9 @@
   {:else}
     {#each hazards.slice(0, 5) as hazard}
       <details class="mt-4 border p-2 rounded shadow-md">
-        <summary class="cursor-pointer text-lg font-semibold"
-          >{hazard.entry}</summary
-        >
+        <summary class="cursor-pointer text-lg font-semibold">
+          {hazard.relevantDetails}
+        </summary>
         <div class="mt-2 text-sm space-y-2">
           <p><strong>Agency:</strong> {hazard.agency}</p>
           <p><strong>Severity:</strong> {hazard.severity}</p>
@@ -62,7 +58,7 @@
           <p><strong>Address:</strong> {hazard.address}</p>
           <p><strong>Contact Info:</strong> {hazard.contactInfo}</p>
           <p><strong>Source:</strong> {hazard.source}</p>
-          <small><strong>Time: </strong></small>
+          <small><strong>Time:</strong> {hazard.createdAt}</small>
         </div>
       </details>
     {/each}
